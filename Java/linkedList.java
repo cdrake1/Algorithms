@@ -40,3 +40,6 @@ public class linkedList{
     }
 
 }
+
+//not sure if I need to or can throw an exception. If not maybe make a function that returns a string if linked list is empty
+//need to implement queue
