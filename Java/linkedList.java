@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class linkedList{
     private Node head; //head of linked list
 
@@ -10,7 +12,7 @@ public class linkedList{
             //constructor for linked list nodes
         }
 
-        void push(int data){
+        void push(int data){ //add to beginning of stack
             Node newNode = new Node(data); //create new node to push onto the stack
            
             if(head == null){ //check if linked list is empty and assign the head to the new node
@@ -22,7 +24,17 @@ public class linkedList{
             }
         }
 
-        void pop(){
+        void pop(){ //remove from beginning of stack
+           if(head == null){ //check if linked list is empty and throw exception
+                throw new NoSuchElementException("The stack is empty");
+
+           }
+           else{
+                Node current  = head; //create new node to remove head of stack
+                head =  head.next; //set new head to next node
+                // return value if need be
+                //return current.data;
+           }
 
         }
     }
