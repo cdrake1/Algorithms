@@ -1,2 +1,2 @@
 # Algorithms
-Popular data structures and algorithms completed in Java
+Popular data structures and algorithms completed in different languages
