@@ -11,8 +11,14 @@ public class linkedList{
         }
 
         void push(int data){
-            Node newNode = new Node(data);
+            Node newNode = new Node(data); //create new node to push onto the stack
            
+            if(head == null){ //check if linked list is empty and assign the head to the new node
+                head = newNode;
+            }
+            else{ //if list is not empty then make the newnode the head and reassign the pointers
+                newNode = head;
+            }
         }
 
         void pop(){
