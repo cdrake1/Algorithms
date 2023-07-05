@@ -1,18 +1,18 @@
 public class linkedList{
+    private Node head; //head of linked list
 
     public class Node{
-        private Node head;
-        private Node next;
-        private int data;
+        private Node next; //reference to next node
+        private int data; //int value for data
 
-        public Node(Node head, Node next, int data){
-            this.head = head;
+        public Node(int data){
             this.data = data;
-            this.next = next;
+            //constructor for linked list nodes
         }
 
         void push(int data){
-
+            Node newNode = new Node(data);
+           
         }
 
         void pop(){
