@@ -17,7 +17,8 @@ public class linkedList{
                 head = newNode;
             }
             else{ //if list is not empty then make the newnode the head and reassign the pointers
-                newNode = head;
+                newNode.next = head;
+                head = newNode;
             }
         }
 
