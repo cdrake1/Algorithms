@@ -45,9 +45,9 @@ public class linkedList{
     }
 
     class Queue extends linkedList{
-        Node newNode2 = new Node(data);
         //add to end of list
-        void enqueue(){
+        void enqueue(int data){
+            Node newNode2 = new Node(data);
             if(tail == null){ //check if que is empty from tail
                 tail = newNode2;
                 head = newNode2; //newNode becomes head and tail
