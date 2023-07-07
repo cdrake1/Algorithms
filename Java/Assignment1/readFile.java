@@ -11,9 +11,10 @@ public class readFile {
         BufferedReader reader = new BufferedReader(new FileReader(filePath)); //create a buffer/file reader for the filepath
         List<String> fileLines = new ArrayList<String>(); 
         String line = null;
+        //try to read lines from a file until null
         try{
             while((line = reader.readLine()) != null){ 
-                fileLines.add(line);
+                fileLines.add(line); //add lines to arraylist
             }
         }
         //error catching for problems reading file
