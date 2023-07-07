@@ -4,7 +4,10 @@ import java.io.*;
 import java.util.*;
 
 public class readFile {
-    public static void main(String[] args)  throws IOException{
+    public readFile(){
+        //blank constructor
+    }
+    public String[] readThrough() throws IOException{
         Scanner getFilePath = new Scanner(System.in);
         System.out.print("Enter the file path: "); //get file path
         String filePath = getFilePath.nextLine();
@@ -21,10 +24,8 @@ public class readFile {
         catch(IOException e){
             System.err.println("There was a problem reading the file");
         }
-        fileLines.toArray(); //convert list into array
         reader.close(); //close readers
+        return fileLines.toArray(new String[0]); //convert list into array
     }
     
 }
-
-//need to return to other files

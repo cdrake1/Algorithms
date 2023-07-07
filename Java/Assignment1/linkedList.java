@@ -1,6 +1,5 @@
 /* Algorithms Java Version - Using a singly linked list develop a stack and a queue.  */
 package Assignment1;
-import Assignment1.readFile;
 import java.util.*;
 
 public class linkedList{
