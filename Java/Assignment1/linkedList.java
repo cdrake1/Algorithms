@@ -1,4 +1,6 @@
-import java.util.NoSuchElementException;
+/* Algorithms Java Version - Using a singly linked list develop a stack and a queue.  */
+package Assignment1;
+import java.util.*;
 
 public class linkedList{
     private Node head; //head of linked list
