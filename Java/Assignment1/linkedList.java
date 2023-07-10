@@ -1,5 +1,5 @@
 /* Algorithms Java Version - Using a singly linked list develop a stack and a queue.  */
-package Assignment1;
+package Assignment1; 
 import java.util.*;
 
 public class linkedList{
@@ -8,16 +8,16 @@ public class linkedList{
 
     public class Node{
         private Node next; //reference to next node
-        private int data; //int value for data
+        private char data; //int value for data
 
-        public Node(int data){
+        public Node(char data){
             this.data = data;
             //constructor for linked list nodes
         }
     }
 
     class stack extends linkedList{
-        void push(int data){ //add to beginning of stack
+        void push(char data){ //add to beginning of stack
             Node newNode = new Node(data); //create new node to push onto the stack
         
             if(head == null){ //check if linked list is empty and assign the head to the new node
@@ -28,7 +28,7 @@ public class linkedList{
                 head = newNode;
             }
         }
-        void pop(){ //remove from beginning of stack
+        char pop(){ //remove from beginning of stack
             if(head == null){ //check if linked list is empty and throw exception
                 throw new NoSuchElementException("The stack is empty");
 
@@ -36,8 +36,7 @@ public class linkedList{
             else{
                 Node current  = head; //create new node to remove head of stack
                 head =  head.next; //set new head to next node
-                // return value if need be
-                //return current.data;
+                return current.data;
             }
         }
 
@@ -45,7 +44,7 @@ public class linkedList{
 
     class Queue extends linkedList{
         //add to end of list
-        void enqueue(int data){
+        void enqueue(char data){
             Node newNode2 = new Node(data);
             if(tail == null){ //check if que is empty from tail
                 tail = newNode2;
