@@ -31,13 +31,12 @@ public class StackQueue {
                 myQueue.enqueue(temp[j]);
             }
 
-            while(linkedList.isEmpty() != true){
-                char stacksLet = myStack.pop();
-                char queueLet = myQueue.dequeue();
-
-                if(stacksLet != queueLet){
+            while(!myStack.isEmpty()){
+                if(myStack.head.data != myQueue.tail.data){
                     isOrIsnt = false;
                 }
+                myStack.pop();
+                myQueue.dequeue();
             }
             if(isOrIsnt == true){
                 answerS.append(i + " ");

@@ -3,12 +3,12 @@ package Assignment1;
 import java.util.*;
 
 public class linkedList{
-    private Node head; //head of linked list
-    private Node tail; //tail of linked list
+    public Node head; //head of linked list
+    public Node tail; //tail of linked list
 
     public class Node{
-        private Node next; //reference to next node
-        private char data; //int value for data
+        public Node next; //reference to next node
+        public char data; //int value for data
 
         public Node(char data){
             this.data = data;
@@ -16,7 +16,7 @@ public class linkedList{
         }
     }
 
-    boolean isEmpty(){
+    public boolean isEmpty(){
         if(head == null){
             return true;
         }
@@ -37,7 +37,7 @@ public class linkedList{
                 head = newNode;
             }
         }
-        char pop(){ //remove from beginning of stack
+        void pop(){ //remove from beginning of stack
             if(head == null){ //check if linked list is empty and throw exception
                 throw new NoSuchElementException("The stack is empty");
 
@@ -45,7 +45,6 @@ public class linkedList{
             else{
                 Node current  = head; //create new node to remove head of stack
                 head =  head.next; //set new head to next node
-                return current.data;
             }
         }
 
@@ -55,7 +54,7 @@ public class linkedList{
         //add to end of list
         void enqueue(char data){
             Node newNode2 = new Node(data);
-            if(tail == null){ //check if que is empty from tail
+            if(head == null){ //check if que is empty from tail
                 tail = newNode2;
                 head = newNode2; //newNode becomes head and tail
             }
@@ -65,14 +64,12 @@ public class linkedList{
             }
         }
         //remove from front of list
-        char dequeue(){
+        void dequeue(){
             if(head == null){//check if queue is empty and throw exception
                 throw new NoSuchElementException("The que is empty");
             }
             else{//if queue is not empty assign new node to the head and head is reassigned to next node
-                Node current = head;
                 head = head.next;
-                return current.data;
             }
 
         }
