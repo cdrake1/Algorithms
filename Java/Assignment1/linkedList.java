@@ -43,7 +43,6 @@ public class linkedList{
 
             }
             else{
-                Node current  = head; //create new node to remove head of stack
                 head =  head.next; //set new head to next node
             }
         }
