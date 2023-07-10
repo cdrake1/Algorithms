@@ -32,7 +32,7 @@ public class StackQueue {
             }
 
             while(!myStack.isEmpty() && !myQueue.isEmpty()){
-                if(myStack.head.data != myQueue.tail.data){
+                if(myStack.head.data != myQueue.head.data){
                     isOrIsnt = false;
                 }
                 myStack.pop();
