@@ -18,7 +18,7 @@ public class linkedList{
     }
 
     public boolean isEmpty(){
-        if(head == null){
+        if(head == null){//check if stack or queue is empty
             return true;
         }
         else{

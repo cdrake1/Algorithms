@@ -31,17 +31,17 @@ public class StackQueue {
                 myQueue.enqueue(temp[j]);
             }
 
-            while(!myStack.isEmpty() && !myQueue.isEmpty()){
+            while(!myStack.isEmpty() && !myQueue.isEmpty()){//until stack and queue are empty compare each letter and push/dequeue
                 if(myStack.head.data != myQueue.head.data){
-                    isOrIsnt = false;
+                    isOrIsnt = false; //if letters dont match. not palindrome
                 }
                 myStack.pop();
                 myQueue.dequeue();
             }
             if(isOrIsnt == true){
-                answerS.append(i + " ");
+                answerS.append(i + " ");//if palindrome add to stringbuilder
             }
         } 
-        return answerS.toString();
+        return answerS.toString(); //return only palindromes
     }
 }
