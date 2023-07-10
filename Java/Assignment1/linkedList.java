@@ -12,6 +12,7 @@ public class linkedList{
 
         public Node(char data){
             this.data = data;
+            this.next = null;
             //constructor for linked list nodes
         }
     }

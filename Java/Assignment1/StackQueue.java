@@ -35,6 +35,7 @@ public class StackQueue {
                 if(myStack.head.data != myQueue.tail.data){
                     isOrIsnt = false;
                 }
+                
                 myStack.pop();
                 myQueue.dequeue();
             }
