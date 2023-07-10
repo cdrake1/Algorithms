@@ -16,6 +16,15 @@ public class linkedList{
         }
     }
 
+    boolean isEmpty(){
+        if(head == null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     class stack extends linkedList{
         void push(char data){ //add to beginning of stack
             Node newNode = new Node(data); //create new node to push onto the stack
@@ -56,15 +65,14 @@ public class linkedList{
             }
         }
         //remove from front of list
-        void dequeue(){
+        char dequeue(){
             if(head == null){//check if queue is empty and throw exception
                 throw new NoSuchElementException("The que is empty");
             }
             else{//if queue is not empty assign new node to the head and head is reassigned to next node
                 Node current = head;
                 head = head.next;
-                // return value if need be
-                //return current.data;
+                return current.data;
             }
 
         }

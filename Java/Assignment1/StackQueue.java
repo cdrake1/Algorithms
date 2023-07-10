@@ -9,49 +9,40 @@ public class StackQueue {
 
         try { //try to read text file into string array & call palindrome function
             String[] textArray = rf.readThrough();
-            String theOutputS = checkPalindromeStack(textArray);
-            String theOutputQ = checkPalindromeQueue(textArray);
-            System.out.println(theOutputS);
-            System.out.println(theOutputQ);
+            String theOutput = checkPalindrome(textArray);
+            System.out.println(theOutput);
         } catch (IOException e) {//throw exception if error reading file
             System.err.println("There was a problem reading the file");
         }
     }
 
-    static String checkPalindromeStack(String[] textArray){
+    static String checkPalindrome(String[] textArray){
         linkedList.stack myStack = new linkedList().new stack(); //create an instance of stack
+        linkedList.queue myQueue = new linkedList().new queue(); //create an instance of queue
 
         StringBuilder answerS = new StringBuilder(); //print out only if palindrome
         for(String i : textArray){ //for each line of text file trim, make lowercase, and convert to char array
             boolean isOrIsnt = true; //if palindrome
             i = i.toLowerCase().trim().replaceAll(" ", "");
             char[] temp = i.toCharArray();
-            int half = temp.length / 2;
-            for (int j = 0; j < half; j++) { // push half of the string on the stack
+            
+            for(int j = 0; j < temp.length; j++){//push and enqueue each letter
                 myStack.push(temp[j]);
+                myQueue.enqueue(temp[j]);
             }
-            if (temp.length % 2 != 0) {//if odd skip middle letter
-                half++;
-            }
-            for (int j = half; j < temp.length; j++) {//pop off stack
-                char temps = myStack.pop();
-                if(temps != temp[j]){
+
+            while(linkedList.isEmpty() != true){
+                char stacksLet = myStack.pop();
+                char queueLet = myQueue.dequeue();
+
+                if(stacksLet != queueLet){
                     isOrIsnt = false;
                 }
             }
             if(isOrIsnt == true){
-                answerS.append(i + " "); //append if palindrome
+                answerS.append(i + " ");
             }
         } 
         return answerS.toString();
     }
-    
-    static String checkPalindromeQueue(String[] textArray){
-        linkedList.queue myQueue = new linkedList().new queue(); //create an instance of queue
-
-        StringBuilder answerQ = new StringBuilder(); //print out only if palindrome
-        return answerQ.toString();
-        
-    }
-    
 }
