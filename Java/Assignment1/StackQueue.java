@@ -31,11 +31,10 @@ public class StackQueue {
                 myQueue.enqueue(temp[j]);
             }
 
-            while(!myStack.isEmpty()){
+            while(!myStack.isEmpty() && !myQueue.isEmpty()){
                 if(myStack.head.data != myQueue.tail.data){
                     isOrIsnt = false;
                 }
-                
                 myStack.pop();
                 myQueue.dequeue();
             }
