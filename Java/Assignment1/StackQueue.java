@@ -9,17 +9,19 @@ public class StackQueue {
 
         try { //try to read text file into string array & call palindrome function
             String[] textArray = rf.readThrough();
-            String theOutput = checkPalindrome(textArray);
-            System.out.println(theOutput);
+            String theOutputS = checkPalindromeStack(textArray);
+            String theOutputQ = checkPalindromeQueue(textArray);
+            System.out.println(theOutputS);
+            System.out.println(theOutputQ);
         } catch (IOException e) {//throw exception if error reading file
             System.err.println("There was a problem reading the file");
         }
     }
 
-    static String checkPalindrome(String[] textArray){
+    static String checkPalindromeStack(String[] textArray){
         linkedList.stack myStack = new linkedList().new stack(); //create an instance of stack
 
-        StringBuilder answer = new StringBuilder(); //print out onlyif palindrome
+        StringBuilder answerS = new StringBuilder(); //print out only if palindrome
         for(String i : textArray){ //for each line of text file trim, make lowercase, and convert to char array
             boolean isOrIsnt = true; //if palindrome
             i = i.toLowerCase().trim().replaceAll(" ", "");
@@ -38,10 +40,18 @@ public class StackQueue {
                 }
             }
             if(isOrIsnt == true){
-                answer.append(i + " "); //append if palindrome
+                answerS.append(i + " "); //append if palindrome
             }
         } 
-        return answer.toString();
+        return answerS.toString();
+    }
+    
+    static String checkPalindromeQueue(String[] textArray){
+        linkedList.queue myQueue = new linkedList().new queue(); //create an instance of queue
+
+        StringBuilder answerQ = new StringBuilder(); //print out only if palindrome
+        return answerQ.toString();
+        
     }
     
 }

@@ -42,7 +42,7 @@ public class linkedList{
 
     }
 
-    class Queue extends linkedList{
+    class queue extends linkedList{
         //add to end of list
         void enqueue(char data){
             Node newNode2 = new Node(data);
