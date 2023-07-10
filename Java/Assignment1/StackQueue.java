@@ -22,7 +22,7 @@ public class StackQueue {
         StringBuilder answer = new StringBuilder(); //print out onlyif palindrome
         for(String i : textArray){ //for each line of text file trim, make lowercase, and convert to char array
             boolean isOrIsnt = true; //if palindrome
-            i.toLowerCase().trim();
+            i = i.toLowerCase().trim().replaceAll(" ", "");
             char[] temp = i.toCharArray();
             int half = temp.length / 2;
             for (int j = 0; j < half; j++) { // push half of the string on the stack
@@ -38,7 +38,7 @@ public class StackQueue {
                 }
             }
             if(isOrIsnt == true){
-                answer.append(i); //append if palindrome
+                answer.append(i + " "); //append if palindrome
             }
         } 
         return answer.toString();
