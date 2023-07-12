@@ -1,5 +1,5 @@
+/* Assignment 2 main file - runs all sorts */
 package Assignment2;
-
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -10,7 +10,7 @@ public class theSorts {
         try { //try to read text file into string array 
             String[] textFile = rf.readThrough();
             knuthShuffle(textFile); //randomly shuffle list of items
-            selectionSort(textFile);
+            
         
             /*
             insertionSort(textFile);
@@ -35,10 +35,6 @@ public class theSorts {
         return theText;
     }
 
-    static void selectionSort(String[] theText){
-        
-
-    }
     static void insertionSort(String[] theText){
         for(String i: theText){
             System.out.println(i);
