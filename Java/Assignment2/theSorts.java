@@ -10,7 +10,6 @@ public class theSorts {
         try { //try to read text file into string array 
             String[] textFile = rf.readThrough();
             knuthShuffle(textFile); //randomly shuffle list of items
-            insertionSort(textFile);
            
             
             
@@ -28,12 +27,6 @@ public class theSorts {
             theText[i] = temp;
         }
         return theText;
-    }
-
-    static void insertionSort(String[] theText){
-        for(String i: theText){
-            System.out.println(i);
-        }
     }
    
 }
