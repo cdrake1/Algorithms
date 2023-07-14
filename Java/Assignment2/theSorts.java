@@ -10,7 +10,9 @@ public class theSorts {
         try { //try to read text file into string array 
             String[] textFile = rf.readThrough();
             knuthShuffle(textFile); //randomly shuffle list of items
-           
+            selectionSort sorter = new selectionSort(); //call selection sort
+            String[] sortedSelection = sorter.sort(textFile);
+            check(textFile);
             
             
         } catch (IOException e) {//throw exception if error reading file
@@ -27,6 +29,12 @@ public class theSorts {
             theText[i] = temp;
         }
         return theText;
+    }
+
+    static void check(String[] theText){
+        for(String i: theText){
+            System.out.print(i);
+        }
     }
    
 }

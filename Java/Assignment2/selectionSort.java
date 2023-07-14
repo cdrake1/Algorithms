@@ -9,10 +9,10 @@ public class selectionSort {
                 if(textArray[j].compareTo(textArray[min]) < 0){// compare strings to find lesser and set new min
                     min = j;
                 }
-                String temp = textArray[i];
-                textArray[i] = textArray[min];
-                textArray[min] = temp;
             }
+            String temp = textArray[i]; //use temp variable to swap
+            textArray[i] = textArray[min];
+            textArray[min] = temp;
         }
         return textArray;
     }
