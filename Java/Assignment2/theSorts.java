@@ -10,13 +10,8 @@ public class theSorts {
         try { //try to read text file into string array 
             String[] textFile = rf.readThrough();
             knuthShuffle(textFile); //randomly shuffle list of items
-            
-        
-            /*
             insertionSort(textFile);
-            mergeSort(textFile);
-            quickSort(textFile); 
-            */
+           
             
             
         } catch (IOException e) {//throw exception if error reading file
@@ -40,10 +35,5 @@ public class theSorts {
             System.out.println(i);
         }
     }
-    static void mergeSort(String[] theText){
-
-    }
-    static void quickSort(String[] theText){
-
-    }
+   
 }

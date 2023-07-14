@@ -17,8 +17,8 @@ public class readFile {
         //try to read lines from a file until null
         try{
             while((line = reader.readLine()) != null){ 
-                fileLines.add(line); //add lines to arraylist
-            }
+                fileLines.add(line.toLowerCase().trim().replaceAll(" ", ""));
+            }; //add lines to arraylist
         }
         //error catching for problems reading file
         catch(IOException e){
