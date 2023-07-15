@@ -10,9 +10,15 @@ public class theSorts {
         try { //try to read text file into string array 
             String[] textFile = rf.readThrough();
             knuthShuffle(textFile); //randomly shuffle list of items
-            selectionSort sorter = new selectionSort(); //call selection sort
-            String[] sortedSelection = sorter.sort(textFile);
-            check(textFile);
+            selectionSort sorterS = new selectionSort(); //call all 4 sorts and pass the text file
+            insertionSort sorterI = new insertionSort(); 
+            mergeSort sorterM = new mergeSort();
+            quickSort sorterQ = new quickSort();
+            String[] sortedSelection = sorterS.sort(textFile);
+            String[] sortedInsertion = sorterI.sort(textFile);
+            String[] sortedMerge = sorterM.sort(textFile);
+            String[] sortedQuick = sorterQ.sort(textFile);
+            check(textFile); //prints out the sorted list
             
             
         } catch (IOException e) {//throw exception if error reading file
