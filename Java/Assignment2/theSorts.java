@@ -12,12 +12,12 @@ public class theSorts {
             knuthShuffle(textFile); //randomly shuffle list of items
             selectionSort sorterS = new selectionSort(); //call all 4 sorts and pass the text file
             insertionSort sorterI = new insertionSort(); 
-            mergeSort sorterM = new mergeSort();
-            quickSort sorterQ = new quickSort();
+            //mergeSort sorterM = new mergeSort();
+            //quickSort sorterQ = new quickSort();
             String[] sortedSelection = sorterS.sort(textFile);
             String[] sortedInsertion = sorterI.sort(textFile);
-            String[] sortedMerge = sorterM.sort(textFile);
-            String[] sortedQuick = sorterQ.sort(textFile);
+           // String[] sortedMerge = sorterM.sort(textFile);
+            //String[] sortedQuick = sorterQ.sort(textFile);
             check(textFile); //prints out the sorted list
             
             
@@ -39,7 +39,7 @@ public class theSorts {
 
     static void check(String[] theText){
         for(String i: theText){
-            System.out.print(i);
+            System.out.println(i);
         }
     }
    
