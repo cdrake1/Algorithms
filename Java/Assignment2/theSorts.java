@@ -13,11 +13,11 @@ public class theSorts {
             selectionSort sorterS = new selectionSort(); //call all 4 sorts and pass the text file
             insertionSort sorterI = new insertionSort(); 
             mergeSort sorterM = new mergeSort();
-            //quickSort sorterQ = new quickSort();
+            quickSort sorterQ = new quickSort();
             String[] sortedSelection = sorterS.sort(textFile);
             String[] sortedInsertion = sorterI.sort(textFile);
             String[] sortedMerge = sorterM.sort(textFile);
-            //String[] sortedQuick = sorterQ.sort(textFile);
+            String[] sortedQuick = sorterQ.sort(textFile);
             check(textFile); //prints out the sorted list
             
             
