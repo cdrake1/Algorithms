@@ -29,7 +29,16 @@ public class mergeSort {
             }
             k++;
         }
-
+        while(i < oneHalf.length){ //if the one is done, but the other is not then continue
+            mergesorted[k] = oneHalf[i];
+            i++;
+            k++;
+        }
+        while(j < theOther.length){
+            mergesorted[k] = theOther[j];
+            j++;
+            k++;
+        }
         return mergesorted;
 
 

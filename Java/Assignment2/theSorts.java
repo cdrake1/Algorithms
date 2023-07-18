@@ -37,7 +37,7 @@ public class theSorts {
         return theText;
     }
 
-    static void check(String[] theText){
+    static void check(String[] theText){// iterate through returned array to check if sorted correctly
         for(String i: theText){
             System.out.println(i);
         }
