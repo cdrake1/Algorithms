@@ -14,6 +14,25 @@ public class mergeSort {
     }
     String[] merge(String[] oneHalf, String[] theOther){
 
+        String[] mergesorted = new String[oneHalf.length + theOther.length]; //create new array the size of the other 2 along with 3 marker vars
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while(i < oneHalf.length && j < theOther.length){ //traverse throgh subarrays
+            if(oneHalf[i].compareTo(theOther[j]) <= 0){ //check if string is less than or equal to other. Add string to array and iterate
+                mergesorted[k] = oneHalf[i];
+                i++;
+            }
+            else{
+                mergesorted[k] = theOther[j];
+                j++;
+            }
+            k++;
+        }
+
+        return mergesorted;
+
+
     }
     
 }
