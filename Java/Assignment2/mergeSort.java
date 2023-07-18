@@ -1,3 +1,4 @@
+/* Implementation of merge sort - a sorting algorithm that divides an array recursively and then merges together the sorted product */
 package Assignment2;
 import java.util.*;
 
@@ -12,7 +13,7 @@ public class mergeSort {
         right = sort(right);
         return merge(left, right); //call merge and return solution
     }
-    String[] merge(String[] oneHalf, String[] theOther){
+    private String[] merge(String[] oneHalf, String[] theOther){
 
         String[] mergesorted = new String[oneHalf.length + theOther.length]; //create new array the size of the other 2 along with 3 marker vars
         int i = 0;
