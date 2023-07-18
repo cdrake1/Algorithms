@@ -1,3 +1,4 @@
+/* Implementation of insertion sort - a sorting algorithm that iterates one by one through an array moving the unsorted numbers with the sorted  */
 package Assignment2;
 
 public class insertionSort {

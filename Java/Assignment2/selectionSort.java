@@ -1,3 +1,4 @@
+/* Implementation of selection sort - a sorting algorithm that itereates through an array switching the min index with another unsorted element */
 package Assignment2;
 
 public class selectionSort {
