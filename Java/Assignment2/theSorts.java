@@ -5,19 +5,21 @@ import java.io.*;
 public class theSorts {
     public static void main(String[] args) {
         readFile rf = new readFile(); //make an instance of readFile to call
-        try { //try to read text file into string array 
-            String[] textFile = rf.readThrough();
-            knuthShuffle(textFile); //randomly shuffle list of items
+        try {
+            String[] textFile = rf.readThrough(); //try to read text file into string array 
+
             selectionSort sorterS = new selectionSort(); //call all 4 sorts and pass the text file
-            knuthShuffle(textFile); //randomly shuffle list of items
-            insertionSort sorterI = new insertionSort();
-            knuthShuffle(textFile); //randomly shuffle list of items
+            insertionSort sorterI = new insertionSort(); 
             mergeSort sorterM = new mergeSort();
-            knuthShuffle(textFile); //randomly shuffle list of items
             quickSort sorterQ = new quickSort();
+
+            knuthShuffle(textFile); //randomly shuffle list of items before each sort is called
             String[] sortedSelection = sorterS.sort(textFile);
+            knuthShuffle(textFile); 
             String[] sortedInsertion = sorterI.sort(textFile);
+            knuthShuffle(textFile); 
             String[] sortedMerge = sorterM.sort(textFile);
+            knuthShuffle(textFile);
             String[] sortedQuick = sorterQ.sort(textFile, 0, textFile.length - 1);
             check(textFile); //prints out the sorted list
             
@@ -25,7 +27,6 @@ public class theSorts {
         } catch (IOException e) {//throw exception if error reading file
             System.err.println("There was a problem reading the file");
         }
-        
     }
 
     static String[] knuthShuffle(String[] theText){
