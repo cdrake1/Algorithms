@@ -16,7 +16,7 @@ public class theSorts {
             String[] sortedInsertion = sorterI.sort(textFile);
             String[] sortedMerge = sorterM.sort(textFile);
             String[] sortedQuick = sorterQ.sort(textFile, 0, textFile.length - 1);
-            check(sortedMerge); //prints out the sorted list
+            check(textFile); //prints out the sorted list
             
             
         } catch (IOException e) {//throw exception if error reading file

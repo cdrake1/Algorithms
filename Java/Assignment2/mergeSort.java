@@ -4,6 +4,9 @@ import java.util.*;
 
 public class mergeSort {
     public String[] sort(String[] textArray){
+        if(textArray.length <= 1){
+            return textArray;
+        }
         int middle = textArray.length / 2; //find middle of the array
 
         String[] left = Arrays.copyOfRange(textArray, 0, middle); //grab the first half
