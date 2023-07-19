@@ -14,7 +14,7 @@ public class theSorts {
             quickSort sorterQ = new quickSort();
 
             knuthShuffle(textFile); //randomly shuffle list of items before each sort is called
-            int sortedSelection = sorterS.sort(textFile);
+            int selectComparisons = sorterS.sort(textFile);
             knuthShuffle(textFile); 
             int insertComparisons = sorterI.sort(textFile);
             knuthShuffle(textFile); 
