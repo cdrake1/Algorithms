@@ -17,7 +17,7 @@ public class theSorts {
             String[] sortedSelection = sorterS.sort(textFile);
             String[] sortedInsertion = sorterI.sort(textFile);
             String[] sortedMerge = sorterM.sort(textFile);
-            String[] sortedQuick = sorterQ.sort(textFile);
+            String[] sortedQuick = sorterQ.sort(textFile, 0, textFile.length - 1);
             check(textFile); //prints out the sorted list
             
             
