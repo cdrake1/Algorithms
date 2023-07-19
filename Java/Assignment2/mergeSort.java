@@ -4,7 +4,7 @@ import java.util.*;
 
 public class mergeSort {
     public String[] sort(String[] textArray){
-        if(textArray.length <= 1){
+        if(textArray.length <= 1){//base case
             return textArray;
         }
         int middle = textArray.length / 2; //find middle of the array
@@ -22,7 +22,7 @@ public class mergeSort {
         int i = 0;
         int j = 0;
         int k = 0;
-        while(i < oneHalf.length && j < theOther.length){ //traverse throgh subarrays
+        while(i < oneHalf.length && j < theOther.length){ //traverse through subarrays
             if(oneHalf[i].compareTo(theOther[j]) <= 0){ //check if string is less than or equal to other. Add string to array and iterate
                 mergesorted[k] = oneHalf[i];
                 i++;
