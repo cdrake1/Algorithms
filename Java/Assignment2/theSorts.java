@@ -1,8 +1,6 @@
 /* Assignment 2 main file - runs all sorts */
 package Assignment2;
 import java.io.*;
-import java.lang.*;
-import java.util.*;
 
 public class theSorts {
     public static void main(String[] args) {
@@ -18,7 +16,7 @@ public class theSorts {
             String[] sortedInsertion = sorterI.sort(textFile);
             String[] sortedMerge = sorterM.sort(textFile);
             String[] sortedQuick = sorterQ.sort(textFile, 0, textFile.length - 1);
-            check(textFile); //prints out the sorted list
+            check(sortedMerge); //prints out the sorted list
             
             
         } catch (IOException e) {//throw exception if error reading file
