@@ -18,10 +18,12 @@ public class theSorts {
             knuthShuffle(textFile); 
             int insertComparisons = sorterI.sort(textFile);
             knuthShuffle(textFile); 
-            String[] sortedMerge = sorterM.sort(textFile);
+            int mergeComparisons = sorterM.sort(textFile);
             knuthShuffle(textFile);
-            String[] sortedQuick = sorterQ.sort(textFile, 0, textFile.length - 1);
+            int quickComparisons = sorterQ.sort(textFile, 0, textFile.length - 1);
             check(textFile); //prints out the sorted list
+            printComparisons(selectComparisons, insertComparisons, mergeComparisons, quickComparisons);
+            
             
             
         } catch (IOException e) {//throw exception if error reading file
@@ -43,6 +45,13 @@ public class theSorts {
         for(String i: theText){
             System.out.println(i);
         }
+    }
+
+    static void printComparisons(int select, int insert, int merge, int quick){ //print out the # of comparisons for each sort
+        System.out.println("Selection Sort: " + select);
+        System.out.println("Insertion Sort: " + insert);
+        System.out.println("Merge Sort: " + merge);
+        System.out.println("Quick Sort: " + quick);
     }
    
 }

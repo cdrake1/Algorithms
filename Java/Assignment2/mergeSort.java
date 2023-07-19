@@ -22,6 +22,8 @@ public class mergeSort {
         int i = 0;
         int j = 0;
         int k = 0;
+        int comparisons = 0;
+
         while(i < oneHalf.length && j < theOther.length){ //traverse through subarrays
             if(oneHalf[i].compareTo(theOther[j]) <= 0){ //check if string is less than or equal to other. Add string to array and iterate
                 mergesorted[k] = oneHalf[i];
@@ -32,6 +34,7 @@ public class mergeSort {
                 j++;
             }
             k++;
+            comparisons++;
         }
         while(i < oneHalf.length){ //if the one is done, but the other is not then continue
             mergesorted[k] = oneHalf[i];
