@@ -9,8 +9,11 @@ public class theSorts {
             String[] textFile = rf.readThrough();
             knuthShuffle(textFile); //randomly shuffle list of items
             selectionSort sorterS = new selectionSort(); //call all 4 sorts and pass the text file
-            insertionSort sorterI = new insertionSort(); 
+            knuthShuffle(textFile); //randomly shuffle list of items
+            insertionSort sorterI = new insertionSort();
+            knuthShuffle(textFile); //randomly shuffle list of items
             mergeSort sorterM = new mergeSort();
+            knuthShuffle(textFile); //randomly shuffle list of items
             quickSort sorterQ = new quickSort();
             String[] sortedSelection = sorterS.sort(textFile);
             String[] sortedInsertion = sorterI.sort(textFile);
