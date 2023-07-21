@@ -3,6 +3,7 @@ package Assignment2;
 import java.util.*;
 
 public class mergeSort {
+    int comparisons = 0;
     public String[] sort(String[] textArray){
         if(textArray.length <= 1){//base case
             return textArray;
@@ -22,7 +23,6 @@ public class mergeSort {
         int i = 0;
         int j = 0;
         int k = 0;
-        int comparisons = 0;
 
         while(i < oneHalf.length && j < theOther.length){ //traverse through subarrays
             if(oneHalf[i].compareTo(theOther[j]) <= 0){ //check if string is less than or equal to other. Add string to array and iterate
@@ -49,6 +49,10 @@ public class mergeSort {
         return mergesorted;
 
 
+    }
+
+    public int comparisonsGet(){
+        return comparisons;
     }
     
 }

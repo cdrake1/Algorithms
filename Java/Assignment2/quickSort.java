@@ -2,6 +2,7 @@
 package Assignment2;
 
 public class quickSort {
+    int comparisons = 0;
     public String[] sort(String[] textArray, int first, int last) {
         if (first < last) {
             int position = partition(textArray, first, last);
@@ -19,9 +20,11 @@ public class quickSort {
 
         while (left <= right) { //Iterate through the array
             while (left <= right && array[left].compareTo(pivot) <= 0) { //Find an element greater than the pivot
+                comparisons++;
                 left++;
             }
             while (left <= right && array[right].compareTo(pivot) > 0) { //Find an element smaller than or equal to the pivot
+                comparisons++;
                 right--;
             }
             if (left < right) { //Swap elements and iterate
@@ -37,6 +40,10 @@ public class quickSort {
         array[right] = temp;
 
         return right;
+    }
+
+    public int comparisonsGet(){
+        return comparisons;
     }
 }
 

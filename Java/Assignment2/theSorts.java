@@ -18,10 +18,12 @@ public class theSorts {
             knuthShuffle(textFile); 
             int insertComparisons = sorterI.sort(textFile);
             knuthShuffle(textFile); 
-            int mergeComparisons = sorterM.sort(textFile);
+            String[] mergeString = sorterM.sort(textFile);
+            int mergeComparisons = sorterM.comparisonsGet();
             knuthShuffle(textFile);
-            int quickComparisons = sorterQ.sort(textFile, 0, textFile.length - 1);
-            check(textFile); //prints out the sorted list
+            String[] quickString = sorterQ.sort(textFile, 0, textFile.length - 1);
+            int quickComparisons = sorterQ.comparisonsGet();
+            //check(textFile); //prints out the sorted list
             printComparisons(selectComparisons, insertComparisons, mergeComparisons, quickComparisons);
             
             
