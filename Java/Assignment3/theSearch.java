@@ -22,14 +22,14 @@ public class theSearch {
         }
     }
 
-    static void check(String[] sortedFile){
+    static void check(String[] sortedFile){ //prints out texst file if needed
         for(String i: sortedFile){
             System.out.println(i);
         }
 
     }
 
-    static void comparisons(double linearComparisons){
+    static void comparisons(double linearComparisons){ //prints out number of comparisons for each search
         System.out.println("Linear Comparisons: " + linearComparisons);
     }
     
