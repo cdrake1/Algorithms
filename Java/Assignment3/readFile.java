@@ -1,4 +1,5 @@
 /* Created to read lines from file into an array */
+package Assignment3;
 import java.io.*;
 import java.util.*;
 
