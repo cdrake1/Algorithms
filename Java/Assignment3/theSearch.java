@@ -12,7 +12,7 @@ public class theSearch {
 
             linear linearSearch = new linear(); //create instance of linear class, generate list of 42 random items and call linear search
             String[] randomItems = linearSearch.random(sortedFile);
-            int numLinear = linearSearch.search(sortedFile, randomItems);
+            double numLinear = linearSearch.search(sortedFile, randomItems);
 
             comparisons(numLinear);
 
@@ -29,7 +29,7 @@ public class theSearch {
 
     }
 
-    static void comparisons(int linearComparisons){
+    static void comparisons(double linearComparisons){
         System.out.println("Linear Comparisons: " + linearComparisons);
     }
     
