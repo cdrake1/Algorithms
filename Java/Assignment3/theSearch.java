@@ -14,7 +14,10 @@ public class theSearch {
             String[] randomItems = linearSearch.random(sortedFile);
             double numLinear = linearSearch.search(sortedFile, randomItems);
 
-            comparisons(numLinear);
+            binary binarySearch = new binary(); //create instance of binary class and call binary search
+            double numBinary = binarySearch.search(sortedFile, randomItems);
+
+            comparisons(numLinear, numBinary); 
 
 
         }catch (IOException e) {//throw exception if error reading file
@@ -29,8 +32,9 @@ public class theSearch {
 
     }
 
-    static void comparisons(double linearComparisons){ //prints out number of comparisons for each search
+    static void comparisons(double linearComparisons, double binaryComparisons){ //prints out number of comparisons for each search
         System.out.println("Linear Comparisons: " + linearComparisons);
+        System.out.println("Binary Comparisons: " + binaryComparisons);
     }
     
 }
