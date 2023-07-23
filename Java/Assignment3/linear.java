@@ -23,13 +23,14 @@ public class linear {
             }
         }
 
-        int sum = 0;
+        int total = 0;
         for (int num : comparisonTotal) { //calculate total of all comparisons
-            sum += num;
+            total += num;
         }
-        comparisonAvg = (double) sum / comparisonTotal.size(); //average out all comparisons made
+        comparisonAvg = (double) total / comparisonTotal.size(); //average out all comparisons made
+        double avgRounded = Math.round(comparisonAvg * 100.0) / 100.0;
 
-        return comparisonAvg;
+        return avgRounded;
     }
 
     static String[] random(String[] sortedMagic){ //randomly select 42 items to search for linearly
