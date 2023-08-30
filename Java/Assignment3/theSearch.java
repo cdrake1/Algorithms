@@ -1,3 +1,4 @@
+/* The main file for the searching algorithms */
 package Assignment3;
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-/* This file calls linkedList and readFile */
+/* This file is the main file and calls linkedList and readFile */
 package Assignment1;
 import java.io.IOException;
 import java.util.*;
