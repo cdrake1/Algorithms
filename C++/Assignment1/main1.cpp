@@ -1,11 +1,12 @@
+//main file to run assignment 1 folder
+#include "readFile.h"
+
 #include <iostream>
-#include <fstream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-
-
-int main() {
-    cout << "Hello World";
-    return 0;
+void main() {
+    
 }

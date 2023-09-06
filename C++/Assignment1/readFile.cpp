@@ -1,3 +1,6 @@
+//This file reads lines of a txt into a String vector
+#include "readFile.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -5,25 +8,28 @@
 
 using namespace std;
 
+vector<string> readFile :: readFileIntoVector() {
+    
+    string filePath;
+    string line;
+    vector<string> fileLines;
 
+    cout << "Enter the path of the file: ";
+    cin >> filePath;
 
-class readFile {
-    public:
-        readFile(){
-            string filePath;
-            string line;
-            vector<string> fileLines;
-            cout << "Enter the path of the file: ";
-            cin >> filePath; //grab user input for file path
+    fstream magicFile;
+    magicFile.open(filePath);
 
-            ifstream magicfile(filePath); //create version of file
-            if(magicfile.is_open()){
-
-            }
-            else{
-                cout << "Something went wrong when trying to open the file";
-            }
-
+    if(magicFile.is_open()){
+        while(getline(magicFile, line)){
+            //add to vector
         }
+        magicFile.close();
 
+    }
+    else{
+        cout << "Something went wrong when trying to open the file";
+    }
+
+    return fileLines;
 };
