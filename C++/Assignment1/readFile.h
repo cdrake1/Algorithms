@@ -10,7 +10,7 @@ using namespace std;
 class readFile
 {
 public:
-    vector<string> readFileIntoVector();
+    vector<string> readInto();
 };
 
 #endif

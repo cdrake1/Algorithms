@@ -7,6 +7,16 @@
 
 using namespace std;
 
-void main() {
-    
+int main() {
+
+    cout << "start \n";
+    readFile reader;
+    vector<string> magicItems = reader.readInto();
+
+    cout << "Done \n";
+
+    for (string line : magicItems) {
+        cout << line << "\n";
+    }
+    return 0;
 }

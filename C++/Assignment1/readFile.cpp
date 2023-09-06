@@ -5,10 +5,11 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <cstring>
 
 using namespace std;
 
-vector<string> readFile :: readFileIntoVector() {
+vector<string> readFile :: readInto() {
     
     string filePath;
     string line;
@@ -22,7 +23,10 @@ vector<string> readFile :: readFileIntoVector() {
 
     if(magicFile.is_open()){
         while(getline(magicFile, line)){
-            //add to vector
+            for(int i = 0; i < line.length(); i++){
+                tolower(line[i]);
+            }
+            fileLines.push_back(line);
         }
         magicFile.close();
 
