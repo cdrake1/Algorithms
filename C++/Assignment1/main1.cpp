@@ -1,4 +1,5 @@
 //main file to run assignment 1 folder
+//rebuild progam1 and run it by running: clang++ -o program1 main1.cpp readFile.cpp and ./program1 in terminal
 #include "readFile.h"
 
 #include <iostream>
