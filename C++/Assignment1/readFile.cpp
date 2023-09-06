@@ -24,7 +24,7 @@ vector<string> readFile :: readInto() {
     if(magicFile.is_open()){
         while(getline(magicFile, line)){
             for(int i = 0; i < line.length(); i++){
-                tolower(line[i]);
+                line[i] = tolower(line[i]);
             }
             fileLines.push_back(line);
         }
