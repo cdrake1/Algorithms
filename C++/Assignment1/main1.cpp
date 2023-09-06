@@ -10,11 +10,8 @@ using namespace std;
 
 int main() {
 
-    cout << "start \n";
     readFile reader;
-    vector<string> magicItems = reader.readInto();
-
-    cout << "Done \n";
+    vector<string> magicItems = reader.readInto(); //we need to create an instanc of the class to call it
 
     for (string line : magicItems) {
         cout << line << "\n";
