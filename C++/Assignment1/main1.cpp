@@ -11,7 +11,7 @@ using namespace std;
 int main() {
 
     readFile reader;
-    vector<string> magicItems = reader.readInto(); //we need to create an instanc of the class to call it
+    vector<string> magicItems = reader.readInto(); //we need to create an instance of the class to call it
 
     for (string line : magicItems) {
         cout << line << "\n";
