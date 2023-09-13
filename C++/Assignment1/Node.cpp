@@ -1,5 +1,5 @@
 //This file creates the linkedlist/node class
-
+//Also creates stack and queue classes
 #include "Node.h"
 
 #include <stdexcept>
@@ -9,7 +9,6 @@ using namespace std;
 
 class Node{
     public:
-
         Node* next; //pointer to next node
         char val; //data within node
 
@@ -20,7 +19,7 @@ class Node{
 };
 
 class Stack{
-    Node* top;
+    Node* top; //top of stack
 
     public:
         void push(char val){
@@ -30,7 +29,7 @@ class Stack{
             {
                 top = newNode;
             }
-            else{ //if not empty
+            else{ //if not empty make new node top
                 newNode->next = top;
                 top = newNode;
             }
@@ -55,33 +54,32 @@ class Stack{
 };
 
 class Queue{
-    Node* front;
+    Node* front; //front and back of line/queue
     Node* rear;
 
     public:
-
-        void enqueue(char val){
+        void enqueue(char val){ //enqueue new node
             Node* newNode2 = new Node(val);
-            if(isEmpty()){
+            if(isEmpty()){ //if empty make node front and rear
                 front = newNode2;
                 rear = newNode2;
             }
-            else{
+            else{ //if not make it rear
                 rear->next = newNode2;
                 rear = newNode2;
             }
         }
 
-        void dequeue(){
+        void dequeue(){ //dequeue first node
             if(isEmpty){
                 throw invalid_argument("Queue is empty");
             }
             else{
-                front = front->next;
+                front = front->next; //change front
             }
         }
 
-        bool isEmpty(){
+        bool isEmpty(){ //check if queue is empty
             if(front == nullptr){
                 return true;
             }
@@ -89,5 +87,4 @@ class Queue{
                 return false;
             }
         }
-
 };
