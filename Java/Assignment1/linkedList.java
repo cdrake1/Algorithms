@@ -66,7 +66,7 @@ public class linkedList{
         //remove from front of list
         void dequeue(){
             if(head == null){//check if queue is empty and throw exception
-                throw new NoSuchElementException("The que is empty");
+                throw new NoSuchElementException("The queue is empty");
             }
             else{//if queue is not empty assign new node to the head and head is reassigned to next node
                 head = head.next;
