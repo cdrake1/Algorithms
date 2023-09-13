@@ -7,10 +7,9 @@
 
 using namespace std;
 
-class readFile
-{
-public:
-    vector<string> readInto();
+class readFile{
+    public:
+        vector<string> readInto();
 };
 
 #endif

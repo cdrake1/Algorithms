@@ -1,28 +1,33 @@
 //header file for Node
-#ifndef READFILE_H
-#define READFILE_H
-
-#include <stdexcept>
+#ifndef NODE_H
+#define NODE_H
 
 using namespace std;
 
 class Node{
     public:
-        Node();
+        Node(char val);
+        char val;
+        Node* next;
 };
 
 class Stack{
     public:
-        void push();
+        void push(char val);
         void pop();
         bool isEmpty();
+    private:
+        Node* top;
 };
 
 class Queue{
     public:
-        void enqueue();
+        void enqueue(char val);
         void dequeue();
         bool isEmpty();
+    private:
+        Node* front;
+        Node* rear;
 };
 
 #endif
