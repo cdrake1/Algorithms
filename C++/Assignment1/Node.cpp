@@ -24,7 +24,7 @@ void Stack::push(char val){ //push node onto stack
 
 char Stack::pop(){ //pop top node off stack
     if (isEmpty()){
-        throw invalid_argument("Stack is empty");
+        throw invalid_argument("The stack is empty");
     }
     else{
         Node* temp = top;
@@ -51,7 +51,7 @@ void Queue::enqueue(char val){ //add node to back of line
 
 char Queue::dequeue(){ //remove node from front of line
     if(isEmpty()){
-        throw invalid_argument("Queue is empty");
+        throw invalid_argument("The queue is empty");
     }
     else{
         Node* temp = front;
