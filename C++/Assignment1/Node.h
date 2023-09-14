@@ -14,7 +14,7 @@ class Node{
 class Stack{
     public:
         void push(char val);
-        void pop();
+        char pop();
         bool isEmpty();
     private:
         Node* top;
@@ -23,7 +23,7 @@ class Stack{
 class Queue{
     public:
         void enqueue(char val);
-        void dequeue();
+        char dequeue();
         bool isEmpty();
     private:
         Node* front;

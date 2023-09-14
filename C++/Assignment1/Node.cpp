@@ -22,12 +22,14 @@ void Stack::push(char val){ //push node onto stack
     }
 };
 
-void Stack::pop(){ //pop top node off stack
+char Stack::pop(){ //pop top node off stack
     if (isEmpty()){
         throw invalid_argument("Stack is empty");
     }
     else{
+        Node* temp = top;
         top = top->next;
+        return temp->val;
     }
 };
 
@@ -47,12 +49,14 @@ void Queue::enqueue(char val){ //add node to back of line
     }
 };
 
-void Queue::dequeue(){ //remove node from front of line
+char Queue::dequeue(){ //remove node from front of line
     if(isEmpty()){
         throw invalid_argument("Queue is empty");
     }
     else{
+        Node* temp = front;
         front = front->next; //change front
+        return temp->val;
     }
 };
 
