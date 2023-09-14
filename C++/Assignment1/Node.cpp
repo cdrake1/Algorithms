@@ -48,7 +48,7 @@ void Queue::enqueue(char val){ //add node to back of line
 };
 
 void Queue::dequeue(){ //remove node from front of line
-    if(isEmpty){
+    if(isEmpty()){
         throw invalid_argument("Queue is empty");
     }
     else{
