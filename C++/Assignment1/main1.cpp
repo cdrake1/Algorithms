@@ -15,24 +15,24 @@ int main() {
     readFile reader;
     vector<string> magicItems = reader.readInto(); //we need to create an instance of the class to call it
 
-    Stack myStack;
+    Stack myStack; //create instances of stack and queue
     Queue myQueue;
 
-    for (string line : magicItems) {
+    for (string line : magicItems) { //for each line in magic items push and enqueue each letter
         bool isOrIsnt = true;
         for(int i = 0; i < line.length(); i++){
             myStack.push(line.at(i));
             myQueue.enqueue(line.at(i));
         }
-        while(!myStack.isEmpty() && !myQueue.isEmpty()){
+        while(!myStack.isEmpty() && !myQueue.isEmpty()){ //while stack and queue are not empty pop and dequeue
             char stackChar = myStack.pop();
             char queueChar = myQueue.dequeue();
-            if(stackChar != queueChar){
+            if(stackChar != queueChar){ //if they dont match break loop
                 isOrIsnt = false;
                 break;
             }
         }
-        if(isOrIsnt){
+        if(isOrIsnt){ //if they match print out palindrome
             cout << line;
         }
     }
