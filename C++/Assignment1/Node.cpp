@@ -4,7 +4,6 @@
 
 #include <stdexcept>
 
-
 using namespace std;
 
 Node::Node(char val){ //Node class constructor
