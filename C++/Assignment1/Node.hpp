@@ -13,6 +13,7 @@ class Node{
 
 class Stack{
     public:
+        Stack();
         void push(char val);
         char pop();
         bool isEmpty();
@@ -22,6 +23,7 @@ class Stack{
 
 class Queue{
     public:
+        Queue();
         void enqueue(char val);
         char dequeue();
         bool isEmpty();
