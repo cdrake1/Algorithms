@@ -11,11 +11,11 @@ Node::Node(char val){ //Node class constructor
     this->next = nullptr;
 };
 
-Stack::Stack() {
+Stack::Stack() { //Stack class constructor
     top = nullptr;
 };
 
-void Stack::push(char val)
+void Stack::push(char val) //push element onto stack
 { // push node onto stack
     Node* newNode = new Node(val);
     if(isEmpty()){
@@ -42,7 +42,7 @@ bool Stack::isEmpty(){ //check if stack is empty
     return top == nullptr;
 };
 
-Queue::Queue() {
+Queue::Queue() { //Queue class constructor
     front = nullptr;
     rear = nullptr;
 };

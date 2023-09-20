@@ -6,14 +6,14 @@ using namespace std;
 
 class Node{
     public:
-        Node(char val);
+        Node(char val); //Node constructoy
         char val;
         Node* next;
 };
 
 class Stack{
     public:
-        Stack();
+        Stack(); //Stack constructor
         void push(char val);
         char pop();
         bool isEmpty();
@@ -23,7 +23,7 @@ class Stack{
 
 class Queue{
     public:
-        Queue();
+        Queue(); //Queue constructor
         void enqueue(char val);
         char dequeue();
         bool isEmpty();
