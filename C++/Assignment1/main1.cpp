@@ -23,7 +23,6 @@ int main() {
             myStack.push(line.at(i));
             myQueue.enqueue(line.at(i));
         }
-        //segmentation fault occurs after this point
         while(!myStack.isEmpty() && !myQueue.isEmpty()){ //while stack and queue are not empty pop and dequeue
             char stackChar = myStack.pop();
             char queueChar = myQueue.dequeue();
@@ -32,8 +31,8 @@ int main() {
                 break;
             }
         }
-        if(isOrIsnt){ //if they match print out palindrome
-            cout << line;
+        if(isOrIsnt == true){ //if they match print out palindrome
+            cout << line + "\n";
         }
     }
     return 0;

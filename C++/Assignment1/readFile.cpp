@@ -31,6 +31,7 @@ vector<string> readFile :: readInto() {
             fileLines.push_back(line);
         }
         magicFile.close();
+        cout << "File read correctly. \n";
 
     }
     else{
