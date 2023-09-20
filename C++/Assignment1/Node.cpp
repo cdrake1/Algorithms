@@ -15,8 +15,7 @@ Stack::Stack() { //Stack class constructor
     top = nullptr;
 };
 
-void Stack::push(char val) //push element onto stack
-{ // push node onto stack
+void Stack::push(char val) { // push node onto stack
     Node* newNode = new Node(val);
     if(isEmpty()){
         top = newNode;
