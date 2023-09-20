@@ -1,7 +1,8 @@
 //main file to run assignment 1 folder
-//rebuild progam1 and run it by running: clang++ -o program1 main1.cpp readFile.cpp Node.cpp and then: ./program1 in terminal
+//rebuild progam1 and run it by running: clang++ -o program1 main1.cpp readFile.cpp Node.cpp Sorts.cpp and then: ./program1 in terminal
 #include "readFile.hpp"
 #include "Node.hpp"
+#include "Sorts.hpp"
 
 #include <iostream>
 #include <vector>
@@ -33,6 +34,14 @@ int main() {
         if(isOrIsnt == true){ //if they match print out palindrome
             cout << line + "\n";
         }
+    }
+
+    //Working before this point
+    Sorts knuth;
+
+    magicItems = knuth.knuthShuffle(magicItems); //after random
+    for(string each : magicItems){
+        cout << each + "\n";
     }
     return 0;
 }

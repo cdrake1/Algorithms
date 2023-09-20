@@ -24,6 +24,7 @@
         "*.rex": "rexx",
         "*.rexx": "rexx",
         "iosfwd": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "vector": "cpp"
     }
 }
