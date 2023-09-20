@@ -28,7 +28,6 @@ int main() {
             char queueChar = myQueue.dequeue();
             if(stackChar != queueChar){ //if they dont match break loop
                 isOrIsnt = false;
-                break;
             }
         }
         if(isOrIsnt == true){ //if they match print out palindrome
