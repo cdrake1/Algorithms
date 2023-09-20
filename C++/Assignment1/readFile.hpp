@@ -1,6 +1,6 @@
 //header file for readFile
-#ifndef READFILE_H
-#define READFILE_H
+#ifndef READFILE_HPP
+#define READFILE_HPP
 
 #include <vector>
 #include <string>

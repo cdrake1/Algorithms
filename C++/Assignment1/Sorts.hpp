@@ -1,6 +1,6 @@
 //header file for Shuffles
-#ifndef SORTS_H
-#define SORTS_H
+#ifndef SORTS_HPP
+#define SORTS_HPP
 
 using namespace std;
 

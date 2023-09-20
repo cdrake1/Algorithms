@@ -1,6 +1,6 @@
 //This file reads lines of a txt into a String vector
 //here is the path to the file: /Users/xperiencedbum/Downloads/magicitems.txt
-#include "readFile.h"
+#include "readFile.hpp"
 
 #include <iostream>
 #include <fstream>

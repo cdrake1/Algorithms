@@ -1,6 +1,6 @@
 //This file creates the linkedlist/node class
 //Also creates stack and queue classes
-#include "Node.h"
+#include "Node.hpp"
 
 #include <stdexcept>
 
@@ -9,6 +9,10 @@ using namespace std;
 Node::Node(char val){ //Node class constructor
     this->val = val;
     this->next = nullptr;
+};
+
+Stack::Stack(){
+    top = nullptr;
 };
 
 void Stack::push(char val){ //push node onto stack
@@ -35,6 +39,11 @@ char Stack::pop(){ //pop top node off stack
 
 bool Stack::isEmpty(){ //check if stack is empty
     return top == nullptr;
+};
+
+Queue::Queue(){
+    front = nullptr;
+    rear = nullptr;
 };
 
 void Queue::enqueue(char val){ //add node to back of line
