@@ -10,6 +10,8 @@ using namespace std;
 class Sorts{
     public:
         vector<string> knuthShuffle(vector<string> magicItems);
+        void selectionSort(vector<string> magicItems);
+        void insertionSort(vector<string> magicItems);
 };
 
 #endif

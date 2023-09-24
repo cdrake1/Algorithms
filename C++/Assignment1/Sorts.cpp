@@ -8,11 +8,35 @@ using namespace std;
 
 vector<string> Sorts:: knuthShuffle(vector<string> magicItems){
 
+    srand (time(NULL)); //initialize seed value so we get different random nums
+
     for(int i = 0; i < magicItems.size(); i++){ //iterate through each line in magic items
-        int random = rand() % magicItems.size() + 1; //generate random number between 1 and vector length
+        int random = rand() % magicItems.size(); //generate random number between 1 and vector length
         string temp = magicItems[i]; //swap
         magicItems[i] = magicItems[random];
         magicItems[random] = temp;
     }
     return magicItems;
 };
+
+void Sorts:: selectionSort(vector<string> magicItems){
+    int comparisons = 0; //comparisons counter for selection sort
+    for(int i = 0; i < magicItems.size(); i++){ //iterate through vector
+        int smallestPos = i; //smallest index
+        for(int j = i + 1; j < magicItems.size(); j++){ //increment and compare elements with smallest
+            if(magicItems[smallestPos].compare(magicItems[j]) > 0){
+                //if smaller change smallest
+                smallestPos = j;
+            }
+            comparisons++; //increment comparisons
+        }
+        //swap using temp variable
+        string temp = magicItems[i];
+        magicItems[i] = magicItems[smallestPos];
+        magicItems[smallestPos] = temp;
+    }
+};
+
+void Sorts:: insertionSort(vector<string> magicItems){
+
+}
