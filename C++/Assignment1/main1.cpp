@@ -36,12 +36,12 @@ int main() {
         }
     }
 
-    //Working before this point
-    Sorts sortsAndShuffles;
+    // sorts and shuffling
+    Sorts sortsAndShuffles; //create instance of sorts/shuffles
 
-    magicItems = sortsAndShuffles.knuthShuffle(magicItems); //after random
-    sortsAndShuffles.selectionSort(magicItems);
-    sortsAndShuffles.insertionSort(magicItems);
+    magicItems = sortsAndShuffles.knuthShuffle(magicItems); //randomize text array
+    sortsAndShuffles.selectionSort(magicItems); //call selection sort
+    sortsAndShuffles.insertionSort(magicItems); //call insertion sort
     
     return 0;
 }
