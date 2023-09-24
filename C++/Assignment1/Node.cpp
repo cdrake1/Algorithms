@@ -33,6 +33,7 @@ char Stack::pop(){ //pop top node off stack
     else{
         Node* temp = top;
         top = top->next;
+        temp->next = nullptr;
         return temp->val;
     }
 };
@@ -42,19 +43,19 @@ bool Stack::isEmpty(){ //check if stack is empty
 };
 
 Queue::Queue() { //Queue class constructor
-    front = nullptr;
-    rear = nullptr;
+    head = nullptr;
+    tail = nullptr;
 };
 
 void Queue::enqueue(char val){ //add node to back of line
     Node* newNode2 = new Node(val);
-    if(isEmpty()){ //if empty make node front and rear
-        front = newNode2;
-        rear = newNode2;
+    if(isEmpty()){ //if empty make node head and tail
+        head = newNode2;
+        tail = newNode2;
     }
     else{ //if not make it rear
-        rear->next = newNode2;
-        rear = newNode2;
+        tail->next = newNode2;
+        tail = newNode2;
     }
 };
 
@@ -63,12 +64,15 @@ char Queue::dequeue(){ //remove node from front of line
         throw invalid_argument("The queue is empty");
     }
     else{
-        Node* temp = front;
-        front = front->next; //change front
+        Node* temp = head;
+        head = head->next; //change front
+        if(head == nullptr){
+            tail == nullptr;
+        }
         return temp->val;
     }
 };
 
 bool Queue::isEmpty(){ //check if queue is empty
-    return front == nullptr;
+    return head == nullptr;
 };
