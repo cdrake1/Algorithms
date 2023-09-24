@@ -37,11 +37,10 @@ int main() {
     }
 
     //Working before this point
-    Sorts knuth;
+    Sorts sortsAndShuffles;
 
-    magicItems = knuth.knuthShuffle(magicItems); //after random
-    for(string each : magicItems){
-        cout << each + "\n";
-    }
+    magicItems = sortsAndShuffles.knuthShuffle(magicItems); //after random
+    sortsAndShuffles.selectionSort(magicItems);
+    
     return 0;
 }

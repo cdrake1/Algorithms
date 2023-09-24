@@ -67,7 +67,7 @@ char Queue::dequeue(){ //remove node from front of line
         Node* temp = head;
         head = head->next; //change front
         if(head == nullptr){
-            tail == nullptr;
+            tail = nullptr;
         }
         return temp->val;
     }

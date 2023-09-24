@@ -2,6 +2,7 @@
 #include "Sorts.hpp"
 
 #include <vector>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -35,6 +36,7 @@ void Sorts:: selectionSort(vector<string> magicItems){
         magicItems[i] = magicItems[smallestPos];
         magicItems[smallestPos] = temp;
     }
+    cout<<"Selection sort comparisons: " + comparisons;
 };
 
 void Sorts:: insertionSort(vector<string> magicItems){
