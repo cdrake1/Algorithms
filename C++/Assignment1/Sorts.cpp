@@ -21,7 +21,7 @@ vector<string> Sorts:: knuthShuffle(vector<string> magicItems){
 };
 
 void Sorts:: selectionSort(vector<string> magicItems){
-    int comparisons = 0; //comparisons counter for selection sort
+    int Scomparisons = 0; //comparisons counter for selection sort
     for(int i = 0; i < magicItems.size(); i++){ //iterate through vector
         int smallestPos = i; //smallest index
         for(int j = i + 1; j < magicItems.size(); j++){ //increment and compare elements with smallest
@@ -29,16 +29,29 @@ void Sorts:: selectionSort(vector<string> magicItems){
                 //if smaller change smallest
                 smallestPos = j;
             }
-            comparisons++; //increment comparisons
+            Scomparisons++; //increment comparisons
         }
         //swap using temp variable
         string temp = magicItems[i];
         magicItems[i] = magicItems[smallestPos];
         magicItems[smallestPos] = temp;
     }
-    cout<<"Selection sort comparisons: " + comparisons;
+    cout<<"Selection sort comparisons: " << Scomparisons << "\n";
 };
 
 void Sorts:: insertionSort(vector<string> magicItems){
+    int Icomparisons = 0;
+    for(int i = 1; i < magicItems.size(); i++){ //iterate through vector. first element sorted
+        string current = magicItems[i];
+        int j = i - 1; //check with previous element
+        while(j >= 0 && current.compare(magicItems[j]) < 0){
+            Icomparisons++;
+            magicItems[j + 1] = magicItems[j];
+            j--;
+        }
+        magicItems[j + 1] = current;
+    }
+
+    cout<<"Insertion sort comparisons: " << Icomparisons << "\n";
 
 }

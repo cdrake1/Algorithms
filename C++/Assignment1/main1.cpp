@@ -32,7 +32,7 @@ int main() {
             }
         }
         if(isOrIsnt == true){ //if they match print out palindrome
-            cout << line + "\n";
+            cout << line << "\n";
         }
     }
 
@@ -41,6 +41,7 @@ int main() {
 
     magicItems = sortsAndShuffles.knuthShuffle(magicItems); //after random
     sortsAndShuffles.selectionSort(magicItems);
+    sortsAndShuffles.insertionSort(magicItems);
     
     return 0;
 }
