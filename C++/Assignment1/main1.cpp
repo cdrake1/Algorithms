@@ -1,5 +1,5 @@
 //main file to run assignment 1 folder
-//rebuild progam1 and run it by running: clang++ -o program1 main1.cpp readFile.cpp Node.cpp Sorts.cpp and then: ./program1 in terminal
+//rebuild progam1 and run it by running: make clean, make, followed by the exe name in terminal
 #include "readFile.hpp"
 #include "Node.hpp"
 #include "Sorts.hpp"

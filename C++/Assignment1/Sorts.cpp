@@ -5,8 +5,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 vector<string> Sorts:: knuthShuffle(vector<string> magicItems){
 
     srand (time(NULL)); //initialize seed value so we get different random nums

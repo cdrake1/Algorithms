@@ -8,8 +8,6 @@
 #include <vector>
 #include <cstring>
 
-using namespace std;
-
 vector<string> readFile :: readInto() {
     
     string filePath;
