@@ -74,6 +74,8 @@ char Queue::dequeue(){ //remove node from front of line
             tail = nullptr;
         }
         return temp->val;
+        temp = nullptr;
+        delete temp;
     }
 };
 
