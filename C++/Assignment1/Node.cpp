@@ -21,6 +21,8 @@ void Stack::push(char val) { // push node onto stack
     else{
         newNode->next = top;
         top = newNode;
+        newNode = nullptr;
+        delete newNode;
     }
 };
 
@@ -33,6 +35,8 @@ char Stack::pop(){ //pop top node off stack
         top = top->next;
         temp->next = nullptr;
         return temp->val;
+        temp = nullptr;
+        delete temp;
     }
 };
 
@@ -54,6 +58,8 @@ void Queue::enqueue(char val){ //add node to back of line
     else{ //if not make it rear
         tail->next = newNode2;
         tail = newNode2;
+        newNode2 = nullptr;
+        delete newNode2;
     }
 };
 
