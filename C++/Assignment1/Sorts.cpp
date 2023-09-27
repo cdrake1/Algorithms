@@ -42,8 +42,8 @@ void Sorts:: insertionSort(vector<string> magicItems){
     for(int i = 1; i < magicItems.size(); i++){ //iterate through vector. first element sorted
         string current = magicItems[i];
         int j = i - 1; //check with previous element
-        Icomparisons++;
         while(j >= 0 && current.compare(magicItems[j]) < 0){
+            Icomparisons++;
             magicItems[j + 1] = magicItems[j];
             j--;
         }
@@ -52,7 +52,6 @@ void Sorts:: insertionSort(vector<string> magicItems){
     cout<<"Insertion sort comparisons: " << Icomparisons << "\n";
 }
 
-
 void Sorts:: mergeSort(){
-
+    
 }
