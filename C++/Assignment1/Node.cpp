@@ -7,11 +7,11 @@
 Node::Node(char val){ //Node class constructor
     this->val = val;
     this->next = nullptr;
-};
+}
 
 Stack::Stack() { //Stack class constructor
     top = nullptr;
-};
+}
 
 void Stack::push(char val) { // push node onto stack
     Node* newNode = new Node(val);
@@ -24,7 +24,7 @@ void Stack::push(char val) { // push node onto stack
         newNode = nullptr;
         delete newNode;
     }
-};
+}
 
 char Stack::pop(){ //pop top node off stack
     if (isEmpty()){
@@ -38,16 +38,16 @@ char Stack::pop(){ //pop top node off stack
         temp = nullptr;
         delete temp;
     }
-};
+}
 
 bool Stack::isEmpty(){ //check if stack is empty
     return top == nullptr;
-};
+}
 
 Queue::Queue() { //Queue class constructor
     head = nullptr;
     tail = nullptr;
-};
+}
 
 void Queue::enqueue(char val){ //add node to back of line
     Node* newNode2 = new Node(val);
@@ -61,7 +61,7 @@ void Queue::enqueue(char val){ //add node to back of line
         newNode2 = nullptr;
         delete newNode2;
     }
-};
+}
 
 char Queue::dequeue(){ //remove node from front of line
     if(isEmpty()){
@@ -77,8 +77,8 @@ char Queue::dequeue(){ //remove node from front of line
         temp = nullptr;
         delete temp;
     }
-};
+}
 
 bool Queue::isEmpty(){ //check if queue is empty
     return head == nullptr;
-};
+}

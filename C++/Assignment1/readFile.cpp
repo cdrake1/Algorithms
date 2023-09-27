@@ -33,8 +33,8 @@ vector<string> readFile :: readInto() {
 
     }
     else{
-        cout << "Something went wrong when trying to open the file";
+        cout << "Something went wrong when trying to open the file \n";
     }
 
     return fileLines;
-};
+}

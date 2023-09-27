@@ -12,6 +12,10 @@ class Sorts{
         vector<string> knuthShuffle(vector<string> magicItems);
         void selectionSort(vector<string> magicItems);
         void insertionSort(vector<string> magicItems);
+        void mergeSort();
+        void divide();
+        void quickSort();
+        void partition();
 };
 
 #endif
