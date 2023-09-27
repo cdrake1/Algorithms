@@ -37,11 +37,11 @@ int main() {
     }
 
     // sorts and shuffling
-    Sorts sortsAndShuffles; //create instance of sorts/shuffles
+    Sorts sorts; //create instance of sorts/shuffles
 
-    magicItems = sortsAndShuffles.knuthShuffle(magicItems); //randomize text array
-    sortsAndShuffles.selectionSort(magicItems); //call selection sort
-    sortsAndShuffles.insertionSort(magicItems); //call insertion sort
-    
+    magicItems = sorts.knuthShuffle(magicItems); //randomize text array
+    sorts.selectionSort(magicItems); //call selection sort
+    sorts.insertionSort(magicItems); //call insertion sort
+    sorts.mergeSort(magicItems, 0, magicItems.size() - 1); //call merge sort
     return 0;
 }
