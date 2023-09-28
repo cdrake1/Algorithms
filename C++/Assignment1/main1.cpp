@@ -39,9 +39,8 @@ int main() {
     // sorts and shuffling
     Sorts sorts; //create instance of sorts/shuffles
 
-    magicItems = sorts.knuthShuffle(magicItems); //randomize text array
     sorts.selectionSort(magicItems); //call selection sort
+    sorts.knuthShuffle(magicItems); //randomize text array
     sorts.insertionSort(magicItems); //call insertion sort
-    sorts.mergeSort(magicItems, 0, magicItems.size() - 1); //call merge sort
     return 0;
 }
