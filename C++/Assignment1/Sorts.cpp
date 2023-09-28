@@ -51,3 +51,44 @@ void Sorts:: insertionSort(vector<string>& magicItems){
     }
     cout<<"Insertion sort comparisons: " << iComparisons << "\n";
 }
+
+void Sorts:: mergeSort(vector<string>& magicItems, int start, int end){
+    if(end >= start){
+        int middle = (start + end) / 2; //find middle point
+        mergeSort(magicItems, start, middle); //sort left
+        mergeSort(magicItems, middle + 1, end); //sort right
+        merge(magicItems, start, middle, end); //merge sorted arrays
+    }
+}
+
+void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end){
+    int mComparisons = 0;
+    int left = start, right = middle + 1;
+    vector<string> subArray(end - start + 1);
+
+    for(int i = 0; i < end - start + 1; i++){
+        mComparisons++;
+        if(right > end){
+            subArray.at(i) = magicItems.at(left);
+            left++;
+        }
+        else if (left > middle)
+        {
+            subArray.at(i) = magicItems.at(right);
+            right++;
+        }
+        else if (magicItems.at(left).compare(magicItems.at(right)) < 0)
+        {
+            subArray.at(i) = magicItems.at(left);
+            left++;
+        }
+        else{
+            subArray.at(i) = magicItems.at(right);
+            right++;
+        }
+    }
+    for(int j = 0; j <= end - start + 1; j++){
+        magicItems.at(start + j) = subArray.at(j);
+    }
+    cout<<"Merge sort comparisons: " << mComparisons << "\n";
+}

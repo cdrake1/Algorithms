@@ -42,5 +42,8 @@ int main() {
     sorts.selectionSort(magicItems); //call selection sort
     sorts.knuthShuffle(magicItems); //randomize text array
     sorts.insertionSort(magicItems); //call insertion sort
+
+    sorts.knuthShuffle(magicItems); //randomize text array
+    sorts.mergeSort(magicItems, 0, magicItems.size() - 1); //call merge sort
     return 0;
 }
