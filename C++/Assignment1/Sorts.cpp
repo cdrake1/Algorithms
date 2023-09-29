@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-vector<string> Sorts:: knuthShuffle(vector<string>& magicItems){
+vector<string> Sorts:: knuthShuffle(vector<string>& magicItems){ //randomly shuffles all elements in magic items
 
     srand (time(NULL)); //initialize seed value so we get different random nums
 
@@ -18,7 +18,7 @@ vector<string> Sorts:: knuthShuffle(vector<string>& magicItems){
     return magicItems;
 }
 
-void Sorts:: selectionSort(vector<string>& magicItems){
+void Sorts:: selectionSort(vector<string>& magicItems){ //selection sort to sort magic items
     int sComparisons = 0; //comparisons counter for selection sort
     for(int i = 0; i < magicItems.size(); i++){ //iterate through vector
         int smallestPos = i; //smallest index
@@ -37,7 +37,7 @@ void Sorts:: selectionSort(vector<string>& magicItems){
     cout<<"Selection sort comparisons: " << sComparisons << "\n";
 }
 
-void Sorts:: insertionSort(vector<string>& magicItems){
+void Sorts:: insertionSort(vector<string>& magicItems){ //insertion sort to sort magic items
     int iComparisons = 0;
     for(int i = 1; i < magicItems.size(); i++){ //iterate through vector. first element sorted
         string current = magicItems[i];
@@ -52,43 +52,49 @@ void Sorts:: insertionSort(vector<string>& magicItems){
     cout<<"Insertion sort comparisons: " << iComparisons << "\n";
 }
 
-void Sorts:: mergeSort(vector<string>& magicItems, int start, int end){
-    if(end >= start){
-        int middle = (start + end) / 2; //find middle point
-        mergeSort(magicItems, start, middle); //sort left
-        mergeSort(magicItems, middle + 1, end); //sort right
-        merge(magicItems, start, middle, end); //merge sorted arrays
+void Sorts:: mergeSort(vector<string>& magicItems, int start, int end, int& comparisons){ //merge sort to sort magic items
+    if(start >= end){
+        return;
     }
+    int middle = (start + end) / 2; //find middle point
+    mergeSort(magicItems, start, middle, comparisons); //sort left
+    mergeSort(magicItems, middle + 1, end, comparisons); //sort right
+    merge(magicItems, start, middle, end, comparisons); //merge sorted arrays
 }
 
-void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end){
-    int mComparisons = 0;
+void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end, int& comparisons){ //merge sorted arrays together
+    //declare left and right pointer. Also create temp sub array of proper length
     int left = start, right = middle + 1;
-    vector<string> subArray(end - start + 1);
+    vector<string> subVec(end - start + 1);
 
+    //iterate through sub array
     for(int i = 0; i < end - start + 1; i++){
-        mComparisons++;
+        comparisons++; //count comparisons
         if(right > end){
-            subArray.at(i) = magicItems.at(left);
+            //add element from left side
+            subVec.at(i) = magicItems.at(left);
             left++;
         }
         else if (left > middle)
         {
-            subArray.at(i) = magicItems.at(right);
+            //add element from right side
+            subVec.at(i) = magicItems.at(right);
             right++;
         }
         else if (magicItems.at(left).compare(magicItems.at(right)) < 0)
         {
-            subArray.at(i) = magicItems.at(left);
+            //add element from left side
+            subVec.at(i) = magicItems.at(left);
             left++;
         }
         else{
-            subArray.at(i) = magicItems.at(right);
+            //add element from right side
+            subVec.at(i) = magicItems.at(right);
             right++;
         }
     }
-    for(int j = 0; j <= end - start + 1; j++){
-        magicItems.at(start + j) = subArray.at(j);
+    //move subvector elements to main vector
+    for(int j = 0; j < end - start + 1; j++){
+        magicItems.at(start + j) = subVec.at(j);
     }
-    cout<<"Merge sort comparisons: " << mComparisons << "\n";
 }

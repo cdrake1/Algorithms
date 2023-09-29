@@ -9,11 +9,12 @@ using namespace std;
 
 class Sorts{
     public:
+        //declarations of all sorts and shuffles
         vector<string> knuthShuffle(vector<string>& magicItems);
         void selectionSort(vector<string>& magicItems);
         void insertionSort(vector<string>& magicItems);
-        void mergeSort(vector<string>& magicItems, int start, int end);
-        void merge(vector<string>& magicItems, int start, int middle, int end);
+        void mergeSort(vector<string>& magicItems, int start, int end, int& comparisons);
+        void merge(vector<string>& magicItems, int start, int middle, int end, int& comparisons);
         void quickSort();
         void partition();
 };

@@ -37,13 +37,16 @@ int main() {
     }
 
     // sorts and shuffling
-    Sorts sorts; //create instance of sorts/shuffles
+    Sorts sorts;
+    int mComparisons = 0; //merge sort comparisons counter
 
-    sorts.selectionSort(magicItems); //call selection sort
-    sorts.knuthShuffle(magicItems); //randomize text array
-    sorts.insertionSort(magicItems); //call insertion sort
+    //call sorts/shuffles and pass magicItems
+    sorts.selectionSort(magicItems);
+    sorts.knuthShuffle(magicItems);
+    sorts.insertionSort(magicItems);
+    sorts.knuthShuffle(magicItems);
+    sorts.mergeSort(magicItems, 0, magicItems.size() - 1, mComparisons);
 
-    sorts.knuthShuffle(magicItems); //randomize text array
-    sorts.mergeSort(magicItems, 0, magicItems.size() - 1); //call merge sort
+    cout<<"Merge sort comparisons: " << mComparisons << "\n";
     return 0;
 }
