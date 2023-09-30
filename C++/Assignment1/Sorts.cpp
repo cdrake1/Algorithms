@@ -98,3 +98,40 @@ void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end, i
         magicItems.at(start + j) = subVec.at(j);
     }
 }
+
+
+void Sorts:: quickSort(vector<string>& magicItems, int start, int end){
+    if(start >= end){
+        return;
+    }
+    int pivot = magicItems.at(); //choose pivot
+
+    int r = partition(magicItems, start, end, pivot);
+    quickSort(magicItems, start, r - 1);
+    quickSort(magicItems, r + 1, end);
+}
+
+int Sorts:: partition(vector<string>& magicItems, int start, int end, int pivot){
+    string temp = magicItems.at(pivot);
+    magicItems.at(pivot) = magicItems.at(end);
+    magicItems.at(end) = temp;
+    temp = nullptr;
+
+    int l = 0;
+    for(int i = 1; i < end - 1; i++){
+        if(magicItems.at(i).compare(magicItems.at(end)) < 0){
+            l += 1;
+            temp = magicItems.at(l);
+            magicItems.at(l) = magicItems.at(i);
+            magicItems.at(i) = temp;
+            temp = nullptr;
+        }
+    }
+    temp = magicItems.at(end);
+    magicItems.at(end) = magicItems.at(l + 1);
+    magicItems.at(l + 1) = temp;
+    temp = nullptr;
+
+    return l + 1; //returns new index of pivot
+
+}
