@@ -1,5 +1,5 @@
 //main file to run assignment 1 folder
-//rebuild progam1 and run it by running: make clean, make, followed by the exe name in terminal
+//rebuild progam1 and run it by running: make followed by the exe name in terminal. To clean and rerun: make clean, make, followed by the exe name
 #include "readFile.hpp"
 #include "Node.hpp"
 #include "Sorts.hpp"
@@ -39,6 +39,7 @@ int main() {
     // sorts and shuffling
     Sorts sorts;
     int mComparisons = 0; //merge sort comparisons counter
+    int qComparisons = 0; //quick sort comparisons counter
 
     //call sorts/shuffles and pass magicItems
     sorts.selectionSort(magicItems);
@@ -46,7 +47,10 @@ int main() {
     sorts.insertionSort(magicItems);
     sorts.knuthShuffle(magicItems);
     sorts.mergeSort(magicItems, 0, magicItems.size() - 1, mComparisons);
+    sorts.knuthShuffle(magicItems);
+    sorts.quickSort(magicItems, 0, magicItems.size() - 1, qComparisons);
 
     cout<<"Merge sort comparisons: " << mComparisons << "\n";
+    cout<<"Quick sort comparisons: " << qComparisons << "\n";
     return 0;
 }

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-vector<string> Sorts:: knuthShuffle(vector<string>& magicItems){ //randomly shuffles all elements in magic items
+void Sorts:: knuthShuffle(vector<string>& magicItems){ //randomly shuffles all elements in magic items
 
     srand (time(NULL)); //initialize seed value so we get different random nums
 
@@ -15,7 +15,6 @@ vector<string> Sorts:: knuthShuffle(vector<string>& magicItems){ //randomly shuf
         magicItems[i] = magicItems[random];
         magicItems[random] = temp;
     }
-    return magicItems;
 }
 
 void Sorts:: selectionSort(vector<string>& magicItems){ //selection sort to sort magic items
@@ -23,7 +22,7 @@ void Sorts:: selectionSort(vector<string>& magicItems){ //selection sort to sort
     for(int i = 0; i < magicItems.size(); i++){ //iterate through vector
         int smallestPos = i; //smallest index
         for(int j = i + 1; j < magicItems.size(); j++){ //increment and compare elements with smallest
-            sComparisons++; //increment comparisons
+            sComparisons++;
             if(magicItems[smallestPos].compare(magicItems[j]) > 0){
                 //if smaller change smallest
                 smallestPos = j;
@@ -100,34 +99,35 @@ void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end, i
 }
 
 
-void Sorts:: quickSort(vector<string>& magicItems, int start, int end){
+void Sorts:: quickSort(vector<string>& magicItems, int start, int end, int& comparisons){ //quick sort algorithm
     if(start >= end){
         return;
     }
-    int pivotIndex = (start + end) / 2;
-    string pivot = magicItems[pivotIndex]; //choose pivot
+    int pivotIndex = (start + end) / 2; //choose pivot index/value
+    string pivot = magicItems[pivotIndex];
 
-    pivotIndex = partition(magicItems, start, end, pivot);
+    pivotIndex = partition(magicItems, start, end, pivot, comparisons); //partition based on pivot
 
-    quickSort(magicItems, start, pivotIndex - 1);
-    quickSort(magicItems, pivotIndex + 1, end);
+    quickSort(magicItems, start, pivotIndex - 1, comparisons); //sort left and right elements
+    quickSort(magicItems, pivotIndex + 1, end, comparisons);
 }
 
-int Sorts:: partition(vector<string>& magicItems, int start, int end, string pivot){
-    int l = start - 1;
+int Sorts:: partition(vector<string>& magicItems, int start, int end, string pivot, int& comparisons){
+    int l = start - 1; //less than pivot elements
 
-    for(int i = start; i <= end - 1; i++){
-        if(magicItems[i].compare(pivot) < 0){
+    for(int i = start; i <= end - 1; i++){ //iterate from start to end
+        comparisons++;
+        if(magicItems[i].compare(pivot) < 0){ //check if less than pivot, swap, and increment
             l++;
-            string temp = magicItems[l];
+            string temp = magicItems[l]; //swap
             magicItems[l] = magicItems[i];
             magicItems[i] = temp;
         }
     }
-    string temp1 = magicItems[l + 1];
+    string temp1 = magicItems[l + 1]; //swap
     magicItems[l + 1] = magicItems[end];
     magicItems[end] = temp1;
 
-    return l+1;
+    return l+1; //return elements less than pivot
 
 }

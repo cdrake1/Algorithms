@@ -14,11 +14,11 @@ vector<string> readFile :: readInto() {
     string line;
     vector<string> fileLines;
 
-    cout << "Enter the path of the file: ";
+    cout << "Enter the path of the file: "; //grab user input for file path
     cin >> filePath;
 
     fstream magicFile;
-    magicFile.open(filePath);
+    magicFile.open(filePath); //open file
 
     if(magicFile.is_open()){ //check if file is open, remove spaces, and make each letter lowercase, then add it to vector
         while(getline(magicFile, line)){
@@ -26,15 +26,13 @@ vector<string> readFile :: readInto() {
             for(int i = 0; i < line.length(); i++){
                 line[i] = tolower(line[i]);
             }
-            fileLines.push_back(line);
+            fileLines.push_back(line); //push onto the end of the vector
         }
-        magicFile.close();
-        cout << "File read correctly. \n";
-
+        magicFile.close(); //close file
+        cout << "File read correctly \n";
     }
-    else{
+    else{ //error checking
         cout << "Something went wrong when trying to open the file \n";
     }
-
     return fileLines;
 }
