@@ -16,7 +16,7 @@ class Sorts{
         void mergeSort(vector<string>& magicItems, int start, int end, int& comparisons);
         void merge(vector<string>& magicItems, int start, int middle, int end, int& comparisons);
         void quickSort(vector<string>& magicItems, int start, int end);
-        int partition(vector<string>& magicItems, int start, int end, int pivot);
+        int partition(vector<string>& magicItems, int start, int end, string pivot);
 };
 
 #endif

@@ -72,30 +72,30 @@ void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end, i
         comparisons++; //count comparisons
         if(right > end){
             //add element from left side
-            subVec.at(i) = magicItems.at(left);
+            subVec[i] = magicItems[left];
             left++;
         }
         else if (left > middle)
         {
             //add element from right side
-            subVec.at(i) = magicItems.at(right);
+            subVec[i] = magicItems[right];
             right++;
         }
-        else if (magicItems.at(left).compare(magicItems.at(right)) < 0)
+        else if (magicItems[left].compare(magicItems[right]) < 0)
         {
             //add element from left side
-            subVec.at(i) = magicItems.at(left);
+            subVec[i] = magicItems[left];
             left++;
         }
         else{
             //add element from right side
-            subVec.at(i) = magicItems.at(right);
+            subVec[i] = magicItems[right];
             right++;
         }
     }
     //move subvector elements to main vector
     for(int j = 0; j < end - start + 1; j++){
-        magicItems.at(start + j) = subVec.at(j);
+        magicItems[start + j] = subVec[j];
     }
 }
 
@@ -104,34 +104,30 @@ void Sorts:: quickSort(vector<string>& magicItems, int start, int end){
     if(start >= end){
         return;
     }
-    int pivot = magicItems.at(); //choose pivot
+    int pivotIndex = (start + end) / 2;
+    string pivot = magicItems[pivotIndex]; //choose pivot
 
-    int r = partition(magicItems, start, end, pivot);
-    quickSort(magicItems, start, r - 1);
-    quickSort(magicItems, r + 1, end);
+    pivotIndex = partition(magicItems, start, end, pivot);
+
+    quickSort(magicItems, start, pivotIndex - 1);
+    quickSort(magicItems, pivotIndex + 1, end);
 }
 
-int Sorts:: partition(vector<string>& magicItems, int start, int end, int pivot){
-    string temp = magicItems.at(pivot);
-    magicItems.at(pivot) = magicItems.at(end);
-    magicItems.at(end) = temp;
-    temp = nullptr;
+int Sorts:: partition(vector<string>& magicItems, int start, int end, string pivot){
+    int l = start - 1;
 
-    int l = 0;
-    for(int i = 1; i < end - 1; i++){
-        if(magicItems.at(i).compare(magicItems.at(end)) < 0){
-            l += 1;
-            temp = magicItems.at(l);
-            magicItems.at(l) = magicItems.at(i);
-            magicItems.at(i) = temp;
-            temp = nullptr;
+    for(int i = start; i <= end - 1; i++){
+        if(magicItems[i].compare(pivot) < 0){
+            l++;
+            string temp = magicItems[l];
+            magicItems[l] = magicItems[i];
+            magicItems[i] = temp;
         }
     }
-    temp = magicItems.at(end);
-    magicItems.at(end) = magicItems.at(l + 1);
-    magicItems.at(l + 1) = temp;
-    temp = nullptr;
+    string temp1 = magicItems[l + 1];
+    magicItems[l + 1] = magicItems[end];
+    magicItems[end] = temp1;
 
-    return l + 1; //returns new index of pivot
+    return l+1;
 
 }
