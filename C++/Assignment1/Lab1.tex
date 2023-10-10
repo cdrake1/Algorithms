@@ -1,0 +1,813 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CMPT xxx
+% Some Semester
+% Lab/Assignment/Project X
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: % Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% Modified by Alan G. Labouseur  - alan@labouseur.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper, 10pt,DIV=13]{scrartcl} 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,xfrac} % Math packages
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{graphicx}
+\usepackage[lined,linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{parskip}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage[colorlinks=true, urlcolor=blue]{hyperref}
+\lstset{
+    language=C++
+}
+
+\allsectionsfont{\normalfont\scshape} % Make all section titles in default font and small caps.
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{page \thepage\ of \pageref{LastPage}} % Page numbering for right footer
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs.
+
+\binoppenalty=3000
+\relpenalty=3000
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+   \normalfont \normalsize 
+   \textsc{CMPT 435 - Fall 2023 - Dr. Labouseur} \\[10pt] % Header stuff.
+   \horrule{0.5pt} \\[0.25cm] 	% Top horizontal rule
+   \huge Assignment One  \\     	    % Assignment title
+   \horrule{0.5pt} \\[0.25cm] 	% Bottom horizontal rule
+}
+
+\author{Collin Drake \\ \normalsize Collin.Drake1@Marist.edu}
+
+\date{\normalsize\today} 	% Today's date.
+
+\begin{document}
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM ONE
+%----------------------------------------------------------------------------------------
+\section{Linked List}
+
+\subsection{The Data Structure}
+A linked list is a collection of objects that are linked together by pointers to addresses in memory. The objects, or nodes, of a linked list contain two fields: the data stored within the node, and the memory address of the next node in the list. A linked list can have either one or two entry points, denoted as the head or tail, which allow access from the beginning or end of the list. A linked list is an elementary data structure that can be used to build other fundamental data structures and algorithms. In this case, we will use the basic characteristics of a linked list to create a stack and queue. Therefore, we will only need one aspect from a linked list, the node class, to create these data structures. The node class creates the nodes of a data structure by taking in data and pairing it with a null pointer.
+
+\subsubsection*{Node Class}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    #include "Node.hpp"
+    #include <stdexcept>
+
+    Node::Node(char val){ //Node class constructor
+        this->val = val;
+        this->next = nullptr;
+    }
+
+\end{lstlisting}
+
+\subsection{Asymptotic Analysis}
+Given a linked list and assuming that there is a pointer to the head, there are four key operations that can be performed: accessing an element, adding an element to the head, adding an element at any point, and removing an element from any point. Each of these operations can be characterized by its time complexity. When it comes to accessing an element in a linked list, the worst-case scenario would be linear time, O(n), as the element could be located at the end, forcing you to iterate through the list. Adding an element to the head would be constant time, O(1) since we have direct access to the head. However, insertion or removal from any other point within the list signifies the time complexity to be linear, or O(n).
+
+
+%----------------------------------------------------------------------------------------
+%   end PROBLEM ONE
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM TWO
+%----------------------------------------------------------------------------------------
+\section{Stack}
+
+\subsection{The Data Structure}
+A stack is a collection of objects that follows the LIFO (Last in First Out) principle. Initially, you can think of a stack as a vertical singly linked list where elements can only be added and removed from the head or top of the stack. An example of a stack would be a stack of plates, where plates are added and removed from the top of the stack. There are three fundamental operations that make up a stack: push, pop, and isEmpty.
+
+\subsubsection*{Stack Constructor}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    Stack::Stack() { //Stack class constructor
+        top = nullptr;
+    }
+
+\end{lstlisting}
+
+\subsubsection{Push}
+The push function of a stack is used to push or add an element to the top of a stack. This function takes one parameter, the data, creates a node, and then adds it to the top of the stack. In this process, if the stack is empty, the new object becomes the top of the stack. However, if the stack already contains elements, the new element is still positioned at the top, but this action requires a change in memory pointers. More specifically, the pointer for the current top element and the next pointer for the new element must be arranged in order for the new element to become the top, and for the top to become the next node. 
+
+\subsubsection*{Push}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    void Stack::push(char val) { // push node onto stack
+        Node* newNode = new Node(val);
+        if(isEmpty()){
+            top = newNode;
+        }
+        else{
+            newNode->next = top;
+            top = newNode;
+            newNode = nullptr;
+            delete newNode;
+        }
+    }
+
+\end{lstlisting}
+\subsubsection{Pop}
+The pop function of a stack is used to remove the top element of a stack. It takes no parameters, but instead returns the data contained in the recently popped node. When performing a pop operation, there are two important actions that must be taken: the first one is to ensure we are not attempting to remove a non-existent node, and the second one is to properly reassign the pointers for both the new top element and the recently removed element.
+
+\pagebreak
+
+\subsubsection*{Pop}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    char Stack::pop(){ //pop top node off stack
+        if (isEmpty()){
+            throw invalid_argument("The stack is empty");
+        }
+        else{
+            Node* temp = top;
+            top = top->next;
+            temp->next = nullptr;
+            return temp->val;
+            temp = nullptr;
+            delete temp;
+        }
+    }
+
+\end{lstlisting}
+\subsubsection{isEmpty}
+The isEmpty function of a stack simply checks if a Stack is empty and returns true or false.  It does this by checking if the top of the stack is equal to null, or if it contains an element.
+
+\subsubsection*{isEmpty}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    bool Stack::isEmpty(){ //check if stack is empty
+        return top == nullptr;
+    }
+    
+\end{lstlisting}
+
+
+\subsection{Asymptotic Analysis}
+A stack maintains a consistent time complexity for all of its operations. When looking at the time complexity of the stack functions: push, pop, and isEmpty, it's easy to determine each time complexity since they all involve minimal calculations. When calling the push function to add a new element to the top of a stack, this operation runs in constant time, denoted as O(1), because we can only add elements to the top of the stack. Similarly, the pop function also runs in constant time, O(1), because it involves removing elements from the top of the stack. The isEmpty function also runs in constant time since it only performs a comparison. The time complexities of the stack functions all run in constant time, O(1), regardless of the size of the stack.
+
+
+%----------------------------------------------------------------------------------------
+%   end PROBLEM Two
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM Three
+%----------------------------------------------------------------------------------------
+\section{Queue}
+
+\subsection{The Data Structure}
+A queue is a data structure that follows the FIFO (First in First Out) principle, meaning that the first element in the list is the first to be removed. A queue shares some similarities to a stack, as it is a collection of nodes, but it operates under different features and rules. You can visualize a queue as a real-life lunch line. Students stand in line, and the first students in the line are the first to get their food and the first to leave. Those who arrive later are added to the end of the line and have to wait their turn. A queue typically supports three main functions: enqueue, dequeue, and isEmpty.
+
+\subsubsection*{Queue Constructor}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    Queue::Queue() { //Queue class constructor
+        head = nullptr;
+        tail = nullptr;
+    }
+    
+\end{lstlisting}
+
+\subsubsection{Enqueue}
+The enqueue function of a queue adds or enqueues nodes to the end of the queue. This function takes in one parameter, the data, creates a new node, and adds it to the tail or end of the queue. When adding an element to a queue, if there are no other nodes in the list, the newly added element becomes the head and tail. However, if the queue is already populated, the new node is added to the tail, forcing a change of memory pointers. More specifically, the tail pointer of the queue must be updated to point to this new node, and the next pointer to the previous tail.
+
+\subsubsection*{Enqueue}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    void Queue::enqueue(char val){ //add node to back of line
+        Node* newNode2 = new Node(val);
+        if(isEmpty()){ //if empty make node head and tail
+            head = newNode2;
+            tail = newNode2;
+        }
+        else{ //if not make it rear
+            tail->next = newNode2;
+            tail = newNode2;
+            newNode2 = nullptr;
+            delete newNode2;
+        }
+    }
+    
+    
+\end{lstlisting}
+
+\subsubsection{Dequeue}
+The dequeue function of a queue removes, or dequeues a node from a queue. This function accepts no parameters, but returns the data of the removed node. When dequeuing a node, we remove it from the head of the list and rearrange the pointers. After removing the current head, the next node becomes the new head, and the next pointer is updated to point to the node following it.
+
+\pagebreak
+
+\subsubsection*{Dequeue}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    char Queue::dequeue(){ //remove node from front of line
+        if(isEmpty()){
+            throw invalid_argument("The queue is empty");
+        }
+        else{
+            Node* temp = head;
+            head = head->next; //change front
+            if(head == nullptr){
+                tail = nullptr;
+            }
+            return temp->val;
+            temp = nullptr;
+            delete temp;
+        }
+    }
+    
+\end{lstlisting}
+
+\subsubsection{isEmpty}
+The isEmpty function for a queue is a straightforward check to see if a queue is empty or not. The function returns true or false, indicating whether there are any elements in the queue or not. When checking if a queue is empty, the function checks if the head points to null or a node.
+
+\subsubsection*{Queue isEmpty}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    bool Queue::isEmpty(){ //check if queue is empty
+        return head == nullptr;
+    }
+    
+\end{lstlisting}
+
+
+\subsection{Asymptotic Analysis}
+Given a standard queue with pointers to the head and tail, the operations are enqueue, dequeue, and isEmpty. Each of these operations has to have clearly defined time complexities of constant time, O(1). The reason these queue operations run in constant time is because each addition to the tail of a queue or removal from the head of a queue only involve minor calculations. Additionally, the isEmpty operation is a simple comparison, which also executes in constant time, O(1).
+
+%----------------------------------------------------------------------------------------
+%   end PROBLEM THREE
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM Four
+%----------------------------------------------------------------------------------------
+\section{Selection Sort}
+
+\subsection{The Algorithm}
+The algorithm selection sort is an algorithm used to sort a collection of items in ascending order. Selection sort works by iterating left to right and dividing the collection into two sections: a sorted section on the left, and an unsorted section on the right. During each iteration of selection sort, it finds the smallest element in the unsorted section and swaps it with the first element in that same section, effectively extending the sorted section further right. Selection sort continues to iterate and compare through the unsorted section until the entire collection becomes sorted.
+
+\subsubsection*{Selection Sort}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    void Sorts:: selectionSort(vector<string>& magicItems){ //sort magic items
+        int sComparisons = 0; //comparisons counter for selection sort
+        for(int i = 0; i < magicItems.size(); i++){ //iterate through vector
+            int smallestPos = i; //smallest index
+            for(int j = i + 1; j < magicItems.size(); j++){ //increment and compare elements
+                sComparisons++;
+                if(magicItems[smallestPos].compare(magicItems[j]) > 0){
+                    //if smaller change smallest
+                    smallestPos = j;
+                }
+            }
+            //swap using temp variable
+            string temp = magicItems[i];
+            magicItems[i] = magicItems[smallestPos];
+            magicItems[smallestPos] = temp;
+        }
+        cout<<"Selection sort comparisons: " << sComparisons << "\n";
+    }
+    
+\end{lstlisting}
+
+
+\subsection{Asymptotic Analysis}
+When sorting an unsorted collection of elements using selection sort, the worst-case time complexity will be $O(n^2)$. The reason for this arises from the nested for-loops used within the algorithm. In terms of time complexity: basic calculations, assignments, and comparisons generally run in constant time, O(1). However, given that selection sort employs a nested loop (two for loops, one nested in the other), the function is forced to run in quadratic time. This signifies that as the input size increases, the time required to complete selection sort grows quadratically.
+
+%----------------------------------------------------------------------------------------
+%   end PROBLEM Four
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM Five
+%----------------------------------------------------------------------------------------
+\section{Insertion Sort}
+
+\subsection{The Algorithm}
+Insertion sort is a sorting algorithm that shares some similarities with selection sort, but is overall different. Instead of comparing all elements to the right of the sorted section, insertion sort focuses on comparing each element in the unsorted section with all of the elements in the sorted section. The algorithm initially starts with one sorted element while all the others are unsorted. Insertion sort iterates through the unsorted section and inserts each unsorted element into its proper place in the sorted section until all elements are deemed sorted.
+
+\subsubsection*{Insertion Sort}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    void Sorts:: insertionSort(vector<string>& magicItems){ //sort magic items
+        int iComparisons = 0;
+        for(int i = 1; i < magicItems.size(); i++){ //first element sorted
+            string current = magicItems[i];
+            int j = i - 1; //check with previous element
+            while(j >= 0 && current.compare(magicItems[j]) < 0){
+                iComparisons++;
+                magicItems[j + 1] = magicItems[j];
+                j--;
+            }
+            magicItems[j + 1] = current;
+        }
+        cout<<"Insertion sort comparisons: " << iComparisons << "\n";
+    }
+    
+\end{lstlisting}
+
+\subsection{Asymptotic Analysis}
+When sorting an unsorted collection of elements using insertion sort the worst-case time complexity, similar to selection sort, will be $O(n^2)$. The quadratic time complexity is primarily due to the fact that insertion sort deploys a nested for-loop structure. This structure causes the algorithm to make multiple loops of varying lengths through an n range of elements. As a result, the efficiency of this algorithm decreases as the input size increases.
+%----------------------------------------------------------------------------------------
+%   end PROBLEM Five
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM Six
+%----------------------------------------------------------------------------------------
+\section{Merge Sort}
+The merge sort algorithm is a sorting method that uses the divide and conquer technique to sort a collection of elements. Merge sort sorts a collection of elements with two main functions: mergeSort and merge. The mergeSort function deploys the divide technique, dividing the collection into smaller sub-arrays by calling itself recursively. This recursive call continues until each element is in its own individual sub-array. On the contrary, the merge function deploys the conquer technique, merging these individual collections and sorting them in the process. This merging process continues until all the sub-collections are merged and sorted into a large collection of sorted objects.
+
+\subsection{The Algorithm}
+
+\subsubsection*{Merge Sort}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    void Sorts:: mergeSort(vector<string>& magicItems, int start, int end, int& comparisons){
+        if(start >= end){
+            return;
+        }
+        int middle = (start + end) / 2; //find middle point
+        mergeSort(magicItems, start, middle, comparisons); //sort left
+        mergeSort(magicItems, middle + 1, end, comparisons); //sort right
+        merge(magicItems, start, middle, end, comparisons); //merge sorted arrays
+    }
+    
+\end{lstlisting}
+
+\subsubsection*{Merge}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end,
+    int& comparisons){ //merge sorted arrays together
+        //declare left and right pointer. Also create temp sub array of proper length
+        int left = start, right = middle + 1;
+        vector<string> subVec(end - start + 1);
+    
+        //iterate through sub array
+        for(int i = 0; i < end - start + 1; i++){
+            comparisons++; //count comparisons
+            if(right > end){
+                //add element from left side
+                subVec[i] = magicItems[left];
+                left++;
+            }
+            else if (left > middle)
+            {
+                //add element from right side
+                subVec[i] = magicItems[right];
+                right++;
+            }
+            else if (magicItems[left].compare(magicItems[right]) < 0)
+            {
+                //add element from left side
+                subVec[i] = magicItems[left];
+                left++;
+            }
+            else{
+                //add element from right side
+                subVec[i] = magicItems[right];
+                right++;
+            }
+        }
+        //move subvector elements to main vector
+        for(int j = 0; j < end - start + 1; j++){
+            magicItems[start + j] = subVec[j];
+        }
+    }
+    
+    
+\end{lstlisting}
+
+\subsection{Asymptotic Analysis}
+When sorting an unsorted collection of objects using merge sort, the worst-case time complexity is O(n log n). This time complexity is determined due to merge sorts' two fundamental steps: divide and conquer. The divide step has a time complexity of O(log n) because it recursively divides the collection, making it smaller until they become single-element sub-arrays. On the other hand, the conquer operation has a time complexity of O(n) because it involves merging the individual sub-arrays back together, meaning the time it takes to merge them grows linearly with the arrays' size.
+
+%----------------------------------------------------------------------------------------
+%   end PROBLEM Six
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM Seven
+%----------------------------------------------------------------------------------------
+\section{Quick Sort}
+The quick sort algorithm is a sorting algorithm that uses the divide and conquer approach when sorting a collection. Quick sort sorts a collection of elements using two functions: quickSort and partition. The quickSort function divides the collection in half by choosing a pivot element. It then recursively calls itself to divide the left and right sub-arrays continuously until it cannot be divided further. The partition function is responsible for the conquering and rearranging of elements in a sub-collection based on the pivot value. Elements smaller than the pivot are placed on the left, while elements larger than the pivot are placed on the right. This process is continuously called until the collection is completely sorted.
+
+\subsection{The Algorithm}
+
+\subsubsection*{Quick Sort}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    void Sorts:: quickSort(vector<string>& magicItems, int start, int end,
+    int& comparisons){ //quick sort algorithm
+        if(start >= end){
+            return;
+        }
+        int pivotIndex = (start + end) / 2; //choose pivot index/value
+        string pivot = magicItems[pivotIndex];
+
+        //partition based on pivot
+        pivotIndex = partition(magicItems, start, end, pivot, comparisons);
+
+        //sort left and right elements
+        quickSort(magicItems, start, pivotIndex - 1, comparisons); 
+        quickSort(magicItems, pivotIndex + 1, end, comparisons);
+    }
+    
+\end{lstlisting}
+
+\subsubsection*{Partition}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    int Sorts:: partition(vector<string>& magicItems, int start, int end, string pivot,
+    int& comparisons){
+        int l = start - 1; //less than pivot elements
+    
+        for(int i = start; i <= end - 1; i++){ //iterate from start to end
+            comparisons++;
+            //check if less than pivot, swap, and increment
+            if(magicItems[i].compare(pivot) < 0){ 
+                l++;
+                string temp = magicItems[l]; //swap
+                magicItems[l] = magicItems[i];
+                magicItems[i] = temp;
+            }
+        }
+        string temp1 = magicItems[l + 1]; //swap
+        magicItems[l + 1] = magicItems[end];
+        magicItems[end] = temp1;
+    
+        return l+1; //return elements less than pivot
+    
+    }
+    
+\end{lstlisting}
+
+\pagebreak
+
+\subsection{Asymptotic Analysis}
+The time complexity of quick sort, when applied to sort an unsorted collection of objects, is O(n log n). Much like merge sort, quick sort also uses the divide and conquer principle, but with randomly selected pivot points. In quick sort, when suitable pivot points are chosen, the algorithm is able to efficiently and recursively divide the input into two sub-arrays: one holding elements greater than the pivot, and the other possessing elements smaller than the pivot. This division process usually executes in O(log n) unless the worst pivot values are chosen. The conquer phase occurs when the partition function merges the pivoted arrays, which runs in O(n).
+%----------------------------------------------------------------------------------------
+%   end PROBLEM Seven
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   Appendix
+%----------------------------------------------------------------------------------------
+
+\section{Appendix}
+
+\subsection{Comparisons and Time Complexity}
+    \begin{center}
+        \begin{tabular}{|l|l|l|}
+            \hline
+            Insertion Sort & 221445 & $O(n^2)$  \\ \hline
+            Selection Sort & 108052 & $O(n^2)$ \\ \hline
+            Merge Sort     & 6302 & O(n log n) \\ \hline
+            Quick Sort     & 6214 & O(n log n) \\ \hline
+        \end{tabular}
+    \end{center}
+
+\subsubsection*{Node cpp}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    //This file creates the linkedlist/node class
+    //Also creates stack and queue classes
+    #include "Node.hpp"
+    
+    #include <stdexcept>
+    
+    Node::Node(char val){ //Node class constructor
+        this->val = val;
+        this->next = nullptr;
+    }
+    
+    Stack::Stack() { //Stack class constructor
+        top = nullptr;
+    }
+    
+    void Stack::push(char val) { // push node onto stack
+        Node* newNode = new Node(val);
+        if(isEmpty()){
+            top = newNode;
+        }
+        else{
+            newNode->next = top;
+            top = newNode;
+            newNode = nullptr;
+            delete newNode;
+        }
+    }
+    
+    char Stack::pop(){ //pop top node off stack
+        if (isEmpty()){
+            throw invalid_argument("The stack is empty");
+        }
+        else{
+            Node* temp = top;
+            top = top->next;
+            temp->next = nullptr;
+            return temp->val;
+            temp = nullptr;
+            delete temp;
+        }
+    }
+    
+    bool Stack::isEmpty(){ //check if stack is empty
+        return top == nullptr;
+    }
+    
+    Queue::Queue() { //Queue class constructor
+        head = nullptr;
+        tail = nullptr;
+    }
+    
+    void Queue::enqueue(char val){ //add node to back of line
+        Node* newNode2 = new Node(val);
+        if(isEmpty()){ //if empty make node head and tail
+            head = newNode2;
+            tail = newNode2;
+        }
+        else{ //if not make it rear
+            tail->next = newNode2;
+            tail = newNode2;
+            newNode2 = nullptr;
+            delete newNode2;
+        }
+    }
+    
+    char Queue::dequeue(){ //remove node from front of line
+        if(isEmpty()){
+            throw invalid_argument("The queue is empty");
+        }
+        else{
+            Node* temp = head;
+            head = head->next; //change front
+            if(head == nullptr){
+                tail = nullptr;
+            }
+            return temp->val;
+            temp = nullptr;
+            delete temp;
+        }
+    }
+    
+    bool Queue::isEmpty(){ //check if queue is empty
+        return head == nullptr;
+    }
+    
+\end{lstlisting}
+
+\subsubsection*{Sorts cpp}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+    \begin{lstlisting}[frame=single, ]
+    //This file creates the sort classes
+    #include "Sorts.hpp"
+    
+    #include <vector>
+    #include <iostream>
+    #include <string>
+    
+    void Sorts:: knuthShuffle(vector<string>& magicItems){ 
+    //randomly shuffles all elements in magic items
+    
+        srand (time(NULL)); //initialize seed value so we get different random nums
+    
+        for(int i = 0; i < magicItems.size(); i++){ 
+            //iterate through each line in magic items
+            int random = rand() % magicItems.size(); 
+            //generate random number between 1 and vector length
+            string temp = magicItems[i]; //swap
+            magicItems[i] = magicItems[random];
+            magicItems[random] = temp;
+        }
+    }
+    
+    void Sorts:: selectionSort(vector<string>& magicItems){ 
+        //selection sort to sort magic items
+        int sComparisons = 0; //comparisons counter for selection sort
+        for(int i = 0; i < magicItems.size(); i++){ 
+            //iterate through vector
+            int smallestPos = i; //smallest index
+            for(int j = i + 1; j < magicItems.size(); j++){ 
+                //increment and compare elements with smallest
+                sComparisons++;
+                if(magicItems[smallestPos].compare(magicItems[j]) > 0){
+                    //if smaller change smallest
+                    smallestPos = j;
+                }
+            }
+            //swap using temp variable
+            string temp = magicItems[i];
+            magicItems[i] = magicItems[smallestPos];
+            magicItems[smallestPos] = temp;
+        }
+        cout<<"Selection sort comparisons: " << sComparisons << "\n";
+    }
+    
+    void Sorts:: insertionSort(vector<string>& magicItems){ 
+        //insertion sort to sort magic items
+        int iComparisons = 0;
+        for(int i = 1; i < magicItems.size(); i++){ 
+            //iterate through vector. first element sorted
+            string current = magicItems[i];
+            int j = i - 1; //check with previous element
+            while(j >= 0 && current.compare(magicItems[j]) < 0){
+                iComparisons++;
+                magicItems[j + 1] = magicItems[j];
+                j--;
+            }
+            magicItems[j + 1] = current;
+        }
+        cout<<"Insertion sort comparisons: " << iComparisons << "\n";
+    }
+    
+    void Sorts:: mergeSort(vector<string>& magicItems, int start, int end,
+    int& comparisons){ //merge sort to sort magic items
+        if(start >= end){
+            return;
+        }
+        int middle = (start + end) / 2; //find middle point
+        mergeSort(magicItems, start, middle, comparisons); //sort left
+        mergeSort(magicItems, middle + 1, end, comparisons); //sort right
+        merge(magicItems, start, middle, end, comparisons); //merge sorted arrays
+    }
+    
+    void Sorts:: merge(vector<string>& magicItems, int start, int middle, int end, 
+    int& comparisons){ //merge sorted arrays together
+        //declare left and right pointer. Also create temp sub array of proper length
+        int left = start, right = middle + 1;
+        vector<string> subVec(end - start + 1);
+    
+        //iterate through sub array
+        for(int i = 0; i < end - start + 1; i++){
+            comparisons++; //count comparisons
+            if(right > end){
+                //add element from left side
+                subVec[i] = magicItems[left];
+                left++;
+            }
+            else if (left > middle)
+            {
+                //add element from right side
+                subVec[i] = magicItems[right];
+                right++;
+            }
+            else if (magicItems[left].compare(magicItems[right]) < 0)
+            {
+                //add element from left side
+                subVec[i] = magicItems[left];
+                left++;
+            }
+            else{
+                //add element from right side
+                subVec[i] = magicItems[right];
+                right++;
+            }
+        }
+        //move subvector elements to main vector
+        for(int j = 0; j < end - start + 1; j++){
+            magicItems[start + j] = subVec[j];
+        }
+    }
+    
+    
+    void Sorts:: quickSort(vector<string>& magicItems, int start, int end,
+    int& comparisons){ //quick sort algorithm
+        if(start >= end){
+            return;
+        }
+        int pivotIndex = (start + end) / 2; //choose pivot index/value
+        string pivot = magicItems[pivotIndex];
+    
+        pivotIndex = partition(magicItems, start, end, pivot, comparisons);
+        //partition based on pivot
+    
+        quickSort(magicItems, start, pivotIndex - 1, comparisons); 
+        //sort left and right elements
+        quickSort(magicItems, pivotIndex + 1, end, comparisons);
+    }
+    
+    int Sorts:: partition(vector<string>& magicItems, int start, int end,
+    string pivot, int& comparisons){
+        int l = start - 1; //less than pivot elements
+    
+        for(int i = start; i <= end - 1; i++){ //iterate from start to end
+            comparisons++;
+            if(magicItems[i].compare(pivot) < 0){ 
+                //check if less than pivot, swap, and increment
+                l++;
+                string temp = magicItems[l]; //swap
+                magicItems[l] = magicItems[i];
+                magicItems[i] = temp;
+            }
+        }
+        string temp1 = magicItems[l + 1]; //swap
+        magicItems[l + 1] = magicItems[end];
+        magicItems[end] = temp1;
+    
+        return l+1; //return elements less than pivot
+    
+    }
+
+\end{lstlisting}
+
+%----------------------------------------------------------------------------------------
+%   Links of References
+%----------------------------------------------------------------------------------------
+\pagebreak
+
+\section{References}
+
+\subsection{Links}
+Below are the resources I have used to create simple, readable, and beautiful code.
+
+\begin{itemize}
+    \item Helped me create a Make File: \href{https://bytes.usc.edu/cs104/wiki/makefile/}{bytes.usc.edu}
+
+    \item Bits and pieces helped me create my read File: \href{https://stackoverflow.com/questions/47426692/read-data-from-a-file-into-an-array-c}{stackoverflow.com}
+    
+    \item I used this line of code to remove white spaces in my read File: \href{https://stackoverflow.com/questions/83439/remove-spaces-from-stdstring-in-c}{stackoverflow.com}
+    
+    \item Also helped me with white spaces: \href{https://www.scaler.com/topics/removing-whitespace-from-a-string-in-cpp/}{scaler.com}
+
+    \item Aided in understanding and using hpp and cpp files: \href{https://www.geeksforgeeks.org/header-files-in-c-cpp-and-its-uses/#}{geeksforgeeks.org}
+
+    \item A youtube playlist that helped me understand everything about C++: \href{https://youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&si=pGnvTmD_flPDjmx_}{youtube.com}
+
+    \item Helped me with all sorts, stacks, and queues: \href{http://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Algorithms textbook}
+
+    \item Helped me form and articulate descriptions for each data structure and algorithm: \href{https://www.labouseur.com/courses/algorithms/}{Labouseur.com}
+    
+    
+\end{itemize}
+
+\pagebreak
+%----------------------------------------------------------------------------------------
+%   APA REFERENCES
+%----------------------------------------------------------------------------------------
+% The following two commands are all you need in the initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+%\bibliography{lab1} 
+% You must have a proper ".bib" file and remember to run:
+% latex bibtex latex latex
+% to resolve all references.
+
+
+
+\end{document}
