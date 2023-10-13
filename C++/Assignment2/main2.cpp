@@ -2,6 +2,7 @@
 //rebuild progam2 and run it by running: make followed by the exe name in terminal. To clean and rerun: make clean, make, followed by the exe name
 #include "readFile.hpp"
 #include "MergeSort.hpp"
+#include "Searching.hpp"
 
 #include <iostream>
 #include <vector>
@@ -29,7 +30,8 @@ int main() {
         randomItems.push_back(magicItems[random]);
     }
 
-    for(string sentence : randomItems){
-        cout<< sentence + "\n";
-    }
+    Searching search;
+    int linearComparisons = search.linearSearch(magicItems, randomItems);
+    cout<< "Linear Search comparisons: " << linearComparisons << "\n";
+
 }

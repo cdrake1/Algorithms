@@ -10,7 +10,7 @@ using namespace std;
 class Searching{
     public:
         //declaration of linear and binary search
-        int linearSearch();
+        int linearSearch(vector<string>& magicItems, vector<string>& randomItems);
         int binarySearch();
 
 };
