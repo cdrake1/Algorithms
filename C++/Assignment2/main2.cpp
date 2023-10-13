@@ -34,6 +34,7 @@ int main() {
     Searching search;
     //call linear search, calculate, and output comparisons
     int linearComparisons = search.linearSearch(magicItems, randomItems);
+    int binaryComparisons = search.binarySearch(magicItems, randomItems);
     cout<< "Linear Search comparisons: " << linearComparisons << "\n";
 
 }
