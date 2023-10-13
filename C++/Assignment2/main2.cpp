@@ -30,7 +30,9 @@ int main() {
         randomItems.push_back(magicItems[random]);
     }
 
+    //create instance of search
     Searching search;
+    //call linear search, calculate, and output comparisons
     int linearComparisons = search.linearSearch(magicItems, randomItems);
     cout<< "Linear Search comparisons: " << linearComparisons << "\n";
 

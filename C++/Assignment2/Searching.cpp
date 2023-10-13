@@ -14,6 +14,7 @@ int Searching:: linearSearch(vector<string>& magicItems, vector<string>& randomI
             //compare each element in magic items to current element in random items
             lComparisons++;
             if(current.compare(magicItems[j]) == 0){
+                //if found break loop
                 break;
             }
         }
