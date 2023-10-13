@@ -1,7 +1,7 @@
 //main file to run assignment 1 folder
 //rebuild progam2 and run it by running: make followed by the exe name in terminal. To clean and rerun: make clean, make, followed by the exe name
 #include "readFile.hpp"
-#include "Sorts.hpp"
+#include "MergeSort.hpp"
 
 #include <iostream>
 #include <vector>
@@ -11,12 +11,25 @@
 using namespace std;
 
 int main() {
+    //create readfile instance and read text file into magic items
     readFile reader;
-    vector<string> magicItems = reader.readInto(); //we need to create an instance of the class to call it
-    Sorts sort;
-    sort.selectionSort(magicItems);
+    vector<string> magicItems = reader.readInto();
 
-    for(string sentence : magicItems){
+    //create instance of merge sort and sort magic items
+    MergeSort sort;
+    sort.mergeSort(magicItems, 0, magicItems.size() - 1);
+
+    //initialize seed value so we get different random nums each time
+    srand (time(NULL));
+    //add 42 random items into vector
+    vector<string> randomItems;
+    for(int i = 0; i < 42; i++){
+        //generate random number between 1 and vector length
+        int random = rand() % magicItems.size();
+        randomItems.push_back(magicItems[random]);
+    }
+
+    for(string sentence : randomItems){
         cout<< sentence + "\n";
     }
 }
