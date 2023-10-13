@@ -1,4 +1,4 @@
-//header file for Shuffles
+//header file for merge sort
 #ifndef MERGESORT_HPP
 #define MERGESORT_HPP
 
