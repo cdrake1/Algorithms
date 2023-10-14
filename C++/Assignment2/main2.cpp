@@ -35,6 +35,9 @@ int main() {
     //call linear and binary search, calculate, and output comparisons
     float linearComparisons = search.linearSearch(magicItems, randomItems);
     float binaryComparisons = search.binarySearch(magicItems, randomItems);
-    cout<< "Average Linear Search comparisons: " << linearComparisons << "\n";
-    cout<< "Average Binary Search comparisons: " << binaryComparisons << "\n";
+    cout<< "Average Linear Search comparisons: ";
+    printf("%.2f", linearComparisons);
+    cout<< "\n" << "Average Binary Search comparisons: ";
+    printf("%.2f", binaryComparisons);
+    cout<< "\n";
 }
