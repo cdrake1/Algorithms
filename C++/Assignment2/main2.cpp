@@ -1,4 +1,4 @@
-//main file to run assignment 1 folder
+//main file to run assignment 2 folder
 //rebuild progam2 and run it by running: make followed by the exe name in terminal. To clean and rerun: make clean, make, followed by the exe name
 #include "readFile.hpp"
 #include "MergeSort.hpp"
@@ -32,9 +32,9 @@ int main() {
 
     //create instance of search
     Searching search;
-    //call linear search, calculate, and output comparisons
-    int linearComparisons = search.linearSearch(magicItems, randomItems);
-    int binaryComparisons = search.binarySearch(magicItems, randomItems);
-    cout<< "Linear Search comparisons: " << linearComparisons << "\n";
-
+    //call linear and binary search, calculate, and output comparisons
+    float linearComparisons = search.linearSearch(magicItems, randomItems);
+    float binaryComparisons = search.binarySearch(magicItems, randomItems);
+    cout<< "Average Linear Search comparisons: " << linearComparisons << "\n";
+    cout<< "Average Binary Search comparisons: " << binaryComparisons << "\n";
 }
