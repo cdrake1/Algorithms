@@ -1,3 +1,4 @@
+//header file for hashing and chaining
 #ifndef HASHING_HPP
 #define HASHING_HPP
 

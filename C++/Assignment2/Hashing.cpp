@@ -1,3 +1,4 @@
+//this file creates the hashing and chaining functions for a hashtable
 #include "Hashing.hpp"
 
 HashTable:: HashTable(){
