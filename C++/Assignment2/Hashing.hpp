@@ -8,9 +8,11 @@ class HashTable{
     public:
         HashTable(); //constructor
 
-        void put(); //add element
+        void put(string key, string value); //add element
 
-        void get(); //get element
+        string get(string key); //get element
+
+        bool contains(string key); //checks if the element is in the hash table
 
 
     private:
