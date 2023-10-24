@@ -13,10 +13,6 @@ void HashTable:: put(){ //add and element to the hashtable
 
 }
 
-void HashTable:: outputHashTable(){ //print out the elements within the hashtable
-
-}
-
-void HashTable:: hashing(){ //calculate hash value for given input
+void HashTable:: hashFunction(){ //calculate hash value for given input
 
 }

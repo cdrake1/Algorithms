@@ -12,10 +12,9 @@ class HashTable{
 
         void get(); //get element
 
-        void outputHashTable(); //print out all elements in hash
 
     private:
-        void hashing(); //hashing function
+        void hashFunction(); //hashing function
 };
 
 
