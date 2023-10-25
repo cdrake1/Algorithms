@@ -1,4 +1,4 @@
-//This file creates the sort classes
+//merge sort file for assignment 2
 #include "MergeSort.hpp"
 
 #include <vector>

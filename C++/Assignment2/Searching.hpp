@@ -12,7 +12,6 @@ class Searching{
         //declaration of linear and binary search
         float linearSearch(vector<string>& magicItems, vector<string>& randomItems);
         float binarySearch(vector<string>& magicItems, vector<string>& randomItems);
-
 };
 
 

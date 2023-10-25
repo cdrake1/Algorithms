@@ -9,7 +9,7 @@
 HashTable:: HashTable(){
     this->hashTableSize = 250;
 
-    //set each node to null
+    //set each node to null and allocate memory for hash table
     hashTable.resize(hashTableSize, nullptr);
 }
 
@@ -33,10 +33,11 @@ void HashTable:: put(string input){
     }
 }
 
-//finds the given value in the hash table
+//finds the given value in the hash table and returns the comparison count
 int HashTable:: get(string key){
     //count comparisons for each get call
     int comparisons = 1;
+
     //hash and find the index of the target
     int hash = hashFunction(key);
 
@@ -46,7 +47,7 @@ int HashTable:: get(string key){
     //boolean to check if we have found the target
     bool isTarget = false;
 
-    //check index is populated
+    //check if index is populated
     if(hashTable[hash] == nullptr){
         //throw exception if index is empty
         throw invalid_argument("This value is not in the hash table");

@@ -33,10 +33,10 @@ int main() {
 
     //create instance of search
     Searching search;
-    //call linear and binary search, calculate, and output comparisons
+    //call linear and binary search
     float linearComparisons = search.linearSearch(magicItems, randomItems);
     float binaryComparisons = search.binarySearch(magicItems, randomItems);
-    //output comparisons
+    //calculate, and output comparisons
     cout<< "Average Linear Search comparisons: ";
     printf("%.2f", linearComparisons);
     cout<< "\n" << "Average Binary Search comparisons: ";
@@ -61,7 +61,7 @@ int main() {
     }
     //output average hash comparisons
     float hashComparisons = (static_cast<float>(totalComparisons) / static_cast<float>(randomItems.size()));
-    cout << "Average hash table get comparisons: ";
+    cout << "Average Hash Table get comparisons: ";
     printf("%.2f", hashComparisons);
     cout<< "\n";
 }

@@ -1,5 +1,5 @@
 //This file creates the linkedlist/node class
-//Also creates stack and queue classes
+//For use with hashing and chaining
 #include "Node.hpp"
 
 #include <string>
