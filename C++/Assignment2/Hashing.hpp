@@ -2,26 +2,27 @@
 #ifndef HASHING_HPP
 #define HASHING_HPP
 
+#include "Node.hpp"
+
+#include <vector>
+#include <string>
+
 using namespace std;
 
 class HashTable{
     public:
-        HashTable(int hashSize); //constructor
+        HashTable(); //constructor
 
-        void put(string input); //add element
+        void put(string input); //adds to the hash table
 
-        string get(string key); //get element
+        string get(string key); //retrieves a value from the hash table
 
-        bool contains(string key); //checks if the element is in the hash table
+        vector<Node*> hashTable; //vector of node pointers
 
-        vector<Node> hashTable; //create vector of linked lists
-
-        int hashSize; //size of the hash table
+        int hashTableSize; //size of hash table
 
     private:
         int hashFunction(string input); //hashing function
 };
-
-
 
 #endif

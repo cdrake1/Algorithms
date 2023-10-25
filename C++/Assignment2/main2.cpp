@@ -3,6 +3,7 @@
 #include "readFile.hpp"
 #include "MergeSort.hpp"
 #include "Searching.hpp"
+#include "Hashing.hpp"
 
 #include <iostream>
 #include <vector>
@@ -40,4 +41,16 @@ int main() {
     cout<< "\n" << "Average Binary Search comparisons: ";
     printf("%.2f", binaryComparisons);
     cout<< "\n";
+
+    //create instance of hash table
+    HashTable hashtable;
+    //populate hash table with each element of magic items (666)
+    for(int i = 0; i < magicItems.size(); i++){
+        hashtable.put(magicItems[i]);
+    }
+    //get each random item (42) from the hash table
+    for(int j = 0; j < randomItems.size(); j++){
+        string value = hashtable.get(randomItems[j]);
+        cout << value << "\n";
+    }
 }
