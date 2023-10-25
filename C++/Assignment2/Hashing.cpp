@@ -1,4 +1,4 @@
-//this file creates the hashing and chaining functions for a hashtable
+//this file creates the hashing and chaining functions for a hash table
 #include "Hashing.hpp"
 
 #include <vector>
@@ -57,7 +57,7 @@ string HashTable:: get(string key){
     //if index is populated iterate through nodes
     else{
         //walk down list untl you find the value
-        while(current->next != nullptr || isTarget == false){
+        while(current != nullptr && !isTarget){
             if(current->val == key){
                 isTarget = true;
                 value = current->val;
@@ -68,8 +68,6 @@ string HashTable:: get(string key){
             }
         }
     }
-    current = nullptr;
-    delete current;
     return value;
 }
 

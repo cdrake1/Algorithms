@@ -2,7 +2,6 @@
 //Also creates stack and queue classes
 #include "Node.hpp"
 
-#include <stdexcept>
 #include <string>
 
 Node::Node(string val){ //Node class constructor
