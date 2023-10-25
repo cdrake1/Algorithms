@@ -45,11 +45,11 @@ int main() {
     //create instance of hash table
     HashTable hashtable;
     //populate hash table with each element of magic items (666)
-    for(int i = 0; i < magicItems.size() - 1; i++){
+    for(int i = 0; i < magicItems.size(); i++){
         hashtable.put(magicItems[i]);
     }
     //get each random item (42) from the hash table
-    for(int j = 0; j < randomItems.size() - 1; j++){
+    for(int j = 0; j < randomItems.size(); j++){
         string value = hashtable.get(randomItems[j]);
         cout << value << "\n";
     }
