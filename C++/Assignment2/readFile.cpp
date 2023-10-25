@@ -9,16 +9,11 @@
 #include <cstring>
 
 vector<string> readFile :: readInto() {
-    
-    string filePath;
     string line;
     vector<string> fileLines;
 
-    cout << "Enter the path of the file: "; //grab user input for file path
-    cin >> filePath;
-
     fstream magicFile;
-    magicFile.open(filePath); //open file
+    magicFile.open("magicitems.txt"); //open file
 
     if(magicFile.is_open()){ //check if file is open, remove spaces, and make each letter lowercase, then add it to vector
         while(getline(magicFile, line)){
