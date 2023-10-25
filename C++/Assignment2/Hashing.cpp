@@ -10,9 +10,7 @@ HashTable:: HashTable(){
     this->hashTableSize = 250;
 
     //set each node to null
-    for(int i = 0; i < hashTableSize; i++){ 
-        hashTable[i] = nullptr;
-    }
+    hashTable.resize(hashTableSize, nullptr);
 }
 
 //adds a value to the hash table
@@ -46,9 +44,6 @@ string HashTable:: get(string key){
     //boolean to check if we have found the target
     bool isTarget = false;
 
-    //return value if found
-    string value;
-
     //check index is populated
     if(hashTable[hash] == nullptr){
         //throw exception if index is empty
@@ -60,7 +55,7 @@ string HashTable:: get(string key){
         while(current != nullptr && !isTarget){
             if(current->val == key){
                 isTarget = true;
-                value = current->val;
+                break;
             }
             else{
                 //if the current node is not the target move to the next
@@ -68,7 +63,7 @@ string HashTable:: get(string key){
             }
         }
     }
-    return value;
+    return current->val;
 }
 
 //hashing function to find the hash code for the given input
