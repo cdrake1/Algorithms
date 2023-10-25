@@ -34,7 +34,9 @@ void HashTable:: put(string input){
 }
 
 //finds the given value in the hash table
-string HashTable:: get(string key){
+int HashTable:: get(string key){
+    //count comparisons for each get call
+    int comparisons = 1;
     //hash and find the index of the target
     int hash = hashFunction(key);
 
@@ -53,6 +55,7 @@ string HashTable:: get(string key){
     else{
         //walk down list untl you find the value
         while(current != nullptr && !isTarget){
+            comparisons++;
             if(current->val == key){
                 isTarget = true;
                 break;
@@ -63,7 +66,7 @@ string HashTable:: get(string key){
             }
         }
     }
-    return current->val;
+    return comparisons;
 }
 
 //hashing function to find the hash code for the given input

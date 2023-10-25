@@ -15,7 +15,7 @@ class HashTable{
 
         void put(string input); //adds to the hash table
 
-        string get(string key); //retrieves a value from the hash table
+        int get(string key); //retrieves a value from the hash table
 
         vector<Node*> hashTable; //vector of node pointers
 
