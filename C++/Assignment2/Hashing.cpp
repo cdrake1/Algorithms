@@ -44,9 +44,6 @@ int HashTable:: get(string key){
     //temp node to iterate through linked list
     Node* current = hashTable[hash];
 
-    //boolean to check if we have found the target
-    bool isTarget = false;
-
     //check if index is populated
     if(hashTable[hash] == nullptr){
         //throw exception if index is empty
@@ -55,10 +52,9 @@ int HashTable:: get(string key){
     //if index is populated iterate through nodes
     else{
         //walk down list untl you find the value
-        while(current != nullptr && !isTarget){
+        while(current != nullptr){
             comparisons++;
             if(current->val == key){
-                isTarget = true;
                 break;
             }
             else{
