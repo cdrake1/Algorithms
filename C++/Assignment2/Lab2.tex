@@ -123,7 +123,7 @@ The linear, or sequential, search algorithm is an algorithm used to search a col
 \pagebreak
 
 \subsection{Asymptotic Analysis}
-In our example, given two different-sized collections of items, one larger and one smaller, when using linear search to look through the larger collection for each element in the smaller collection the time complexity is O(m * n). In this case, m stands for the size of the first collection while n stands for the size of the second, each is represented differently. In most use cases where linear search has a best-case running time of O(1), constant time, or worst-case of O(n), linear time, there is one element to search for in a collection of items. However, in our case, there are two collections of items that are of different lengths, denoting that there is a nested loop, which results in a quadratic time complexity of O(m * n).
+In our scenario, given two different-sized collections, one larger and one smaller, when using linear search to look through the larger collection for each element in the smaller collection the running time results in O(n). Despite the fact that there is a nested loop involving two different-sized arrays, resulting in an O(m * n) time complexity, this still results in O(n), constant time, as we prioritize the dominant factor and throw away constants.
 
 
 %----------------------------------------------------------------------------------------
@@ -190,7 +190,7 @@ The algorithm binary search is a searching algorithm used to search a sorted col
 \end{lstlisting}
 
 \subsection{Asymptotic Analysis}
-In our case given two collections of items, one larger, sorted array and one smaller array, when using binary search to look through the bigger collection for each target element in the smaller collection the time complexity is O(m * log n). Usually, the binary search algorithm has a best-case time complexity of O(1), constant time, or worst-case time complexity of O(log n), logarithmic time, but in our case, it is slower because we are given two collections to search through, m for the size of the first and n for the size of the second.
+In our case given two collections of items, one being a larger sorted array and the other being a smaller unsorted array, when using binary search to look through the bigger collection for each target element in the smaller collection the time complexity is O(log n). Initially, this might seem incorrect as we are given two collections, the random items and magic items arrays. However, we prioritize the dominant factor, the magic items array, and throw away constants. As a result, our binary search algorithm remains in O(log n), logarithmic time. 
 
 
 %----------------------------------------------------------------------------------------
@@ -335,7 +335,7 @@ Given a hash table with chaining, there are two fundamental operations that can 
         \begin{tabular}{|l|l|l|}
             \hline
             Linear Search & 333.50 & $O(n)$  \\ \hline
-            Binary Search & 7.95 & $O(log n)$ \\ \hline
+            Binary Search & 7.95 & $O(logn)$ \\ \hline
             Hashing With Chaining     & 3.38 & O(1 + $\alpha$) \\ \hline
         \end{tabular}
     \end{center}
