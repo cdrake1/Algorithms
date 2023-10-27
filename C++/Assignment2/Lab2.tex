@@ -88,7 +88,7 @@
 \section{Linear Search}
 
 \subsection{The Algorithm}
-The linear, or sequential, search algorithm is an algorithm used to search a collection of elements until it reaches the end of the collection or the desired object is found. This algorithm works by simply iterating one by one through each element and comparing it to the desired target. If the element is found then the search stops, otherwise, the search continues until it reaches the end of the array. The time complexity of linear search is linear time, O(n), meaning that as the input size grows, the time it takes to search through the collection of items grows linearly.
+The linear, or sequential, search algorithm is an algorithm used to search a collection of elements until it reaches the end of the collection or until the desired object is found. This algorithm works by simply iterating one by one through each element and comparing it to the desired target. If the element is found then the search stops, otherwise, the search continues until it reaches the end of the array. The time complexity of linear search is linear time, O(n), meaning that as the input size grows, the time it takes to search through the collection of items grows linearly.
 
 \subsubsection*{Linear Search}
     \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
@@ -123,7 +123,7 @@ The linear, or sequential, search algorithm is an algorithm used to search a col
 \pagebreak
 
 \subsection{Asymptotic Analysis}
-In our scenario, given two different-sized collections, one larger and one smaller, when using linear search to look through the larger collection for each element in the smaller collection the running time results in O(n). Despite the fact that there is a nested loop involving two different-sized arrays, resulting in an O(m * n) time complexity, this still results in O(n), constant time, as we prioritize the dominant factor and throw away constants.
+In our scenario, given two different-sized collections, one larger and one smaller, when using linear search to look through the larger collection for each element in the smaller collection, the running time results in O(n). Despite the fact that there is a nested loop involving two different-sized arrays, resulting in an O(m * n) time complexity, this still results in O(n), constant time, as we prioritize the dominant factor and throw away constants.
 
 
 %----------------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ In our scenario, given two different-sized collections, one larger and one small
 \section{Binary Search}
 
 \subsection{The Algorithm}
-The algorithm binary search is a searching algorithm used to search a sorted collection of items by dividing the searchable collection with each comparison. Binary search works by checking if the target element is the middle object, greater than the middle object, or less than it. With each comparison, the searchable collection is reduced until the target is found or the entire array is searched. Generally, the binary search time complexity is O(log n), logarithmic time. 
+The algorithm binary search is a searching algorithm used to search a sorted collection of items by dividing the searchable collection with each comparison. Binary search works by checking if the target element is equal to the middle object, greater than the middle object, or less than the middle object. With each comparison, the searchable collection is reduced until the target is found or the entire array is searched. Generally, the binary search time complexity is O(log n), logarithmic time. 
 
 \pagebreak
 
@@ -190,7 +190,7 @@ The algorithm binary search is a searching algorithm used to search a sorted col
 \end{lstlisting}
 
 \subsection{Asymptotic Analysis}
-In our case given two collections of items, one being a larger sorted array and the other being a smaller unsorted array, when using binary search to look through the bigger collection for each target element in the smaller collection the time complexity is O(log n). Initially, this might seem incorrect as we are given two collections, the random items and magic items arrays. However, we prioritize the dominant factor, the magic items array, and throw away constants. As a result, our binary search algorithm remains in O(log n), logarithmic time. 
+In our case given two collections of items, one being a larger sorted array and the other being a smaller unsorted array, when using binary search to look through the bigger collection for each target element in the smaller collection the time complexity is O(log n). Initially, this might seem incorrect, as we are given two collections, the random items and magic items arrays. However, we prioritize the dominant factor, the magic items array, and throw away constants. As a result, our binary search algorithm remains in O(log n), logarithmic time. 
 
 
 %----------------------------------------------------------------------------------------
@@ -203,7 +203,7 @@ In our case given two collections of items, one being a larger sorted array and 
 \section{Hash table}
 
 \subsection{The Data Structure}
-A hash table is a data structure that can be imagined as a vertical array that stores elements in key-value pairs. To store these pairs hash tables use hash functions, which determine the position a value is stored based on the hash of the given input. When a hash function produces the same hash for multiple different values this is what's called a hash collision. Hash collisions are resolved by hash tables that use chaining. Chaining in a hash table is when each index within the array contains its own linked list, allowing multiple duplicate hashes to be stored within the same index. There are two fundamental operations that make up a hash table: put and get.
+A hash table is a data structure that can be imagined as a vertical array that stores elements in key-value pairs. To store these pairs hash tables use hash functions, which determine the position a value is stored based on the hash of the given input. When a hash function produces the same hash for multiple different values this is what we call a hash collision. Hash collisions are resolved by hash tables that use chaining. Chaining in a hash table is when each index within the array contains its own linked list, allowing multiple duplicate hashes to be stored within the same index. There are two fundamental operations that make up a hash table: put and get.
 
 \subsubsection*{constructor}
     \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
@@ -219,7 +219,7 @@ A hash table is a data structure that can be imagined as a vertical array that s
 \end{lstlisting}
 
 \subsubsection{Put}
-The put function of a hash table adds the input value to an index within the table. When the put function is called the given value is hashed and mapped to a specific index within the array. If there are multiple other nodes within the mapped index, the new node is placed at the head of that index's linked list, and its next pointer is directed toward the previous head. Otherwise, if there are no collisions at that index the new node simply becomes the head of that index.
+The put function of a hash table adds the input value to an index within the table. When the put function is called, the given value is hashed and mapped to a specific index within the array. If there are multiple other nodes within the mapped index, the new node is placed at the head of that index's linked list, and its next pointer is directed toward the previous head. Otherwise, if there are no collisions at that index, the new node simply becomes the head of that index.
 
 
 \subsubsection*{Put}
@@ -250,7 +250,7 @@ The put function of a hash table adds the input value to an index within the tab
 \pagebreak
 
 \subsubsection{Get}
-The get function of a hash table simply returns the value hashed by a given key. When the get function is called the key is hashed to find the target index, walking through its linked list, and returning either the value that matches the given key, or null if the value does not exist. Furthermore, the get function simply returns a value that is matched to its input key and does not remove anything from the hash table.
+The get function of a hash table simply returns the value hashed by a given key. When the get function is called, the key is hashed to find the target index, walking through its linked list, and returning either the value that matches the given key, or null if the value does not exist. Furthermore, the get function simply returns a value that is matched to its input key and does not remove anything from the hash table.
 
 
 \subsubsection*{Get}
@@ -317,7 +317,7 @@ The hash function of a hash table calculates the hash value of a given key to fi
 
 
 \subsection{Asymptotic Analysis}
-Given a hash table with chaining, there are two fundamental operations that can be performed: put and get. Both functions can be characterized by their time complexities O(1) and O(1 + $\alpha$). When it comes to adding or "putting" an element in the hash table the worst-case time complexity would be constant time or O(1), as the new node will become the head of the hashed index regardless of collision. Getting an element from a hash table would have a time complexity of constant time plus alpha, O(1 + $\alpha$). This is because when receiving or "getting" an element from a hash table if the element is the head of the index it is a constant time operation, however, if the element is further down that index's linked list the time complexity grows at a larger rate. Furthermore, in a hash table, values are not distributed equally meaning, each index's retrieval will differentiate based on its size or number of elements needed to be iterated through. Therefore, the average index's elements that need to be iterated through is represented as the load factor or $\alpha$.
+When given a hash table with chaining, there are two fundamental operations that can be performed: put and get. Both functions can be characterized by their time complexities O(1) and O(1 + $\alpha$). When it comes to adding or "putting" an element in the hash table, the worst-case time complexity would be constant time, or O(1), as the new node will become the head of the hashed index regardless of collision. Getting an element from a hash table would have a time complexity of constant time plus alpha, O(1 + $\alpha$). This is because when receiving or "getting" an element from a hash table, if the element is the head of the index it is a constant time operation, however, if the element is further down that index's linked list, the time complexity grows at a larger rate. Furthermore, in a hash table, values are not distributed equally meaning, each index's retrieval will differentiate based on its size or number of elements needed to be iterated through. Therefore, the average index's elements that need to be iterated through are represented as the load factor or $\alpha$.
 %----------------------------------------------------------------------------------------
 %   end PROBLEM THREE
 %----------------------------------------------------------------------------------------
