@@ -12,9 +12,8 @@ class BST{
     public:
         BST(); // binary search tree constructor
         Node* root; //initialize root node
-        void BSTInsert(Node* newNode); //insert a node into the BST
+        void BSTInsert(string value); //insert a node into the BST
         void TreeSearch(); //search the BST for a particular value
 };
-
 
 #endif
