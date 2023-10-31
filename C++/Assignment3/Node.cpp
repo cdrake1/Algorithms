@@ -1,5 +1,5 @@
-//This file creates the linkedlist/node class
-//For use with hashing and chaining
+//This file creates the node class
+//For use with graphs and trees
 #include "Node.hpp"
 
 #include <string>

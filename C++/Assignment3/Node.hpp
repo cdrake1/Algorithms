@@ -10,9 +10,9 @@ class Node{
     public:
         Node(string val); //Node constructor
         string val; //data in node
-        Node* left; //pointer to next node
-        Node* right; //pointer to next node
-        Node* parent; //pointer to next node
+        Node* left; //pointer to left node
+        Node* right; //pointer to right node
+        Node* parent; //pointer to parent node
 };
 
 #endif
