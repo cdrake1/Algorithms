@@ -55,13 +55,16 @@ void BST:: BSTInsert(string value){ //inserts a node into the BST
 
 Node* BST:: TreeSearch(Node* node, string key){ //lookup values in the BST
     if(node == nullptr || node->val == key){
-        return node; //return the retrieved value
+        //return the retrieved value
+        return node;
     }
     else if(key < node->val){ // <
-        return TreeSearch(node->left, key); //recursive call move left
+        //recursive call move left
+        return TreeSearch(node->left, key);
     }
     else{ // >=
-        return TreeSearch(node->right, key); //recursive call move right
+        //recursive call move right
+        return TreeSearch(node->right, key);
     }
 }
 
@@ -69,7 +72,10 @@ void BST:: InOrder(Node* node){ //output entire BST with an in-order traversal
     if(node == nullptr){
         return;
     }
-    InOrder(node->left); //recursively call with child node on the left
-    cout << node->val << "\n"; //output the value of each node
-    InOrder(node->right); //recursively call with child node on the right
+    //recursively call with child node on the left
+    InOrder(node->left);
+    //output the value of each node
+    cout << node->val << "\n";
+    //recursively call with child node on the right
+    InOrder(node->right);
 }
