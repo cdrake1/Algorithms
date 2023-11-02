@@ -17,13 +17,13 @@ int main(){
     BST binarySearchTree;
 
     //insert each element in magic items into the BST
-    cout << "The path taken to insert each node:" << "\n";
+    //cout << "The path taken to insert each node:" << "\n";
     for(int i = 0; i < magicItems.size(); i++){ 
         binarySearchTree.BSTInsert(magicItems[i]);
     }
 
     //outputs entire BST using an in-order traversal
-    cout << "\n" << "The output of each item in the binary search tree using an in-order traversal:" << "\n";
+    //cout << "\n" << "The output of each item in the binary search tree using an in-order traversal:" << "\n";
     //binarySearchTree.InOrder(binarySearchTree.root);
 
     //search the BST for each magic item within the find magic items vector
