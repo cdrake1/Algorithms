@@ -17,14 +17,20 @@ int main(){
     BST binarySearchTree;
 
     //insert each element in magic items into the BST
-    /*
     cout << "The path taken to insert each node:" << "\n";
     for(int i = 0; i < magicItems.size(); i++){ 
         binarySearchTree.BSTInsert(magicItems[i]);
     }
-    */
 
     //outputs entire BST using an in-order traversal
     cout << "\n" << "The output of each item in the binary search tree using an in-order traversal:" << "\n";
     //binarySearchTree.InOrder(binarySearchTree.root);
+
+    //search the BST for each magic item within the find magic items vector
+    int totalBSTSearch = 0;
+    for(int j = 0; j < findMagicItems.size(); j++){
+        string path = "";
+        int comparisons = 0;
+        binarySearchTree.TreeSearch(binarySearchTree.root, findMagicItems[j], path, comparisons);
+    }
 }

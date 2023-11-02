@@ -50,21 +50,28 @@ void BST:: BSTInsert(string value){ //inserts a node into the BST
             trailing->right = newNode;
         }
     }
-    cout<< path << "\n"; //output path
+    //output path of each insert
+    //cout<< path << "\n";
 }
 
-Node* BST:: TreeSearch(Node* node, string key){ //lookup values in the BST
+Node* BST:: TreeSearch(Node* node, string key, string path, int comparisons){ //lookup values in the BST
+    comparisons++;
     if(node == nullptr || node->val == key){
         //return the retrieved value
+        // output the path to find the target value and its comparison count
+        //cout<< path << "\n";
+        //cout<< comparisons << "\n";
         return node;
     }
     else if(key < node->val){ // <
         //recursive call move left
-        return TreeSearch(node->left, key);
+        path.append("L");
+        return TreeSearch(node->left, key, path, comparisons);
     }
     else{ // >=
         //recursive call move right
-        return TreeSearch(node->right, key);
+        path.append("R");
+        return TreeSearch(node->right, key, path, comparisons);
     }
 }
 
