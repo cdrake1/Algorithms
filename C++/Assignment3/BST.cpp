@@ -18,21 +18,21 @@ void BST:: BSTInsert(string value){ //inserts a node into the BST
     Node* trailing = nullptr;
     Node* current = root;
 
-    //iterate through BST
+    //iterate through BST if current/root is filled
     while(current != nullptr){
         trailing = current;
-        if(newNode->val < current->val){
-            //check if the new value is < the current value
+        if(newNode->val.compare(current->val) < 0){
+            //If the new value is less than the current go left (<)
             current = current->left; //L
             path.append("L");
         }
         else{
-            //check if the new value is >= the current value
+            //If the new value is greater than or equal to the current go right (>=)
             current = current->right; //R
             path.append("R");
         }
     }
-    //set parent node
+    //set parent node to trailing
     newNode->parent = trailing;
     if(trailing == nullptr){
         //if there is no parent then the new node becomes the root node
@@ -41,10 +41,12 @@ void BST:: BSTInsert(string value){ //inserts a node into the BST
     }
     else{
         //if there is a parent find out if new node goes left or right
-        if(newNode->val < trailing->val){
+        if(newNode->val.compare(trailing->val) < 0){
+            //left (<)
             trailing->left = newNode;
         }
         else{
+            //right (>=)
             trailing->right = newNode;
         }
     }
