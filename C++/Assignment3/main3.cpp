@@ -15,7 +15,12 @@ int main(){
     //creates instance of BST and initializes root node
     BST binarySearchTree;
 
-    for(int i = 0; i < magicItems.size(); i++){
+    //insert each element in magic items into the BST
+    for(int i = 0; i < magicItems.size(); i++){ 
         binarySearchTree.BSTInsert(magicItems[i]);
     }
+    
+    //outputs entire BST using an in-order traversal
+    cout << "\n";
+    binarySearchTree.InOrder(binarySearchTree.root);
 }

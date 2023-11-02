@@ -64,3 +64,12 @@ Node* BST:: TreeSearch(Node* node, string key){ //lookup values in the BST
         return TreeSearch(node->right, key); //recursive call move right
     }
 }
+
+void BST:: InOrder(Node* node){ //output entire BST with an in-order traversal
+    if(node == nullptr){
+        return;
+    }
+    InOrder(node->left); //recursively call with child node on the left
+    cout << node->val << "\n"; //output the value of each node
+    InOrder(node->right); //recursively call with child node on the right
+}
