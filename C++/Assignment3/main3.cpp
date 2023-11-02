@@ -10,8 +10,8 @@ using namespace std;
 int main(){
     //create readfile instance and read magic items and magic items find into separate vectors
     readFile reader;
-    vector<string> magicItems = reader.readInto();
-    vector<string> findMagicItems = reader.readIntoTwo();
+    vector<string> magicItems = reader.readMagicItems();
+    vector<string> findMagicItems = reader.readFindMagicItems();
 
     //creates instance of BST and initializes root node
     BST binarySearchTree;

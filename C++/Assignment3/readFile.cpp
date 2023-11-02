@@ -7,7 +7,7 @@
 #include <vector>
 #include <cstring>
 
-vector<string> readFile :: readInto() { //reads magic items into a vector
+vector<string> readFile :: readMagicItems() { //reads magic items into a vector
     string line;
     vector<string> fileLines;
 
@@ -31,7 +31,7 @@ vector<string> readFile :: readInto() { //reads magic items into a vector
     return fileLines;
 }
 
-vector<string> readFile:: readIntoTwo(){ //reads magic items BST into a vector
+vector<string> readFile:: readFindMagicItems(){ //reads magic items BST into a vector
     string line;
     vector<string> fileLines;
 

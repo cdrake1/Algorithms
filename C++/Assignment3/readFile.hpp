@@ -9,8 +9,8 @@ using namespace std;
 
 class readFile{
     public:
-        vector<string> readInto();
-        vector<string> readIntoTwo();
+        vector<string> readMagicItems(); //reads magicitems.txt into a vector when called
+        vector<string> readFindMagicItems(); //reads magicitems-bst.txt into a vector when called
 };
 
 #endif
