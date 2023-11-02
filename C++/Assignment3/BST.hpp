@@ -13,7 +13,7 @@ class BST{
         BST(); // binary search tree constructor
         Node* root; //initialize root node
         void BSTInsert(string value); //insert a node into the BST
-        void TreeSearch(); //search the BST for a particular value
+        Node* TreeSearch(Node* root, string key); //search the BST for a particular value
 };
 
 #endif

@@ -15,6 +15,7 @@ int main(){
     //creates instance of BST and initializes root node
     BST binarySearchTree;
 
-    //test
-    binarySearchTree.BSTInsert("hello");
+    for(int i = 0; i < magicItems.size(); i++){
+        binarySearchTree.BSTInsert(magicItems[i]);
+    }
 }
