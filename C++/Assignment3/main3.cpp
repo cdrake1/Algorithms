@@ -27,10 +27,14 @@ int main(){
     //binarySearchTree.InOrder(binarySearchTree.root);
 
     //search the BST for each magic item within the find magic items vector
-    int totalBSTSearch = 0;
     for(int j = 0; j < findMagicItems.size(); j++){
+        //create path and comparison count for each target
         string path = "";
         int comparisons = 0;
+        //call the function and keep track of all comparisons
         binarySearchTree.TreeSearch(binarySearchTree.root, findMagicItems[j], path, comparisons);
     }
+    //type cast and output the total binary search tree comparison average
+    float totalBSTComp = (static_cast<float>(binarySearchTree.totalBSTSearch) / static_cast<float>(findMagicItems.size()));
+    cout<< "The average comparison count of BST search: " << totalBSTComp;
 }

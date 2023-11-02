@@ -7,6 +7,7 @@
 BST:: BST(){ //BST constructor
     //creates a BST and sets root to null
     root = nullptr;
+    totalBSTSearch = 0;
 } 
 
 void BST:: BSTInsert(string value){ //inserts a node into the BST
@@ -61,6 +62,7 @@ Node* BST:: TreeSearch(Node* node, string key, string path, int comparisons){ //
         // output the path to find the target value and its comparison count
         //cout<< path << "\n";
         //cout<< comparisons << "\n";
+        totalBSTSearch += comparisons;
         return node;
     }
     else if(key < node->val){ // <
