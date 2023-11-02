@@ -10,6 +10,7 @@ using namespace std;
 class readFile{
     public:
         vector<string> readInto();
+        vector<string> readIntoTwo();
 };
 
 #endif

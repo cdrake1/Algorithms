@@ -8,20 +8,23 @@
 using namespace std;
 
 int main(){
-    //create readfile instance and read text file into magic items
+    //create readfile instance and read magic items and magic items find into separate vectors
     readFile reader;
     vector<string> magicItems = reader.readInto();
+    vector<string> findMagicItems = reader.readIntoTwo();
 
     //creates instance of BST and initializes root node
     BST binarySearchTree;
 
     //insert each element in magic items into the BST
+    /*
     cout << "The path taken to insert each node:" << "\n";
     for(int i = 0; i < magicItems.size(); i++){ 
         binarySearchTree.BSTInsert(magicItems[i]);
     }
+    */
 
     //outputs entire BST using an in-order traversal
     cout << "\n" << "The output of each item in the binary search tree using an in-order traversal:" << "\n";
-    binarySearchTree.InOrder(binarySearchTree.root);
+    //binarySearchTree.InOrder(binarySearchTree.root);
 }
