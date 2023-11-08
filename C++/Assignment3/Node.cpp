@@ -2,8 +2,6 @@
 //For use with trees
 #include "Node.hpp"
 
-#include <string>
-
 Node::Node(string val){ //Node class constructor
     this->val = val;
     this->left = nullptr;
