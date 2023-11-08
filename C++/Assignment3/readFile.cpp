@@ -55,3 +55,7 @@ vector<string> readFile:: readFindMagicItems(){ //reads magic items BST into a v
     return fileLines;
 
 }
+
+void readFile::readGraph(){
+    
+}
