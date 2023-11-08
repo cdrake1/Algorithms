@@ -1,5 +1,5 @@
 //This file creates the node class
-//For use with graphs and trees
+//For use with trees
 #include "Node.hpp"
 
 #include <string>
