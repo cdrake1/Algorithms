@@ -6,7 +6,9 @@ using namespace std;
 
 class Graphs{
     public:
-        Graphs();
+        void LinkedObjects(); //creates a graph as linked objects
+        void Matrix(); //creates a matrix
+        void AdjacencyList(); //creates an adjacency list
 
 };
 
