@@ -65,6 +65,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 if(graphFun.graph.size() > 0){
                     //output adjacency list
                     graphFun.printAdjacencyList();
+                    cout<< "\n";
                     //delete pointers in old graph and clear it
                     for (int i = 0; i < graphFun.graph.size(); i++){
                         Vertex* vertex = graphFun.graph[i];
@@ -92,7 +93,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 string edge2;
                 bool isEdge1 = true;
                 while(str >> iterator){
-                    if(iterator != "add" || iterator != "edge" || iterator != "-"){
+                    if(iterator != "add" && iterator != "edge" && iterator != "-"){
                         if(isEdge1){
                             edge1 = iterator;
                             isEdge1 = false;
