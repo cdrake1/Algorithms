@@ -45,3 +45,8 @@ void Graphs::printAdjacencyList(){ //graph object adjacency list
         cout<< "\n";
     }
 }
+
+void Graphs::Matrix(){ //graph object matrix
+    //outputs the graph object as a matrix
+
+}
