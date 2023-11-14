@@ -59,13 +59,18 @@ void Graphs::Matrix(){ //graph object matrix
         matrix[i][0] = graph[i - 1]->id;
         matrix[0][i] = graph[i - 1]->id;
     }
-
-
+    //populates matrix with edges
+    for(int i = 0; i < graph.size(); i++){
+        for(int j = 0; j < graph[i]->neighbors.size(); j++){
+            string id2 = graph[i]->neighbors[j]->id;
+            matrix[stoi(graph[i]->id)][stoi(id2)] = "x";
+        }
+    }
+    //outputs matrix
     for(int row = 0; row < graph.size() + 1; row++){
         for(int col = 0; col < graph.size() + 1; col++){
             cout<< matrix[row][col] << " ";
         }
         cout<< "\n";
     }
-
 }
