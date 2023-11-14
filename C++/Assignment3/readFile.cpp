@@ -47,7 +47,6 @@ vector<string> readFile:: readFindMagicItems(){ //reads magic items BST into a v
         cout << "Something went wrong when trying to open the file \n";
     }
     return fileLines;
-
 }
 
 void readFile::readGraph(){ //reads graph file in and creates 3 different versions of a graph

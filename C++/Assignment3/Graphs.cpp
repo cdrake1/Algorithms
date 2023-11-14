@@ -38,24 +38,3 @@ void Graphs::printAdjacencyList(){ //graph object adjacency list
         cout<< "\n";
     }
 }
-
-void Graphs::Matrix(){ //graph object matrix
-    //create matrix of graph size and populate with vertex
-    string graphMatrix[graph.size()+1][graph.size()+1];
-    for(int row = 0; row < graph.size() + 1; row++){
-        for(int col = 0; col < graph.size() + 1; col++){
-            graphMatrix[row][col] = "0";
-        }
-    }
-
-    for(int row = 1; row < graph.size() + 1; row++){
-        graphMatrix[row][0] = graph[row - 1]->id;
-    }
-    for(int col = 1; col < graph.size() + 1; col++){
-        graphMatrix[0][col] = graph[col - 1]->id;
-    }
-
-    for(int i = 0; i < graph.size(); i++){
-
-    }
-}
