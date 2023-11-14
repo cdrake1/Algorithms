@@ -24,7 +24,6 @@ Vertex* Graphs::findVertexByID(string id){ //searches the graph object for the g
             return graph[i];
         }
     }
-
 }
 
 void Graphs::printAdjacencyList(){ //graph object adjacency list
