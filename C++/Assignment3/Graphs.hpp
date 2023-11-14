@@ -17,7 +17,7 @@ class Graphs{
         void printAdjacencyList(); //outputs a graphs adjacency list
         void addVertex(string id); //adds a vertex to the graph
         void addEdge(string id1, string id2); //adds an edge to the graph
-        Vertex findVertexByID(string id); //find vertex by given id
+        Vertex* findVertexByID(string id); //find vertex by given id
         vector<Vertex*> graph; //vector of vertex pointers / graph object
 };
 
