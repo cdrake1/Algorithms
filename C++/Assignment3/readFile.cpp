@@ -87,9 +87,6 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 string edge2;
                 graphFun.addEdge(edge1, edge2);
             }
-            else{
-                
-            }
         }
         graphFile.close(); //close file
         cout << "graph file read correctly \n";
