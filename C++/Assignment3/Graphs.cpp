@@ -10,6 +10,7 @@ void Graphs::addVertex(string id){ //add vertex to graph object
 }
 
 void Graphs::addEdge(string id1, string id2){ //add an edge between graph vertex's
+    //call find vertex and add edge to target vertex
     findVertexByID(id1)->neighbors.push_back(findVertexByID(id2));
     findVertexByID(id2)->neighbors.push_back(findVertexByID(id1));
 }
