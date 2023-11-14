@@ -2,7 +2,6 @@
 #ifndef READFILE_HPP
 #define READFILE_HPP
 
-#include "Vertex.hpp"
 #include "Graphs.hpp"
 
 #include <iostream>

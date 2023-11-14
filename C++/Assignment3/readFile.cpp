@@ -89,12 +89,22 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 string iterator;
                 string edge1;
                 string edge2;
+                bool isEdge1 = true;
                 while(str >> iterator){
                     if(iterator != "add" || iterator != "edge" || iterator != "-"){
-
+                        if(isEdge1){
+                            edge1 = iterator;
+                            isEdge1 = false;
+                        }
+                        else{
+                            edge2 = iterator;
+                            graphFun.addEdge(edge1, edge2);
+                            edge1.clear();
+                            edge2.clear();
+                            isEdge1 = true;
+                        }
                     }
                 }
-                graphFun.addEdge(edge1, edge2);
             }
         }
         graphFile.close(); //close file

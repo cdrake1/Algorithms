@@ -37,4 +37,8 @@ int main(){
     //type cast and output the total binary search tree comparison average
     float totalBSTComp = (static_cast<float>(binarySearchTree.totalBSTSearch) / static_cast<float>(findMagicItems.size()));
     cout<< "The average comparison count of BST search: " << totalBSTComp;
+
+
+
+    reader.readGraph();
 }
