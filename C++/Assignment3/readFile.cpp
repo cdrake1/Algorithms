@@ -51,12 +51,16 @@ vector<string> readFile:: readFindMagicItems(){ //reads magic items BST into a v
 }
 
 void readFile::readGraph(){ //reads graph file in and creates 3 different versions of a graph
-    Graphs graphFun;
+    //opens file
     string line;
     fstream graphFile;
     graphFile.open("graphs1.txt");
 
+    //initializes graph
+    Graphs graphFun;
+
     if(graphFile.is_open()){
+        //if file open iterate through line by line
         while(getline(graphFile, line)){
             if(line.find("new graph")){
                 if(graphFun.graph.size() > 0){
@@ -77,6 +81,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
         cout << "graph file read correctly \n";
     }
     else{
+        //else there is an error with the file
         cout<< "Something went wrong when trying to open the file \n";
     }
 }
