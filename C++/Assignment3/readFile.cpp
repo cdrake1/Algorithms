@@ -1,12 +1,6 @@
 //This file reads lines of a txt into a String vector
 #include "readFile.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <cstring>
-
 vector<string> readFile :: readMagicItems() { //reads magic items into a vector
     string line;
     vector<string> fileLines;
@@ -57,5 +51,32 @@ vector<string> readFile:: readFindMagicItems(){ //reads magic items BST into a v
 }
 
 void readFile::readGraph(){ //reads graph file in and creates 3 different versions of a graph
+    Graphs graphFun;
+    string line;
+    fstream graphFile;
+    graphFile.open("graphs1.txt");
 
+    if(graphFile.is_open()){
+        while(getline(graphFile, line)){
+            if(line.find("new graph")){
+                if(graphFun.graph.size() > 0){
+                    
+                }
+            }
+            else if(line.find("add") && line.find("vertex")){
+
+            }
+            else if(line.find("add") && line.find("edge")){
+
+            }
+            else{
+                
+            }
+        }
+        graphFile.close(); //close file
+        cout << "graph file read correctly \n";
+    }
+    else{
+        cout<< "Something went wrong when trying to open the file \n";
+    }
 }
