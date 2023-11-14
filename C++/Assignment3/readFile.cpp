@@ -57,23 +57,5 @@ vector<string> readFile:: readFindMagicItems(){ //reads magic items BST into a v
 }
 
 void readFile::readGraph(){ //reads graph file in and creates 3 different versions of a graph
-    string line;
-
-    fstream graphFile;
-    graphFile.open("graphs1.txt"); //open file
-
-    if(graphFile.is_open()){ //check if file is open
-        while(getline(graphFile, line)){
-            for(int i = 0; i < line.length(); i++){
-                if(line[0] == '-' && line[1] == '-'){}
-                
-            }
-        }
-        graphFile.close(); //close file
-        cout << "Graph file read correctly \n";
-    }
-    else{ //error checking
-        cout << "Something went wrong when trying to open the file \n";
-    }
 
 }
