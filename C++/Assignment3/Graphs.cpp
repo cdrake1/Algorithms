@@ -10,15 +10,15 @@ void Graphs::addVertex(string id){ //add vertex to graph object
 }
 
 void Graphs::addEdge(string id1, string id2) {
-    // get pointers to the vertices
+    //get pointers to each vertex
     Vertex* vertex1 = findVertexByID(id1);
     Vertex* vertex2 = findVertexByID(id2);
-    // check if either vertex is not found
+    //check if they were not found
     if (vertex1 == nullptr || vertex2 == nullptr) {
         cout << "One or both vertices not found\n";
         return;
     }
-    // add edge to target vertices
+    //add neighbor for both vertex
     vertex1->neighbors.push_back(vertex2);
     vertex2->neighbors.push_back(vertex1);
 }
