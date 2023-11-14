@@ -40,5 +40,6 @@ int main(){
 
 
     //graph section of assignment
+    cout<< "good";
     reader.readGraph();
 }
