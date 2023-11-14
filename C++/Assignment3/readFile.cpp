@@ -72,19 +72,28 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                     }
                     graphFun.graph.clear();
                 }
-                else{
-                    graphFun.graph.clear();
-                }
             }
             else if(line.find("add") != string::npos && line.find("vertex") != string::npos){
                 stringstream str(line);
+                string iterator;
                 string vertex;
+                while(str >> iterator){
+                    if(iterator != "add" && iterator != "vertex"){
+                        vertex = iterator;
+                    }
+                }
                 graphFun.addVertex(vertex);
             }
-            else if(line.find("add") != string::npos && line.find("edge") != string::npos){
+            else if(line.find("add") != string::npos || line.find("edge") != string::npos){
                 stringstream str(line);
+                string iterator;
                 string edge1;
                 string edge2;
+                while(str >> iterator){
+                    if(iterator != "add" || iterator != "edge" || iterator != "-"){
+
+                    }
+                }
                 graphFun.addEdge(edge1, edge2);
             }
         }
