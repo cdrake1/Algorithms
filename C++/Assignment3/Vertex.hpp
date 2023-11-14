@@ -12,7 +12,7 @@ class Vertex{
     Vertex(string id); //vertex constructor
     string id; //vertex number
     bool processed; //visited
-    vector<Vertex> neighbors; //connected vertex's
+    vector<Vertex*> neighbors; //connected vertex's
 };
 
 

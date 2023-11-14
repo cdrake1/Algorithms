@@ -2,14 +2,22 @@
 #ifndef GRAPHS_HPP
 #define GRAPHS_HPP
 
+#include "Vertex.hpp"
+
+#include <vector>
+#include <string>
+
 using namespace std;
 
 class Graphs{
     public:
-        void LinkedObjects(); //creates a graph as linked objects
+        Graphs(); //graph constructor
         void Matrix(); //creates a matrix
         void AdjacencyList(); //creates an adjacency list
-
+        void addVertex(string id); //adds a vertex to the graph
+        void addEdge(string id1, string id2); //adds an edge to the graph
+        Vertex findVertexByID(string id); //find vertex by given id
+        vector<Vertex*> graph; //vector of vertex pointers / graph object
 };
 
 #endif
