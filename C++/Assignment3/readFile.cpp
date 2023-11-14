@@ -62,16 +62,30 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
     if(graphFile.is_open()){
         //if file open iterate through line by line
         while(getline(graphFile, line)){
-            if(line.find("new graph")){
+            if(line.find("new graph") != string::npos){
                 if(graphFun.graph.size() > 0){
-                    
+                    //output adjacency list
+                    graphFun.printAdjacencyList();
+                    //delete pointers in old graph and clear it
+                    for (Vertex* vertex : graphFun.graph) {
+                        delete vertex;
+                    }
+                    graphFun.graph.clear();
+                }
+                else{
+                    graphFun.graph.clear();
                 }
             }
-            else if(line.find("add") && line.find("vertex")){
-
+            else if(line.find("add") != string::npos && line.find("vertex") != string::npos){
+                stringstream str(line);
+                string vertex;
+                graphFun.addVertex(vertex);
             }
-            else if(line.find("add") && line.find("edge")){
-
+            else if(line.find("add") != string::npos && line.find("edge") != string::npos){
+                stringstream str(line);
+                string edge1;
+                string edge2;
+                graphFun.addEdge(edge1, edge2);
             }
             else{
                 
