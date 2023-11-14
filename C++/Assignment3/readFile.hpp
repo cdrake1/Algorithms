@@ -3,6 +3,7 @@
 #define READFILE_HPP
 
 #include "Graphs.hpp"
+#include "Vertex.hpp"
 
 #include <iostream>
 #include <fstream>

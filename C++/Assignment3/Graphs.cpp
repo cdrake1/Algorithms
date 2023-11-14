@@ -1,10 +1,7 @@
 //This file creates the Graphs class
 #include "Graphs.hpp"
 
-Graphs::Graphs(){ //graph object constructor
-    //clears vector and resizes it to 0
-    graph.clear();
-}
+Graphs::Graphs(){} //graph object constructor
 
 void Graphs::addVertex(string id){ //add vertex to graph object
     //creates a new vertex and adds it to the graph

@@ -66,10 +66,12 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                     //output adjacency list
                     graphFun.printAdjacencyList();
                     //delete pointers in old graph and clear it
-                    for (Vertex* vertex : graphFun.graph) {
+                    for (int i = 0; i < graphFun.graph.size(); i++){
+                        Vertex* vertex = graphFun.graph[i];
                         delete vertex;
                     }
                     graphFun.graph.clear();
+                    graphFun.graph.resize(0);
                 }
             }
             else if(line.find("add") != string::npos && line.find("vertex") != string::npos){
