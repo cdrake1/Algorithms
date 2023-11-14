@@ -47,6 +47,25 @@ void Graphs::printAdjacencyList(){ //graph object adjacency list
 }
 
 void Graphs::Matrix(){ //graph object matrix
-    //outputs the graph object as a matrix
+    //creates a 2d array and populates it with all dots
+    string matrix[graph.size()+1][graph.size()+1];
+    for(int row = 0; row < graph.size()+1; row++){
+        for(int col = 0; col < graph.size()+1; col++){
+            matrix[row][col] = ".";
+        }
+    }
+    //populates matrix with vertex ids
+    for (int i = 1; i < graph.size() + 1; i++) {
+        matrix[i][0] = graph[i - 1]->id;
+        matrix[0][i] = graph[i - 1]->id;
+    }
+
+
+    for(int row = 0; row < graph.size() + 1; row++){
+        for(int col = 0; col < graph.size() + 1; col++){
+            cout<< matrix[row][col] << " ";
+        }
+        cout<< "\n";
+    }
 
 }
