@@ -21,7 +21,6 @@ class Graphs{
         Vertex* findVertexByID(string id); //find vertex by given id
         vector<Vertex*> graph; //vector of vertex pointers / graph object
         void depthFirst(Vertex* fromVertex); //traverses the graph depth first
-
         void breadthFirst(Vertex* fromVertex); //traverses the graph breadth first
 };
 
