@@ -65,11 +65,16 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
             if(line.find("new graph") != string::npos || graphFile.eof()){
                 //check if there is already a graph object, process it, delete it
                 if(graphFun.graph.size() > 0){
+                    //output matrix
+                    graphFun.Matrix();
+                    cout<< "\n";
                     //output adjacency list
                     graphFun.printAdjacencyList();
                     cout<< "\n";
-                    graphFun.Matrix();
-                    cout<< "\n";
+                    //output depth first traversal
+                    cout << "depth first search\n";
+                    graphFun.depthFirst(graphFun.graph[0]);
+                    cout<<"\n";
                     //delete pointers in old graph and clear it
                     for (int i = 0; i < graphFun.graph.size(); i++){
                         Vertex* vertex = graphFun.graph[i];

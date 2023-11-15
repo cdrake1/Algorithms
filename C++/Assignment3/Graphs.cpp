@@ -76,3 +76,19 @@ void Graphs::Matrix(){ //graph object matrix
         cout<< "\n";
     }
 }
+
+void Graphs::depthFirst(Vertex* fromVertex){
+    //depth first search recursion traversal from slides
+    if(!fromVertex->processed){
+        //check if processed, output, then process
+        cout << "Visited: " << fromVertex->id << "\n";
+        fromVertex->processed = true;
+        //iterate through neighbors and recurse
+        for(int i = 0; i < fromVertex->neighbors.size(); i++){
+            Vertex* neighbor = fromVertex->neighbors[i];
+            if(!neighbor->processed){
+                depthFirst(neighbor);
+            }
+        }
+    }
+}
