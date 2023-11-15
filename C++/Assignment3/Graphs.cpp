@@ -92,3 +92,22 @@ void Graphs::depthFirst(Vertex* fromVertex){
         }
     }
 }
+
+void Graphs::breadthFirst(Vertex* fromVertex){
+    //breadth first search recursion traversal from slides
+    Queue Q;
+    Q.enqueue(fromVertex);
+    fromVertex->processed = true;
+    while (!Q.isEmpty())
+    {
+        Vertex* nextVertex = Q.dequeue();
+        cout << nextVertex->id;
+        for(int i = 0; i < nextVertex->neighbors.size(); i++){
+            Vertex* neighbor = nextVertex->neighbors[i];
+            if(!neighbor->processed){
+                Q.enqueue(neighbor);
+                neighbor->processed = true;
+            }
+        }
+    }
+}
