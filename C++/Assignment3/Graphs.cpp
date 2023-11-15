@@ -35,6 +35,7 @@ Vertex* Graphs::findVertexByID(string id){ //searches the graph object for the g
 }
 
 void Graphs::printAdjacencyList(){ //graph object adjacency list
+    cout<< "Adjacency List\n";
     //outputs the graph object as an adjacency list
     for(int i = 0; i < graph.size(); i++){
         cout<< "[" << graph[i]->id << "]" << " ";
@@ -47,6 +48,7 @@ void Graphs::printAdjacencyList(){ //graph object adjacency list
 }
 
 void Graphs::Matrix(){ //graph object matrix
+    cout<< "Matrix\n";
     //creates a 2d array and populates it with all dots
     string matrix[graph.size()+1][graph.size()+1];
     for(int row = 0; row < graph.size()+1; row++){

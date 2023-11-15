@@ -62,7 +62,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
         //if file open iterate through line by line
         while(getline(graphFile, line)){
             //check if the line contains new graph
-            if(line.find("new graph") != string::npos){
+            if(line.find("new graph") != string::npos || graphFile.eof()){
                 //check if there is already a graph object, process it, delete it
                 if(graphFun.graph.size() > 0){
                     //output adjacency list
