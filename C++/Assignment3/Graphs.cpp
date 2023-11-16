@@ -56,11 +56,6 @@ void Graphs::Matrix(){ //graph object matrix
             matrix[row][col] = ".";
         }
     }
-    //populates matrix with vertex ids
-    for (int i = 1; i < graph.size() + 1; i++) {
-        matrix[i][0] = graph[i - 1]->id;
-        matrix[0][i] = graph[i - 1]->id;
-    }
     //populates matrix with edges
     for(int i = 0; i < graph.size(); i++){
         for(int j = 0; j < graph[i]->neighbors.size(); j++){
