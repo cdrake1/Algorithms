@@ -1,5 +1,5 @@
 //main file to run assignment 3 folder
-//rebuild progam3 and run it by running: make followed by the exe name in terminal. To clean and rerun: make clean, make, followed by the exe name
+//rebuild progam3 and run it by running: make followed by the exe name in terminal. To clean and rerun: make clean, make, followed by the exe name (program3)
 #include "readFile.hpp"
 #include"BST.hpp"
 
@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(){
-    //create readfile instance and read magic items and magic items find into separate vectors
+    //create readfile instance and read magic items and magic items bst into separate vectors
     readFile reader;
     vector<string> magicItems = reader.readMagicItems();
     vector<string> findMagicItems = reader.readFindMagicItems();
@@ -16,7 +16,7 @@ int main(){
     //creates instance of BST and initializes root node
     BST binarySearchTree;
 
-    //insert each element in magic items into the BST
+    //insert each element in magic items into the BST and output its path
     cout << "The path taken to insert each node:" << "\n";
     for(int i = 0; i < magicItems.size(); i++){ 
         binarySearchTree.BSTInsert(magicItems[i]);
@@ -27,6 +27,7 @@ int main(){
     binarySearchTree.InOrder(binarySearchTree.root);
 
     //search the BST for each magic item within the find magic items vector
+    cout << "\n" << "The output of each items path and the amount of comparisons for each lookup:" << "\n";
     for(int j = 0; j < findMagicItems.size(); j++){
         //create path and comparison count for each target
         string path = "";
@@ -36,8 +37,9 @@ int main(){
     }
     //type cast and output the total binary search tree comparison average
     float totalBSTComp = (static_cast<float>(binarySearchTree.totalBSTSearch) / static_cast<float>(findMagicItems.size()));
-    cout<< "The average comparison count of BST search: " << totalBSTComp << "\n";
+    cout<< "\n" << "The average comparison count of BST search: " << totalBSTComp << "\n";
 
     //call graph reader to read file and output adjacency list and matrix
+    cout << "\n";
     reader.readGraph();
 }
