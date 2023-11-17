@@ -20,8 +20,8 @@ class Graphs{
         void addEdge(string id1, string id2); //adds an edge to the graph
         Vertex* findVertexByID(string id); //find vertex by given id
         vector<Vertex*> graph; //vector of vertex pointers / graph object
-        void depthFirst(Vertex* fromVertex); //traverses the graph depth first
-        void breadthFirst(Vertex* fromVertex); //traverses the graph breadth first
+        void depthFirst(Vertex* fromVertex); //traverses the graph depth-first
+        void breadthFirst(Vertex* fromVertex); //traverses the graph breadth-first
 };
 
 #endif

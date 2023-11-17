@@ -72,7 +72,7 @@ void Graphs::Matrix(){ //graph object matrix
 }
 
 void Graphs::depthFirst(Vertex* fromVertex){
-    //depth first search recursion traversal from slides
+    //depth first search recursion traversal
     if(!fromVertex->processed){
         //check if processed, output, then process
         cout << "Visited: " << fromVertex->id << "\n";
@@ -88,17 +88,21 @@ void Graphs::depthFirst(Vertex* fromVertex){
 }
 
 void Graphs::breadthFirst(Vertex* fromVertex){
-    //breadth first search traversal from slides
+    //breadth first search traversal
+    //create a queue and add the first vertex
     Queue Q;
     Q.enqueue(fromVertex);
     fromVertex->processed = true;
     while (!Q.isEmpty())
     {
+        //dequeue all vertex in the queue
         Vertex* nextVertex = Q.dequeue();
         cout << nextVertex->id << "\n";
+        //iterate through the neigbors of the dequeued vertex
         for(int i = 0; i < nextVertex->neighbors.size(); i++){
             Vertex* neighbor = nextVertex->neighbors[i];
             if(!neighbor->processed){
+                //if not processed enqueue the vertex
                 Q.enqueue(neighbor);
                 neighbor->processed = true;
             }

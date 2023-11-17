@@ -39,7 +39,7 @@ int main(){
     float totalBSTComp = (static_cast<float>(binarySearchTree.totalBSTSearch) / static_cast<float>(findMagicItems.size()));
     cout<< "\n" << "The average comparison count of BST search: " << totalBSTComp << "\n";
 
-    //call graph reader to read file and output adjacency list and matrix
+    //call graph reader to read file and output adjacency list, matrix, and depth/breadth first searches
     cout << "\n";
     reader.readGraph();
 }

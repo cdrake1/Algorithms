@@ -71,14 +71,15 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                     //output adjacency list
                     graphFun.printAdjacencyList();
                     cout<< "\n";
-                    //output depth first traversal
+                    //output depth-first traversal
                     cout << "depth-first search:" << "\n";
                     graphFun.depthFirst(graphFun.graph[0]);
                     cout<<"\n";
+                    //output breadth-first traversal
                     cout << "breadth-first search:" << "\n";
                     graphFun.breadthFirst(graphFun.graph[0]);
                     cout<<"\n";
-                    //delete pointers in old graph and clear it
+                    //delete pointers in old graph and clear it/resize it
                     for (int i = 0; i < graphFun.graph.size(); i++){
                         Vertex* vertex = graphFun.graph[i];
                         delete vertex;
@@ -87,14 +88,14 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                     graphFun.graph.resize(0);
                 }
             }
-            //check if the line contains add vertex
+            //check if the line contains 'add vertex'
             else if(line.find("add") != string::npos && line.find("vertex") != string::npos){
                 //create a string stream to iterate through the line
                 stringstream str(line);
                 string iterator;
                 string vertex;
                 while(str >> iterator){
-                    //if the sub string is not add and vertex then its the target vertex
+                    //if the sub string is not 'add' and 'vertex' then its the vertex id
                     if(iterator != "add" && iterator != "vertex"){
                         vertex = iterator;
                     }
@@ -102,7 +103,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 //add the new vertex
                 graphFun.addVertex(vertex);
             }
-            //check if the line contains add edge
+            //check if the line contains 'add edge'
             else if(line.find("add") != string::npos || line.find("edge") != string::npos){
                 //create string stream, iterator, and edge variables
                 stringstream str(line);
@@ -112,7 +113,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 //flag to switch to other edge
                 bool isEdge1 = true;
                 while(str >> iterator){
-                    //check if substring is the edges
+                    //check if substring is the vertex id's
                     if(iterator != "add" && iterator != "edge" && iterator != "-"){
                         if(isEdge1){
                             edge1 = iterator;
@@ -130,13 +131,12 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 }
             }
         }
-
         //close file and output feedback
         graphFile.close();
         cout << "graph file read correctly \n";
     }
     else{
-        //else there is an error with the file
+        //output if there is an error with the file
         cout<< "Something went wrong when trying to open the file \n";
     }
 }

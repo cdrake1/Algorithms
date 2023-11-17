@@ -1,8 +1,5 @@
-//This file creates the BST classes for insert and search
+//This file creates the BST classes for insert, search, and in-order traversal
 #include "BST.hpp"
-
-#include <string>
-#include <iostream>
 
 BST:: BST(){ //BST constructor
     //creates a BST and sets root to null
