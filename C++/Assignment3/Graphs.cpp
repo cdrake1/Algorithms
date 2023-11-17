@@ -92,12 +92,14 @@ void Graphs::breadthFirst(Vertex* fromVertex){
     //create a queue and add the first vertex
     Queue Q;
     Q.enqueue(fromVertex);
+    fromVertex->processed = true;
+
     while (!Q.isEmpty())
     {
         //dequeue all vertex in the queue
         Vertex* nextVertex = Q.dequeue();
-        cout << nextVertex->id << "\n";
-        //iterate through the neigbors of the dequeued vertex
+        cout << "Visited: " << nextVertex->id << "\n";
+        //iterate through the neighbors of the dequeued vertex
         for(int i = 0; i < nextVertex->neighbors.size(); i++){
             Vertex* neighbor = nextVertex->neighbors[i];
             if(!neighbor->processed){
@@ -106,6 +108,12 @@ void Graphs::breadthFirst(Vertex* fromVertex){
                 neighbor->processed = true;
             }
         }
-        fromVertex->processed = true;
+    }
+}
+
+void Graphs::resetProcessed(){
+    //resets all the processed flags before doing the traversals
+    for(int i = 0; i < graph.size(); i++){
+        graph[i]->processed = false;
     }
 }

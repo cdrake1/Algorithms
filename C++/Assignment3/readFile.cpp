@@ -75,6 +75,8 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                     cout << "depth-first search:" << "\n";
                     graphFun.depthFirst(graphFun.graph[0]);
                     cout<<"\n";
+                    //reset flags before breadth-first
+                    graphFun.resetProcessed();
                     //output breadth-first traversal
                     cout << "breadth-first search:" << "\n";
                     graphFun.breadthFirst(graphFun.graph[0]);

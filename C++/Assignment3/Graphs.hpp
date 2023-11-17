@@ -22,6 +22,7 @@ class Graphs{
         vector<Vertex*> graph; //vector of vertex pointers / graph object
         void depthFirst(Vertex* fromVertex); //traverses the graph depth-first
         void breadthFirst(Vertex* fromVertex); //traverses the graph breadth-first
+        void resetProcessed(); //resets the processed flag for each vertex
 };
 
 #endif
