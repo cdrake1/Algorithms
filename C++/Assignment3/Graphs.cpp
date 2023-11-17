@@ -92,7 +92,6 @@ void Graphs::breadthFirst(Vertex* fromVertex){
     //create a queue and add the first vertex
     Queue Q;
     Q.enqueue(fromVertex);
-    fromVertex->processed = true;
     while (!Q.isEmpty())
     {
         //dequeue all vertex in the queue
@@ -107,5 +106,6 @@ void Graphs::breadthFirst(Vertex* fromVertex){
                 neighbor->processed = true;
             }
         }
+        fromVertex->processed = true;
     }
 }

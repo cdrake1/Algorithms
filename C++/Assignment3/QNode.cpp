@@ -21,8 +21,6 @@ void Queue::enqueue(Vertex* val){ //add node to back of line
     else{ //if not make it rear
         tail->next = newNode2;
         tail = newNode2;
-        newNode2 = nullptr;
-        delete newNode2;
     }
 }
 
