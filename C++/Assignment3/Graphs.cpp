@@ -93,7 +93,7 @@ void Graphs::breadthFirst(Vertex* fromVertex){
     Queue Q;
     Q.enqueue(fromVertex);
     fromVertex->processed = true;
-
+    //loop through queue
     while (!Q.isEmpty())
     {
         //dequeue all vertex in the queue
@@ -112,7 +112,7 @@ void Graphs::breadthFirst(Vertex* fromVertex){
 }
 
 void Graphs::resetProcessed(){
-    //resets all the processed flags before doing the traversals
+    //resets all the processed flags to false
     for(int i = 0; i < graph.size(); i++){
         graph[i]->processed = false;
     }
