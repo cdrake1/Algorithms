@@ -9,19 +9,16 @@ void Graphs::addVertex(string id){ //add vertex to graph object
     graph.push_back(newVertex);
 }
 
-void Graphs::addEdge(string id1, string id2) {
-    //get pointers to each vertex
-    Vertex* vertex1 = findVertexByID(id1);
-    Vertex* vertex2 = findVertexByID(id2);
-    //check if they were not found
-    if (vertex1 == nullptr || vertex2 == nullptr) {
-        return;
+void Graphs::addEdge(Vertex* to, Vertex* from, int cost){ //adds an edge to the graph object
+    //creates a new edge
+    Edge* newEdge = new Edge(to, from, cost);
+    //iterates through graph object to add an edge to the source vertex
+    for(int i = 0; i < graph.size(); i++){
+        if(from == graph[i]){
+            graph[i]->neighbors.push_back(newEdge);
+        }
     }
-    //add neighbor for both vertex
-    vertex1->neighbors.push_back(vertex2);
-    vertex2->neighbors.push_back(vertex1);
 }
-
 
 Vertex* Graphs::findVertexByID(string id){ //searches the graph object for the given vertex id
     //returns the pointer to the vertex within the graph object

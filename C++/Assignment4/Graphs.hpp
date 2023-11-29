@@ -4,6 +4,7 @@
 
 #include "Vertex.hpp"
 #include "QNode.hpp"
+#include "Edge.hpp"
 
 #include <vector>
 #include <string>
@@ -15,7 +16,7 @@ class Graphs{
     public:
         Graphs(); //graph constructor
         void addVertex(string id); //adds a vertex to the graph
-        void addEdge(string id1, string id2); //adds an edge to the graph
+        void addEdge(Vertex* to, Vertex* from, int cost); //adds an edge to the graph
         Vertex* findVertexByID(string id); //find vertex by given id
         vector<Vertex*> graph; //vector of vertex pointers / graph object
 
