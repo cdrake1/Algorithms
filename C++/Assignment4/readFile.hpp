@@ -4,6 +4,7 @@
 
 #include "Graphs.hpp"
 #include "Vertex.hpp"
+#include "Edge.hpp"
 
 #include <iostream>
 #include <fstream>
