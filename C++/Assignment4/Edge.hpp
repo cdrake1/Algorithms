@@ -11,10 +11,10 @@ using namespace std;
 
 class Edge{
     public:
-    Edge(Vertex* from, Vertex* to, int cost); //edge constructor
+    Edge(Vertex* from, Vertex* to, string cost); //edge constructor
     Vertex* from; //edge origin
     Vertex* to; //destination vertex
-    int cost; //cost of getting there
+    string cost; //cost of getting there
 };
 
 #endif

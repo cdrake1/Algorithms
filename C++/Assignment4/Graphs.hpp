@@ -16,7 +16,7 @@ class Graphs{
     public:
         Graphs(); //graph constructor
         void addVertex(string id); //adds a vertex to the graph
-        void addEdge(Vertex* from, Vertex* to, int cost); //adds an edge to the graph
+        void addEdge(string from, string to, string cost); //adds an edge to the graph
         Vertex* findVertexByID(string id); //find vertex by given id
         vector<Vertex*> graph; //vector of vertex pointers / graph object
         vector<Edge*> edges; //vector to store all edges
