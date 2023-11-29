@@ -93,3 +93,11 @@ void readFile::readGraph(){ //reads graph file
         cout<< "Something went wrong when trying to open the file \n";
     }
 }
+
+void readFile::readKnapSack(){ //reads spice.txt
+    //opens file
+    string line;
+    fstream spiceFile;
+    spiceFile.open("spice.txt");
+
+}

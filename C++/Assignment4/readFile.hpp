@@ -18,6 +18,7 @@ using namespace std;
 class readFile{
     public:
         void readGraph(); //reads the graphs2.txt and creates weighted and directed graphs
+        void readKnapSack(); //reads the spice.txt and creates knapsacks for the spices
 };
 
 #endif
