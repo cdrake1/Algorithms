@@ -9,10 +9,12 @@ void Graphs::addVertex(string id){ //add vertex to graph object
     graph.push_back(newVertex);
 }
 
-void Graphs::addEdge(Vertex* to, Vertex* from, int cost){ //adds an edge to the graph object
+void Graphs::addEdge(Vertex* from, Vertex* to, int cost){ //adds an edge to the graph object
     //creates a new edge
-    Edge* newEdge = new Edge(to, from, cost);
-    //iterates through graph object to add an edge to the source vertex
+    Edge* newEdge = new Edge(from, to, cost);
+    //adds it to graph edge vector
+    edges.push_back(newEdge);
+    //iterates through graph object to add the edge to the source vertex
     for(int i = 0; i < graph.size(); i++){
         if(from == graph[i]){
             graph[i]->neighbors.push_back(newEdge);
