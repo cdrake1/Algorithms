@@ -2,6 +2,8 @@
 #ifndef VERTEX_HPP
 #define VERTEX_HPP
 
+#include "Edge.hpp"
+
 #include <string>
 #include <vector>
 
@@ -12,8 +14,7 @@ class Vertex{
     Vertex(string id); //vertex constructor
     string id; //vertex number
     bool processed; //visited
-    vector<Vertex*> neighbors; //connected vertex's
+    vector<Edge*> neighbors; //connected vertex's
 };
-
 
 #endif
