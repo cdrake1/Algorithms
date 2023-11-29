@@ -1,7 +1,7 @@
 //This file reads lines of a txt
 #include "readFile.hpp"
 
-void readFile::readGraph(){ //reads graph file in and creates 3 different versions of a graph
+void readFile::readGraph(){ //reads graph file
     //opens file
     string line;
     fstream graphFile;
@@ -34,7 +34,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 }
             }
             //check if the line contains 'add vertex'
-            else if(line.find("add") != string::npos && line.find("vertex") != string::npos){
+            else if(line.find("add vertex") != string::npos){
                 //create a string stream to iterate through the line
                 stringstream str(line);
                 string iterator;
@@ -49,7 +49,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 graphFun.addVertex(vertex);
             }
             //check if the line contains 'add edge'
-            else if(line.find("add") != string::npos || line.find("edge") != string::npos){
+            else if(line.find("add edge") != string::npos){
                 //create string stream, iterator, edge variables, and a cost variable
                 stringstream str(line);
                 string iterator;
@@ -61,7 +61,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 bool isEdge2 = false;
                 while(str >> iterator){
                     //check if substring is the vertex id's
-                    if(iterator != "add" && iterator != "edge"){
+                    if(iterator != "add" && iterator != "edge" && iterator != "-"){
                         if(isEdge1 && !isEdge2){
                             edge1 = iterator;
                             isEdge1 = false;
