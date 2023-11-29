@@ -50,7 +50,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
             }
             //check if the line contains 'add edge'
             else if(line.find("add") != string::npos || line.find("edge") != string::npos){
-                //create string stream, iterator, and edge variables
+                //create string stream, iterator, edge variables, and a cost variable
                 stringstream str(line);
                 string iterator;
                 string edge1;
@@ -61,7 +61,7 @@ void readFile::readGraph(){ //reads graph file in and creates 3 different versio
                 bool isEdge2 = false;
                 while(str >> iterator){
                     //check if substring is the vertex id's
-                    if(iterator != "add" && iterator != "edge" && iterator != "-"){
+                    if(iterator != "add" && iterator != "edge"){
                         if(isEdge1 && !isEdge2){
                             edge1 = iterator;
                             isEdge1 = false;
