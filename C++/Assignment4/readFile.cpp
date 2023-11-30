@@ -100,4 +100,45 @@ void readFile::readKnapSack(){ //reads spice.txt
     fstream spiceFile;
     spiceFile.open("spice.txt");
 
+    if(spiceFile.is_open()){
+        //if file open iterate through line by line
+        while(getline(spiceFile, line)){
+            //check if the line contains new graph
+            if(line.find("spice name") != string::npos){
+                stringstream str(line);
+                string iterator;
+                string name;
+                double price;
+                int quantity;
+
+                int count = 0;
+
+                while(str >> iterator){
+                    if(iterator != "spice" && iterator != "name" && iterator != "=" && iterator != "qty" && iterator != "total_price"){
+                        if(count == 0){
+                            name = iterator;
+                            count++;
+                        }
+                        else if(count == 1){
+                            price = stod(iterator);
+                            count++;
+                        }
+                        else{
+                            quantity = stoi(iterator);
+
+                        }
+                    }
+                }
+            
+            }
+        }
+        //close file and output feedback
+        spiceFile.close();
+        cout << "spice file read correctly \n";
+    }
+    else{
+        //output if there is an error with the file
+        cout<< "Something went wrong when trying to open the file \n";
+    }
+
 }
