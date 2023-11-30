@@ -3,6 +3,7 @@
 #define SPICES_HPP
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ class Spices{
     double spicePrice;
     int spiceQty;
     double totalPrice;
+    vector<Spices*> allSpices;
 };
 
 #endif

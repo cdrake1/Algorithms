@@ -110,9 +110,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                 string name;
                 double price;
                 int quantity;
-
                 int count = 0;
-
                 while(str >> iterator){
                     if(iterator != "spice" && iterator != "name" && iterator != "=" && iterator != "qty" && iterator != "total_price"){
                         if(count == 0){
@@ -125,11 +123,11 @@ void readFile::readKnapSack(){ //reads spice.txt
                         }
                         else{
                             quantity = stoi(iterator);
-
                         }
                     }
                 }
-            
+                Spices* spice = new Spices(name, price, quantity);
+                spice->allSpices.push_back(spice);
             }
         }
         //close file and output feedback
@@ -140,5 +138,4 @@ void readFile::readKnapSack(){ //reads spice.txt
         //output if there is an error with the file
         cout<< "Something went wrong when trying to open the file \n";
     }
-
 }
