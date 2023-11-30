@@ -3,7 +3,7 @@
 
 Spices:: Spices(string name, double price, int qty){
     spiceName = name;
-    spicePrice = price;
+    totalPrice = price;
     spiceQty = qty;
-    totalPrice = price * qty;
+    unitPrice = price / qty;
 }
