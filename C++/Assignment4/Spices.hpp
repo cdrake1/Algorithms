@@ -22,8 +22,6 @@ class Knapsack{
     Knapsack(double capacity);
     void addItem(Spices* spice);
     void fractionalKnapsack();
-
-    private:
     double capacity;
     vector<Spices*> items;
 };

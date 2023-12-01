@@ -101,6 +101,7 @@ vector<Spices*> readFile::readKnapSack(){ //reads spice.txt
     spiceFile.open("spice.txt");
 
     vector<Spices*> spiceVector;
+    bool knapsackCreated = false;
 
     if(spiceFile.is_open()){
         //if file open iterate through line by line
@@ -130,6 +131,24 @@ vector<Spices*> readFile::readKnapSack(){ //reads spice.txt
                 }
                 Spices* spice = new Spices(name, price, quantity);
                 spiceVector.push_back(spice);
+            }
+            else if(line.find("knapsack capacity") != string::npos || spiceFile.eof()){
+                if(!knapsackCreated){ //knapsack not created
+                    stringstream str(line);
+                    string iterator;
+                    double capacity;
+                    while(str >> iterator){
+                        if(iterator != "knapsack" && iterator != "capacity" && iterator != "="){
+                            capacity = stod(iterator);
+                        }
+                    }
+                    Knapsack* knapsack = new Knapsack(capacity);
+                    knapsackCreated = true;
+                }
+                else{ //knapsack already created
+                    //output old knapsack info and create a new knapsack
+
+                }
             }
         }
         //close file and output feedback
