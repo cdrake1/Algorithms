@@ -26,6 +26,5 @@ void Knapsack::clearKnapsack() { //clear the items stored in the knapsack
 
 
 void Knapsack:: fractionalKnapsack(){ //fractional knapsack algorithm
-    greatestUnitPrice();
 
 }
