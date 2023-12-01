@@ -94,7 +94,7 @@ void readFile::readGraph(){ //reads graph file
     }
 }
 
-void readFile::readKnapSack(){ //reads spice.txt
+vector<Spices*> readFile::readKnapSack(){ //reads spice.txt
     //opens file
     string line;
     fstream spiceFile;
@@ -127,7 +127,6 @@ void readFile::readKnapSack(){ //reads spice.txt
                     }
                 }
                 Spices* spice = new Spices(name, price, quantity);
-                spice->allSpices.push_back(spice);
             }
         }
         //close file and output feedback

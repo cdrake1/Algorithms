@@ -10,11 +10,11 @@ using namespace std;
 class Spices{
     public:
     Spices(string name, double price, int qty); //spice constructor
-    string spiceName; //name, price, and qty of the spices
+    //name, price, and qty of the spices
+    string spiceName; 
     double unitPrice;
     int spiceQty;
     double totalPrice;
-    vector<Spices*> allSpices;
 };
 
 #endif
