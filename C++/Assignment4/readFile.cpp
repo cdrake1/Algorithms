@@ -94,13 +94,12 @@ void readFile::readGraph(){ //reads graph file
     }
 }
 
-vector<Spices*> readFile::readKnapSack(){ //reads spice.txt
+void readFile::readKnapSack(){ //reads spice.txt
     //opens file
     string line;
     fstream spiceFile;
     spiceFile.open("spice.txt");
 
-    vector<Spices*> spiceVector;
     bool knapsackCreated = false;
 
     if(spiceFile.is_open()){
@@ -130,7 +129,7 @@ vector<Spices*> readFile::readKnapSack(){ //reads spice.txt
                     }
                 }
                 Spices* spice = new Spices(name, price, quantity);
-                spiceVector.push_back(spice);
+                allSpices.push_back(spice);
             }
             else if(line.find("knapsack capacity") != string::npos || spiceFile.eof()){
                 if(!knapsackCreated){ //knapsack not created

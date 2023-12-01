@@ -5,7 +5,6 @@ To rebuild and run the program run; make clean, make, followed by the exe name i
 */
 
 #include "readFile.hpp"
-#include "Sorts.hpp"
 
 #include <iostream>
 
@@ -16,8 +15,5 @@ int main(){
 
 
     //spice & knapsack
-    vector<Spices*> allSpices = reader.readKnapSack();
-
-    Sorts sort;
-    sort.mergeSort(allSpices, 0, allSpices.size() - 1);
+    reader.readKnapSack();
 }
