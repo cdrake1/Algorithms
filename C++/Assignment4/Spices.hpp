@@ -17,4 +17,15 @@ class Spices{
     double totalPrice;
 };
 
+class Knapsack{
+    public:
+    Knapsack(double capacity);
+    void addItem(Spices* spice);
+    void fractionalKnapsack();
+
+    private:
+    double capacity;
+    vector<Spices*> items;
+};
+
 #endif
