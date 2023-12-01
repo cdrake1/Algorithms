@@ -29,7 +29,3 @@ void Knapsack:: fractionalKnapsack(){ //fractional knapsack algorithm
     greatestUnitPrice();
 
 }
-
-void Knapsack:: greatestUnitPrice(){
-    //iterates through false processed spices
-}

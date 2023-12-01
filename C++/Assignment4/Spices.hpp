@@ -24,7 +24,6 @@ class Knapsack{
     void addItem(Spices* spice);
     void fractionalKnapsack();
     void clearKnapsack();
-    void greatestUnitPrice();
     double capacity;
     vector<Spices*> items;
 };
