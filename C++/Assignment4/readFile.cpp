@@ -121,6 +121,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                     if(iterator != "spice" && iterator != "name" && iterator != "=" && iterator != "qty" && iterator != "total_price"){
                         //grab the name, price, and quantity of each spice
                         if(count == 0){
+                            //trim semicolon off end
                             name = iterator;
                             count++;
                         }

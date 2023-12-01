@@ -15,6 +15,7 @@ class Spices{
     double unitPrice;
     int spiceQty;
     double totalPrice;
+    bool processed;
 };
 
 class Knapsack{
@@ -23,6 +24,7 @@ class Knapsack{
     void addItem(Spices* spice);
     void fractionalKnapsack();
     void clearKnapsack();
+    void greatestUnitPrice();
     double capacity;
     vector<Spices*> items;
 };

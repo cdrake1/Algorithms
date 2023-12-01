@@ -6,6 +6,7 @@ Spices:: Spices(string name, double price, int qty){ //spice class constructor
     totalPrice = price;
     spiceQty = qty;
     unitPrice = price / qty;
+    processed = false;
 }
 
 Knapsack:: Knapsack(double capacity){ //knapsack class constructor
@@ -25,5 +26,10 @@ void Knapsack::clearKnapsack() { //clear the items stored in the knapsack
 
 
 void Knapsack:: fractionalKnapsack(){ //fractional knapsack algorithm
+    greatestUnitPrice();
 
+}
+
+void Knapsack:: greatestUnitPrice(){
+    //iterates through false processed spices
 }
