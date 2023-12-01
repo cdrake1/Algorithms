@@ -100,21 +100,26 @@ void readFile::readKnapSack(){ //reads spice.txt
     fstream spiceFile;
     spiceFile.open("spice.txt");
 
+    //creates version of knapsack and flag
+    Knapsack* knapsack = nullptr;
     bool knapsackCreated = false;
 
     if(spiceFile.is_open()){
         //if file open iterate through line by line
         while(getline(spiceFile, line)){
-            //check if the line contains new graph
+            //check if the line contains spice name
             if(line.find("spice name") != string::npos){
+                //create variables for spice
                 stringstream str(line);
                 string iterator;
                 string name;
                 double price;
                 int quantity;
                 int count = 0;
+                //iterate through string by string
                 while(str >> iterator){
                     if(iterator != "spice" && iterator != "name" && iterator != "=" && iterator != "qty" && iterator != "total_price"){
+                        //grab the name, price, and quantity of each spice
                         if(count == 0){
                             name = iterator;
                             count++;
@@ -128,11 +133,15 @@ void readFile::readKnapSack(){ //reads spice.txt
                         }
                     }
                 }
+                //create spice and add it to the spice array
                 Spices* spice = new Spices(name, price, quantity);
                 allSpices.push_back(spice);
             }
+            //check for knapsack capacity or the end of the file
             else if(line.find("knapsack capacity") != string::npos || spiceFile.eof()){
-                if(!knapsackCreated){ //knapsack not created
+                //check if knapsack is created
+                if(!knapsackCreated){
+                    //if not created grab capacity and create knapsack
                     stringstream str(line);
                     string iterator;
                     double capacity;
@@ -141,12 +150,26 @@ void readFile::readKnapSack(){ //reads spice.txt
                             capacity = stod(iterator);
                         }
                     }
-                    Knapsack* knapsack = new Knapsack(capacity);
+                    //create knapsack and change flag
+                    knapsack = new Knapsack(capacity);
                     knapsackCreated = true;
                 }
-                else{ //knapsack already created
-                    //output old knapsack info and create a new knapsack
-
+                //if knapsack is already created
+                else{
+                    //output old and delete it
+                    knapsack->fractionalKnapsack();
+                    knapsack->clearKnapsack();
+                    delete knapsack;
+                    //create new knapsack
+                    stringstream str(line);
+                    string iterator;
+                    double capacity;
+                    while(str >> iterator){
+                        if(iterator != "knapsack" && iterator != "capacity" && iterator != "="){
+                            capacity = stod(iterator);
+                        }
+                    }
+                    knapsack = new Knapsack(capacity);
                 }
             }
         }

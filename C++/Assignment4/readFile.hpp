@@ -20,7 +20,7 @@ class readFile{
     public:
         void readGraph(); //reads the graphs2.txt and creates weighted and directed graphs
         void readKnapSack(); //reads the spice.txt and creates knapsacks for the spices
-        vector<Spices*> allSpices;
+        vector<Spices*> allSpices; //vector that holds all the spices
 };
 
 #endif
