@@ -100,6 +100,8 @@ vector<Spices*> readFile::readKnapSack(){ //reads spice.txt
     fstream spiceFile;
     spiceFile.open("spice.txt");
 
+    vector<Spices*> spiceVector;
+
     if(spiceFile.is_open()){
         //if file open iterate through line by line
         while(getline(spiceFile, line)){
@@ -127,6 +129,7 @@ vector<Spices*> readFile::readKnapSack(){ //reads spice.txt
                     }
                 }
                 Spices* spice = new Spices(name, price, quantity);
+                spiceVector.push_back(spice);
             }
         }
         //close file and output feedback

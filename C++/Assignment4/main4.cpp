@@ -13,7 +13,6 @@ using namespace std;
 
 int main(){
     readFile reader;
-    reader.readGraph();
 
 
     //spice & knapsack
