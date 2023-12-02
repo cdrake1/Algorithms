@@ -122,14 +122,17 @@ void readFile::readKnapSack(){ //reads spice.txt
                         //grab the name, price, and quantity of each spice
                         if(count == 0){
                             //trim semicolon off end
+                            iterator.erase(std::remove(iterator.begin(), iterator.end(), ';'), iterator.end());
                             name = iterator;
                             count++;
                         }
                         else if(count == 1){
+                            iterator.erase(std::remove(iterator.begin(), iterator.end(), ';'), iterator.end());
                             price = stod(iterator);
                             count++;
                         }
                         else{
+                            iterator.erase(std::remove(iterator.begin(), iterator.end(), ';'), iterator.end());
                             quantity = stoi(iterator);
                         }
                     }
