@@ -151,6 +151,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                     double capacity;
                     while(str >> iterator){
                         if(iterator != "knapsack" && iterator != "capacity" && iterator != "="){
+                            iterator.erase(std::remove(iterator.begin(), iterator.end(), ';'), iterator.end());
                             capacity = stod(iterator);
                         }
                     }
@@ -170,6 +171,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                     double capacity;
                     while(str >> iterator){
                         if(iterator != "knapsack" && iterator != "capacity" && iterator != "="){
+                            iterator.erase(std::remove(iterator.begin(), iterator.end(), ';'), iterator.end());
                             capacity = stod(iterator);
                         }
                     }
