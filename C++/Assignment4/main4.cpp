@@ -12,8 +12,6 @@ using namespace std;
 
 int main(){
     readFile reader;
-
-
     //spice & knapsack
     reader.readKnapSack();
 }
