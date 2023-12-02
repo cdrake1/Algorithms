@@ -1,6 +1,8 @@
 //This file reads lines of a txt
 #include "readFile.hpp"
 
+/*
+
 void readFile::readGraph(){ //reads graph file
     //opens file
     string line;
@@ -93,6 +95,8 @@ void readFile::readGraph(){ //reads graph file
         cout<< "Something went wrong when trying to open the file \n";
     }
 }
+
+*/
 
 void readFile::readKnapSack(){ //reads spice.txt
     //opens file

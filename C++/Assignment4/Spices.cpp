@@ -1,6 +1,8 @@
 // This file creates the spices class
 #include "Spices.hpp"
 
+//Spices class below
+
 Spices:: Spices(string name, double price, int qty){ //spice class constructor
     spiceName = name;
     totalPrice = price;
@@ -8,6 +10,8 @@ Spices:: Spices(string name, double price, int qty){ //spice class constructor
     unitPrice = price / qty;
     processed = false;
 }
+
+//Knapsack class below
 
 Knapsack:: Knapsack(double capacity){ //knapsack class constructor
     knapCapacity = capacity;
@@ -52,9 +56,70 @@ void Knapsack:: fractionalKnapsack(vector<Spices*> allSpices){ //fractional knap
             currentWeight = knapCapacity;
         }
     }
-    //output contents of the knapsack
-    cout << "Knapsack of capacity " << knapCapacity << " is worth " << priceTotal << " and contains:\n";
-    for (int i = 0; i < items.size(); i++) {
-        cout << items[i]->spiceName << " - " << items[i]->spiceQty << " units\n";
+    //check how many items and output contents of the knapsack
+    if(items.size() == 0){
+        cout << "Knapsack of capacity " << knapCapacity << " is worth " << priceTotal << " quatloos and contains 0 spices" << "\n";
+    }
+    else if(items.size() == 1){
+        cout << "Knapsack of capacity " << knapCapacity << " is worth " << priceTotal << " quatloos and contains " << items[0]->spiceQty << " scoop of " << items[0]->spiceName << "\n";
+    }
+    else{
+        cout << "Knapsack of capacity " << knapCapacity << " is worth " << priceTotal << " quatloos and contains ";
+        for (int i = 0; i < items.size(); i++) {
+            cout << items[i]->spiceQty << " scoop of " << items[i]->spiceName << ", ";
+        }
+        cout << "\n";
+    }
+}
+
+//Sorts class below
+
+//merge sort to sort spice vector
+void Sorts:: mergeSort(vector<Spices*>& allSpices, int start, int end){
+    if(start >= end){
+        return;
+    }
+    //find middle point, sort left, sort right, and merge the sorted arrays
+    int middle = (start + end) / 2;
+    mergeSort(allSpices, start, middle);
+    mergeSort(allSpices, middle + 1, end);
+    merge(allSpices, start, middle, end);
+}
+
+//merge sorted arrays together
+void Sorts:: merge(vector<Spices*>& allSpices, int start, int middle, int end){
+    //declare left and right pointers, subArray
+    int left = start;
+    int right = middle + 1;
+    vector<Spices*> subVec(end - start + 1);
+
+    //iterate through sub array
+    for(int i = 0; i < end - start + 1; i++){
+        if(right > end){
+            //add element from left side
+            subVec[i] = allSpices[left];
+            left++;
+        }
+        else if (left > middle)
+        {
+            //add element from right side
+            subVec[i] = allSpices[right];
+            right++;
+        }
+        else if (allSpices[left]->unitPrice >= allSpices[right]->unitPrice)
+        {
+            //add element from left side
+            subVec[i] = allSpices[left];
+            left++;
+        }
+        else{
+            //add element from right side
+            subVec[i] = allSpices[right];
+            right++;
+        }
+    }
+    //move subvector elements to main vector
+    for(int j = 0; j < end - start + 1; j++){
+        allSpices[start + j] = subVec[j];
     }
 }
