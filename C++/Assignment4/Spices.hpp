@@ -2,6 +2,8 @@
 #ifndef SPICES_HPP
 #define SPICES_HPP
 
+#include "Sorts.hpp"
+
 #include <string>
 #include <vector>
 
@@ -22,9 +24,9 @@ class Knapsack{
     public:
     Knapsack(double capacity);
     void addItem(Spices* spice);
-    void fractionalKnapsack();
+    void fractionalKnapsack(vector<Spices*> allSpices);
     void clearKnapsack();
-    double capacity;
+    double knapCapacity;
     vector<Spices*> items;
 };
 

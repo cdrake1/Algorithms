@@ -162,7 +162,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                 //if knapsack is already created
                 else{
                     //output old and delete it
-                    knapsack->fractionalKnapsack();
+                    knapsack->fractionalKnapsack(allSpices);
                     knapsack->clearKnapsack();
                     delete knapsack;
                     //create new knapsack
