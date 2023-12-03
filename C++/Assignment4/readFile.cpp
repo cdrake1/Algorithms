@@ -1,6 +1,8 @@
 //this file reads lines of the graph2.txt and spice.txt files
 #include "readFile.hpp"
 
+//graphs, vertices, and edges-------------
+
 void readFile::readGraph(){ //reads graph file
     //opens file
     string line;
@@ -93,6 +95,8 @@ void readFile::readGraph(){ //reads graph file
         cout<< "Something went wrong when trying to open the file \n";
     }
 }
+
+//spices and knapsacks-------------
 
 void readFile::readKnapSack(){ //reads spice.txt
     //opens file

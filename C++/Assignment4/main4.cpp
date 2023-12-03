@@ -15,4 +15,6 @@ int main(){
     readFile reader;
     //create and output all spices & knapsacks
     reader.readKnapSack();
+    //create and output all graphs
+    reader.readGraph();
 }
