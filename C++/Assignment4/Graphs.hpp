@@ -3,6 +3,7 @@
 #define GRAPHS_HPP
 
 #include "Vertex.hpp"
+#include "Node.hpp"
 
 #include <vector>
 #include <string>

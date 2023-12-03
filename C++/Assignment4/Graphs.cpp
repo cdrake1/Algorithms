@@ -65,3 +65,25 @@ void Graphs::relax(Edge* edge) {
         edge->to->predecessor = edge->from;
     }
 }
+
+void Graphs::outputSSSPResults() {
+    for (Vertex* vertex : graph) {
+        cout << "1 -> " << vertex->id << " cost is " << vertex->distance << "; path is ";
+
+        Stack stack;
+        Vertex* currentVertex = vertex;
+        while (currentVertex != nullptr) {
+            stack.push(currentVertex->id);
+            currentVertex = currentVertex->predecessor;
+        }
+
+        while (!stack.isEmpty()) {
+            cout << stack.pop();
+            if (!stack.isEmpty()) {
+                cout << " -> ";
+            }
+        }
+        cout << "." << endl;
+    }
+    cout << "\n";
+}

@@ -20,8 +20,9 @@ void readFile::readGraph(){ //reads graph file
                 //check if there is already a graph object, process it, delete it
                 if(graphFun.graph.size() > 0){
                     graphFun.bellmanFord(graphFun.graph[0]);
+                    graphFun.outputSSSPResults();
                     //delete pointers in old graph and clear it/resize it
-                    for (int i = 0; i < graphFun.graph.size(); i++){
+                    for(int i = 0; i < graphFun.graph.size(); i++){
                         Vertex* vertex = graphFun.graph[i];
                         delete vertex;
                     }
