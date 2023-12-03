@@ -168,7 +168,6 @@ void readFile::readKnapSack(){ //reads spice.txt
                     //output old and delete it
                     knapsack->fractionalKnapsack(allSpices);
                     knapsack->clearKnapsack();
-                    delete knapsack;
                     //create new knapsack
                     stringstream str(line);
                     string iterator;
