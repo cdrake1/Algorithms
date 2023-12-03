@@ -20,12 +20,11 @@ class Graphs{
         vector<Vertex*> graph; //vector of vertex pointers / graph object
         vector<Edge*> edges; //vector to store all edges
 
-        //bellman ford sssp algorithm
-        bool bellmanFord(Vertex* s);
-        void initSSSP(Vertex* S);
-        void relax(Edge* edge); //finds shorter path
-        int maxInt = 20490072023;
-        void outputSSSPResults();
+        bool bellmanFord(Vertex* s); //bellman ford sssp algorithm
+        void initSSSP(Vertex* S); //initialize distances
+        void relax(Edge* edge); //relax edges
+        int maxInt = 20490072023; //max int num
+        void outputSSSPResults(); //outputs the results of each graph
 };
 
 #endif

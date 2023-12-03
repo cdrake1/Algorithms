@@ -41,8 +41,9 @@ bool Graphs:: bellmanFord(Vertex* source){
         }
     }
     //for each edge
+    //check for cycles
     for(Edge* edge: edges){
-        if(edge->to->distance > edge->from->distance + edge->cost){ //if 
+        if(edge->to->distance > edge->from->distance + edge->cost){
             return false;
         }
     }
@@ -50,9 +51,10 @@ bool Graphs:: bellmanFord(Vertex* source){
 }
 
 void Graphs:: initSSSP(Vertex* source){
+    //set distances
     //predecessor vertex
     //estimate of shortes path distance
-    for(int i = 0 ; i < graph.size(); i++){
+    for(int i = 0; i < graph.size(); i++){
         graph[i]->distance = maxInt;
         graph[i]->predecessor = nullptr;
     }
@@ -66,7 +68,7 @@ void Graphs::relax(Edge* edge) {
     }
 }
 
-void Graphs::outputSSSPResults() {
+void Graphs::outputSSSPResults() { //check
     for (Vertex* vertex : graph) {
         cout << "1 -> " << vertex->id << " cost is " << vertex->distance << "; path is ";
 

@@ -2,16 +2,16 @@
 //Also creates stack and queue classes
 #include "Node.hpp"
 
-Node::Node(string val){ //Node class constructor
+Node::Node(string val){ //node class constructor
     this->val = val;
     this->next = nullptr;
 }
 
-Stack::Stack() { //Stack class constructor
+Stack::Stack() { //stack class constructor
     top = nullptr;
 }
 
-void Stack::push(string val) { // push node onto stack
+void Stack::push(string val) { //push node onto stack
     Node* newNode = new Node(val);
     if(isEmpty()){
         top = newNode;
