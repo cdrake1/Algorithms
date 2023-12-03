@@ -83,8 +83,9 @@ void Graphs::outputSSSPResults() {
 
         // Output the path
         while (!stack.isEmpty()) {
-            cout << stack.pop() << " ";
-            if (!stack.isEmpty()) {
+            string path = stack.pop();
+            cout << path;
+            if(!stack.isEmpty()) {
                 cout << " -> ";
             }
         }
