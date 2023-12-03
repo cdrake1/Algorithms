@@ -14,14 +14,16 @@ class Graphs{
     public:
         Graphs(); //graph constructor
         void addVertex(string id); //adds a vertex to the graph
-        void addEdge(string from, string to, string cost); //adds an edge to the graph
+        void addEdge(string from, string to, int cost); //adds an edge to the graph
         Vertex* findVertexByID(string id); //find vertex by given id
         vector<Vertex*> graph; //vector of vertex pointers / graph object
         vector<Edge*> edges; //vector to store all edges
 
-        void bellManFord();
-        void singleSource();
-        void relax(); //finds shorter path
+        //bellman ford sssp algorithm
+        bool bellmanFord(Vertex* s);
+        void initSSSP(Vertex* S);
+        void relax(Edge* edge); //finds shorter path
+        int maxInt;
 };
 
 #endif

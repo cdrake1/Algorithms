@@ -13,17 +13,16 @@ class Vertex{ //vertex constructor
     public:
     Vertex(string id); //vertex constructor
     string id; //vertex number
-    bool processed; //visited
     vector<Edge*> neighbors; //connected vertex's
 };
 
 
 class Edge{
     public:
-    Edge(Vertex* from, Vertex* to, string cost); //edge constructor
+    Edge(Vertex* from, Vertex* to, int cost); //edge constructor
     Vertex* from; //edge origin
     Vertex* to; //destination vertex
-    string cost; //cost of getting there
+    int cost; //cost of getting there
 };
 
 #endif

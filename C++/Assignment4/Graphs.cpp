@@ -9,7 +9,7 @@ void Graphs::addVertex(string id){ //add vertex to graph object
     graph.push_back(newVertex);
 }
 
-void Graphs::addEdge(string from, string to, string cost){ //adds an edge to the graph object
+void Graphs::addEdge(string from, string to, int cost){ //adds an edge to the graph object
     //finds the vertex's linked to the given ids
     Vertex* fromVertex = findVertexByID(from);
     Vertex* toVertex = findVertexByID(to);
@@ -28,4 +28,31 @@ Vertex* Graphs::findVertexByID(string id){ //searches the graph object for the g
         }
     }
     return nullptr;
+}
+
+bool Graphs:: bellmanFord(Vertex* source){
+    initSSSP(source);
+    //iterate through all vertices
+    for(int i = 0; i < graph.size() - 1; i++){
+        //for each edge
+        for(Edge* edge: edges){
+            //call relax
+            relax(edge);
+        }
+    }
+    //for each edge
+    for(Edge* edge: edges){
+        if(){ //if 
+            return false;
+        }
+    }
+    return true;
+}
+
+void Graphs:: initSSSP(Vertex* source){
+
+}
+
+void Graphs:: relax(Edge* edge){
+
 }

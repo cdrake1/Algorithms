@@ -57,7 +57,7 @@ void readFile::readGraph(){ //reads graph file
                 string iterator;
                 string edge1;
                 string edge2;
-                string cost;
+                int cost;
                 //flag to switch to other edge
                 bool isEdge1 = true;
                 bool isEdge2 = false;
@@ -74,11 +74,11 @@ void readFile::readGraph(){ //reads graph file
                         }
                         else{
                             //add edges and then reset the variables
-                            cost = iterator;
+                            cost = stoi(iterator);;
                             graphFun.addEdge(edge1, edge2, cost);
                             edge1.clear();
                             edge2.clear();
-                            cost.clear();
+                            cost = 0;
                             isEdge1 = true;
                             isEdge2 = false;
                         }
