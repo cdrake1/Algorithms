@@ -29,7 +29,3 @@ Vertex* Graphs::findVertexByID(string id){ //searches the graph object for the g
     }
     return nullptr;
 }
-
-void Graphs::bellManFord(){
-    singleSource();
-}

@@ -3,7 +3,6 @@
 #define GRAPHS_HPP
 
 #include "Vertex.hpp"
-#include "Edge.hpp"
 
 #include <vector>
 #include <string>
@@ -19,6 +18,7 @@ class Graphs{
         Vertex* findVertexByID(string id); //find vertex by given id
         vector<Vertex*> graph; //vector of vertex pointers / graph object
         vector<Edge*> edges; //vector to store all edges
+
         void bellManFord();
         void singleSource();
         void relax(); //finds shorter path

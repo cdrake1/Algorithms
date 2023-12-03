@@ -1,4 +1,4 @@
-//header file for knapsack and spices
+//header file for knapsack, spices, and sorts
 #ifndef SPICES_HPP
 #define SPICES_HPP
 

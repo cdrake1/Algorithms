@@ -1,4 +1,4 @@
-//this file creates the spices class
+//this file creates the spices, knapsacks, and sorts class
 #include "Spices.hpp"
 
 //Spices class below------------
