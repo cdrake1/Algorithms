@@ -59,16 +59,16 @@ void Knapsack:: fractionalKnapsack(vector<Spices*> allSpices){ //fractional knap
     //check how many items and output contents of the knapsack
     if(items.size() == 0){
         cout << "Knapsack of capacity " << knapCapacity << " is worth " << priceTotal << " quatloos and contains 0 spices" << "\n";
-    }
+    } 
     else if(items.size() == 1){
         cout << "Knapsack of capacity " << knapCapacity << " is worth " << priceTotal << " quatloos and contains " << items[0]->spiceQty << " scoop of " << items[0]->spiceName << "\n";
-    }
+    } 
     else{
         cout << "Knapsack of capacity " << knapCapacity << " is worth " << priceTotal << " quatloos and contains ";
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i < items.size() - 1; i++) {
             cout << items[i]->spiceQty << " scoop of " << items[i]->spiceName << ", ";
         }
-        cout << "\n";
+        cout << "and " << items.back()->spiceQty << " scoop of " << items.back()->spiceName << "\n";
     }
 }
 
