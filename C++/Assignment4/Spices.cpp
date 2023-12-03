@@ -1,7 +1,7 @@
 // This file creates the spices class
 #include "Spices.hpp"
 
-//Spices class below
+//Spices class below------------
 
 Spices:: Spices(string name, double price, int qty){ //spice class constructor
     spiceName = name;
@@ -11,7 +11,7 @@ Spices:: Spices(string name, double price, int qty){ //spice class constructor
     processed = false;
 }
 
-//Knapsack class below
+//Knapsack class below----------
 
 Knapsack:: Knapsack(double capacity){ //knapsack class constructor
     knapCapacity = capacity;
@@ -69,7 +69,7 @@ void Knapsack:: fractionalKnapsack(vector<Spices*> allSpices){ //fractional knap
     }
 }
 
-//Sorts class below
+//Sorts class below-----------
 
 //merge sort to sort spice vector
 void Sorts:: mergeSort(vector<Spices*>& allSpices, int start, int end){
