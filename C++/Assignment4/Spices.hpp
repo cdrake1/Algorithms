@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Spices{
+class Spices{ //spices class. creates and keeps track of spices
     public:
         Spices(string name, double price, int qty); //spice constructor
         //name, price, and qty of the spices
@@ -19,7 +19,7 @@ class Spices{
         bool processed;
 };
 
-class Knapsack{
+class Knapsack{ //creates and keeps track of knapsacks
     public:
         Knapsack(double capacity);
         void addItem(Spices* spice);
@@ -29,7 +29,7 @@ class Knapsack{
         vector<Spices*> items;
 };
 
-class Sorts{
+class Sorts{ //creates merge sort
     public:
         //declarations of merge sort
         void mergeSort(vector<Spices*>& allSpices, int start, int end);
