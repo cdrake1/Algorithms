@@ -6,12 +6,12 @@
 
 Vertex::Vertex(string id){ //vertex class constructor
     this->id = id;
-    this->processed = false;
+    distance = 20490072023;
 }
 
 //Edge class below------------
 
-Edge::Edge(Vertex* from, Vertex* to, string cost){ //edge class constructor
+Edge::Edge(Vertex* from, Vertex* to, int cost){ //edge class constructor
     this->to = to;
     this->from = from;
     this->cost = cost;

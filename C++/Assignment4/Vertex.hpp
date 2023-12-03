@@ -13,6 +13,8 @@ class Vertex{ //vertex constructor
     public:
     Vertex(string id); //vertex constructor
     string id; //vertex number
+    int distance;
+    Vertex* predecessor;
     vector<Edge*> neighbors; //connected vertex's
 };
 

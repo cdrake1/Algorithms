@@ -23,7 +23,8 @@ class Graphs{
         bool bellmanFord(Vertex* s);
         void initSSSP(Vertex* S);
         void relax(Edge* edge); //finds shorter path
-        int maxInt;
+        int maxInt = 20490072023;
+        void outputSSSPResults();
 };
 
 #endif
