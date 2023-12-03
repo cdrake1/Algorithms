@@ -19,7 +19,8 @@ void readFile::readGraph(){ //reads graph file
             if(line.find("new graph") != string::npos || graphFile.eof()){
                 //check if there is already a graph object, process it, delete it
                 if(graphFun.graph.size() > 0){
-                    graphFun.bellmanFord(graphFun.graph[0]);
+                    Vertex* sourceVertex = graphFun.graph[0];
+                    bool answer = graphFun.bellmanFord(sourceVertex);
                     graphFun.outputSSSPResults();
                     //delete pointers in old graph and clear it/resize it
                     for(int i = 0; i < graphFun.graph.size(); i++){
@@ -27,14 +28,12 @@ void readFile::readGraph(){ //reads graph file
                         delete vertex;
                     }
                     graphFun.graph.clear();
-                    graphFun.graph.resize(0);
                     //delete pointers to all the edges. clear it and resize it
                     for (int i = 0; i < graphFun.edges.size(); i++){
                         Edge* edge = graphFun.edges[i];
                         delete edge;
                     }
                     graphFun.edges.clear();
-                    graphFun.edges.resize(0);
                 }
             }
             //check if the line contains 'add vertex'

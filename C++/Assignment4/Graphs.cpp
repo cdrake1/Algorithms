@@ -58,34 +58,37 @@ void Graphs:: initSSSP(Vertex* source){
         graph[i]->distance = maxInt;
         graph[i]->predecessor = nullptr;
     }
+    source->distance = 0;
 }
 
 void Graphs::relax(Edge* edge) {
-    //relaxes edge and find shorter path
+    //relaxes edge and see if you can find a shorter path
     if (edge->to->distance > edge->from->distance + edge->cost) {
         edge->to->distance = edge->from->distance + edge->cost;
         edge->to->predecessor = edge->from;
     }
 }
 
-void Graphs::outputSSSPResults() { //check
-    for (Vertex* vertex : graph) {
-        cout << "1 -> " << vertex->id << " cost is " << vertex->distance << "; path is ";
-
+void Graphs::outputSSSPResults() {
+    Vertex* source = graph[0];
+    for(int i = 0; i < graph.size(); i++){
+        cout << source->id << " -> " << graph[i]->id << " cost is " << graph[i]->distance << "; path is ";
         Stack stack;
-        Vertex* currentVertex = vertex;
-        while (currentVertex != nullptr) {
-            stack.push(currentVertex->id);
-            currentVertex = currentVertex->predecessor;
+        Vertex* current = graph[i];
+
+        while (current != nullptr) {
+            stack.push(current->id);
+            current = current->predecessor;
         }
 
+        // Output the path
         while (!stack.isEmpty()) {
-            cout << stack.pop();
+            cout << stack.pop() << " ";
             if (!stack.isEmpty()) {
                 cout << " -> ";
             }
         }
-        cout << "." << endl;
+        cout << ".\n";
     }
     cout << "\n";
 }
