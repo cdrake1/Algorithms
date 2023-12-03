@@ -1,4 +1,4 @@
-//This file reads lines of a txt
+//this file reads lines of the graph2.txt and spice.txt files
 #include "readFile.hpp"
 
 /*
@@ -113,7 +113,7 @@ void readFile::readKnapSack(){ //reads spice.txt
         while(getline(spiceFile, line)){
             //check if the line contains spice name
             if(line.find("spice name") != string::npos){
-                //create variables for spice
+                //create variables for spice information
                 stringstream str(line);
                 string iterator;
                 string name;
@@ -157,6 +157,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                         if(iterator != "knapsack" && iterator != "capacity" && iterator != "="){
                             iterator.erase(std::remove(iterator.begin(), iterator.end(), ';'), iterator.end());
                             capacity = stod(iterator);
+                            break;
                         }
                     }
                     //create knapsack and change flag
@@ -176,9 +177,18 @@ void readFile::readKnapSack(){ //reads spice.txt
                         if(iterator != "knapsack" && iterator != "capacity" && iterator != "="){
                             iterator.erase(std::remove(iterator.begin(), iterator.end(), ';'), iterator.end());
                             capacity = stod(iterator);
+                            break;
                         }
                     }
+                    delete knapsack;
                     knapsack = new Knapsack(capacity);
+                    //output last knapsack in file and clean up
+                    if(capacity == 21 || spiceFile.eof()){
+                        //output old and delete it
+                        knapsack->fractionalKnapsack(allSpices);
+                        knapsack->clearKnapsack();
+                        delete knapsack;
+                    }
                 }
             }
         }

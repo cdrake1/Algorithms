@@ -1,4 +1,4 @@
-// This file creates the spices class
+//this file creates the spices class
 #include "Spices.hpp"
 
 //Spices class below------------
@@ -11,14 +11,16 @@ Spices:: Spices(string name, double price, int qty){ //spice class constructor
     processed = false;
 }
 
-//Knapsack class below----------
+//Knapsack classes below----------
 
 Knapsack:: Knapsack(double capacity){ //knapsack class constructor
     knapCapacity = capacity;
 }
 
 void Knapsack:: addItem(Spices* spice){ //add an item to the knapsack
-    items.push_back(spice);
+    //create new spice to separate pointers
+    Spices* itemSpice = new Spices(spice->spiceName, spice->totalPrice, spice->spiceQty);
+    items.push_back(itemSpice);
 }
 
 void Knapsack::clearKnapsack() { //clear the items stored in the knapsack
@@ -69,7 +71,7 @@ void Knapsack:: fractionalKnapsack(vector<Spices*> allSpices){ //fractional knap
     }
 }
 
-//Sorts class below-----------
+//Sorts classes below-----------
 
 //merge sort to sort spice vector
 void Sorts:: mergeSort(vector<Spices*>& allSpices, int start, int end){

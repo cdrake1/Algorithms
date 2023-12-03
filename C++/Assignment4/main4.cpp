@@ -11,7 +11,8 @@ To rebuild and run the program run; make clean, make, followed by the exe name i
 using namespace std;
 
 int main(){
+    //create readfile instance
     readFile reader;
-    //spice & knapsack
+    //create and output all spices & knapsacks
     reader.readKnapSack();
 }
