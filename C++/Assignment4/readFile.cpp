@@ -198,15 +198,15 @@ void readFile::readKnapSack(){ //reads spice.txt
                     }
                     delete knapsack;
                     knapsack = new Knapsack(capacity);
-                    //output last knapsack in file and clean up
-                    if(capacity == 21 || spiceFile.eof()){
-                        //output old and delete it
-                        knapsack->fractionalKnapsack(allSpices);
-                        knapsack->clearKnapsack();
-                        delete knapsack;
-                    }
                 }
             }
+        }
+        //check if file is at the end
+        if(spiceFile.eof()){
+            //output last knapsack and delete it
+            knapsack->fractionalKnapsack(allSpices);
+            knapsack->clearKnapsack();
+            delete knapsack;
         }
         //close file and output feedback
         spiceFile.close();
