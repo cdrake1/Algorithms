@@ -20,7 +20,7 @@ void readFile::readGraph(){ //reads graph file
                 //check if there is already a graph object, process it, delete it
                 if(graphFun.graph.size() > 0){
                     Vertex* sourceVertex = graphFun.graph[0];
-                    bool answer = graphFun.bellmanFord(sourceVertex);
+                    bool answer = graphFun.bellmanFord();
                     graphFun.outputSSSPResults();
                     //delete pointers in old graph and clear it/resize it
                     for(int i = 0; i < graphFun.graph.size(); i++){
@@ -86,7 +86,7 @@ void readFile::readGraph(){ //reads graph file
             //check if there is already a graph object, process it, delete it
             if(graphFun.graph.size() > 0){
                 Vertex* sourceVertex = graphFun.graph[0];
-                bool answer = graphFun.bellmanFord(sourceVertex);
+                bool answer = graphFun.bellmanFord();
                 graphFun.outputSSSPResults();
                 //delete pointers in old graph and clear it/resize it
                 for(int i = 0; i < graphFun.graph.size(); i++){

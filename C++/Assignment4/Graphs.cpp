@@ -29,7 +29,8 @@ Vertex* Graphs::findVertexByID(string id){ //searches the graph object for the g
     return nullptr;
 }
 
-bool Graphs:: bellmanFord(Vertex* source){
+bool Graphs:: bellmanFord(){
+    Vertex* source = graph[0];
     initSSSP(source);
     //iterate through all vertices
     for(int i = 0; i < graph.size() - 1; i++){

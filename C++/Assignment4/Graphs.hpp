@@ -21,7 +21,7 @@ class Graphs{
         vector<Vertex*> graph; //vector of vertex pointers / graph object
         vector<Edge*> edges; //vector to store all edges
 
-        bool bellmanFord(Vertex* s); //bellman ford sssp algorithm
+        bool bellmanFord(); //bellman ford sssp algorithm
         void initSSSP(Vertex* S); //initialize distances
         void relax(Edge* edge); //relax edges
         void outputSSSPResults(); //outputs the results of each graph
