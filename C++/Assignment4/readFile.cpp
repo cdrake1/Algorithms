@@ -63,25 +63,19 @@ void readFile::readGraph(){ //reads graph file
                 bool isEdge1 = true;
                 bool isEdge2 = false;
                 while(str >> iterator){
-                    //check if substring is the vertex id's
                     if(iterator != "add" && iterator != "edge" && iterator != "-"){
-                        if(isEdge1 && !isEdge2){
+                        if(edge1.empty()){
                             edge1 = iterator;
-                            isEdge1 = false;
-                            isEdge2 = true;
-                        }
-                        else if(isEdge2 && !isEdge1){
+                        } 
+                        else if(edge2.empty()){
                             edge2 = iterator;
-                        }
+                        } 
                         else{
-                            //add edges and then reset the variables
-                            cost = stoi(iterator);;
+                            cost = stoi(iterator);
                             graphFun.addEdge(edge1, edge2, cost);
                             edge1.clear();
                             edge2.clear();
                             cost = 0;
-                            isEdge1 = true;
-                            isEdge2 = false;
                         }
                     }
                 }
