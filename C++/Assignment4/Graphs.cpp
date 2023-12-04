@@ -56,6 +56,7 @@ void Graphs:: initSSSP(Vertex* source){
     //estimate of shortes path distance
     for(Vertex* vertex: graph){
         vertex->distance = 8675309;
+        vertex->predecessor.clear();
     }
     source->distance = 0;
 }
