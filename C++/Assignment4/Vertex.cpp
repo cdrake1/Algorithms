@@ -7,6 +7,7 @@
 Vertex::Vertex(string id){ //vertex class constructor
     this->id = id;
     distance = INT_MAX;
+    this->predecessor = nullptr;
 }
 
 //Edge class below------------

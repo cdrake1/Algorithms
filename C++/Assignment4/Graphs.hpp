@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <climits>
 
 using namespace std;
 
@@ -23,7 +24,6 @@ class Graphs{
         bool bellmanFord(Vertex* s); //bellman ford sssp algorithm
         void initSSSP(Vertex* S); //initialize distances
         void relax(Edge* edge); //relax edges
-        int maxInt = INT_MAX; //max int num
         void outputSSSPResults(); //outputs the results of each graph
 };
 

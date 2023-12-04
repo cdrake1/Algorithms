@@ -54,9 +54,9 @@ void Graphs:: initSSSP(Vertex* source){
     //set distances
     //predecessor vertex
     //estimate of shortes path distance
-    for(int i = 0; i < graph.size(); i++){
-        graph[i]->distance = maxInt;
-        graph[i]->predecessor = nullptr;
+    for(Vertex* vertex: graph){
+        vertex->distance = INT_MAX;
+        vertex->predecessor = nullptr;
     }
     source->distance = 0;
 }
@@ -70,26 +70,22 @@ void Graphs::relax(Edge* edge) {
 }
 
 void Graphs::outputSSSPResults() {
-    Vertex* source = graph[0];
-    for(int i = 0; i < graph.size(); i++){
-        cout << source->id << " -> " << graph[i]->id << " cost is " << graph[i]->distance << "; path is ";
-        Stack stack;
-        Vertex* current = graph[i];
-
-        while (current != nullptr) {
-            stack.push(current->id);
-            current = current->predecessor;
-        }
-
-        // Output the path
-        while (!stack.isEmpty()) {
-            string path = stack.pop();
-            cout << path;
-            if(!stack.isEmpty()) {
-                cout << " -> ";
-            }
-        }
-        cout << ".\n";
+    /*
+    outputs all edge information
+    for(int i = 0; i < edges.size(); i++){
+        cout << edges[i]->from->id << ":";
+        cout << edges[i]->to->id  << ":";
+        cout << edges[i]->cost  << "-----";
     }
-    cout << "\n";
+    */
+
+   for (Vertex* vertex : graph) {
+        std::cout << "Vertex " << vertex->id << " - Distance: " << vertex->distance << ", Predecessor: ";
+        if (vertex->predecessor) {
+            std::cout << vertex->predecessor->id;
+        } else {
+            std::cout << "nullptr";
+        }
+        std::cout << std::endl;
+    }
 }
