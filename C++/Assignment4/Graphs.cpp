@@ -80,6 +80,9 @@ void Graphs::outputSSSPResults() {
 
    for (Vertex* vertex : graph) {
         std::cout << "Vertex " << vertex->id << " - Distance: " << vertex->distance << ", Predecessor: ";
+        for(int i = 0 ; i < vertex->predecessor.size(); i++){
+            cout<< vertex->predecessor[i]->id << "->";
+        }
         std::cout << std::endl;
     }
 }
