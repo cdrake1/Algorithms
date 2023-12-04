@@ -55,8 +55,7 @@ void Graphs:: initSSSP(Vertex* source){
     //predecessor vertex
     //estimate of shortes path distance
     for(Vertex* vertex: graph){
-        vertex->distance = INT_MAX;
-        vertex->predecessor = nullptr;
+        vertex->distance = 8675309;
     }
     source->distance = 0;
 }
@@ -65,9 +64,9 @@ void Graphs::relax(Edge* edge) {
     //relaxes edge and see if you can find a shorter path
     if (edge->to->distance > edge->from->distance + edge->cost) {
         edge->to->distance = edge->from->distance + edge->cost;
-        edge->to->predecessor = edge->from;
+        edge->to->predecessor.push_back(edge->from);
     }
-}
+}   
 
 void Graphs::outputSSSPResults() {
     /*
@@ -81,11 +80,6 @@ void Graphs::outputSSSPResults() {
 
    for (Vertex* vertex : graph) {
         std::cout << "Vertex " << vertex->id << " - Distance: " << vertex->distance << ", Predecessor: ";
-        if (vertex->predecessor) {
-            std::cout << vertex->predecessor->id;
-        } else {
-            std::cout << "nullptr";
-        }
         std::cout << std::endl;
     }
 }
