@@ -81,6 +81,27 @@ void readFile::readGraph(){ //reads graph file
                 }
             }
         }
+        //process and output last graph
+        if(graphFile.eof()){
+            //check if there is already a graph object, process it, delete it
+            if(graphFun.graph.size() > 0){
+                Vertex* sourceVertex = graphFun.graph[0];
+                bool answer = graphFun.bellmanFord(sourceVertex);
+                graphFun.outputSSSPResults();
+                //delete pointers in old graph and clear it/resize it
+                for(int i = 0; i < graphFun.graph.size(); i++){
+                    Vertex* vertex = graphFun.graph[i];
+                    delete vertex;
+                }
+                graphFun.graph.clear();
+                //delete pointers to all the edges. clear it and resize it
+                for (int i = 0; i < graphFun.edges.size(); i++){
+                    Edge* edge = graphFun.edges[i];
+                    delete edge;
+                }
+                graphFun.edges.clear();
+            }
+        }
         //close file and output feedback
         graphFile.close();
         cout << "graph file read correctly \n";
