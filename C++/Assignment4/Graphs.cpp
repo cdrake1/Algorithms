@@ -17,7 +17,6 @@ void Graphs::addEdge(string from, string to, int cost){ //adds an edge to the gr
     Edge* newEdge = new Edge(fromVertex, toVertex, cost);
     //adds it to graph edge vector and to the source vertex
     edges.push_back(newEdge);
-    fromVertex->neighbors.push_back(newEdge);
 }
 
 Vertex* Graphs::findVertexByID(string id){ //searches the graph object for the given vertex id
@@ -69,20 +68,21 @@ void Graphs::relax(Edge* edge) {
 }   
 
 void Graphs::outputSSSPResults() {
-    /*
-    outputs all edge information
-    for(int i = 0; i < edges.size(); i++){
-        cout << edges[i]->from->id << ":";
-        cout << edges[i]->to->id  << ":";
-        cout << edges[i]->cost  << "-----";
-    }
-    */
-
-   for (Vertex* vertex : graph) {
-        std::cout << "Vertex " << vertex->id << " - Distance: " << vertex->distance << ", Predecessor: ";
-        for(int i = 0 ; i < vertex->predecessor.size(); i++){
-            cout<< vertex->predecessor[i]->id << "->";
+    //output the results of the sssp algorithm
+    Stack stack;
+    for (int i = 1; i < graph.size(); i++) {
+        cout << graph[0]->id << " -> " << graph[i]->id << " cost is " << graph[i]->distance << "; ";
+        for (int j = 0; j < graph[i]->predecessor.size(); j++) {
+            if(graph[i]->predecessor[j]->id == "1"){
+                break; 
+            }
+            stack.push(graph[i]->predecessor[j]->id);
         }
-        std::cout << std::endl;
+        cout << " path is ";
+        while(!stack.isEmpty()){
+            cout << stack.pop() << " -> ";
+        }
+        cout << "\n";
     }
+    cout << "\n";
 }

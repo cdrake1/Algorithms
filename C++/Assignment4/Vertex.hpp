@@ -16,7 +16,6 @@ class Vertex{ //vertex constructor
     string id; //vertex number
     int distance;
     vector<Vertex*> predecessor;
-    vector<Edge*> neighbors; //connected vertex's
 };
 
 
