@@ -68,7 +68,7 @@ void Graphs:: relax(Edge* edge){ //relax edges
     //add edges to predecessor vector
     if (edge->to->distance > edge->from->distance + edge->cost) {
         edge->to->distance = edge->from->distance + edge->cost;
-        edge->to->predecessor.push_back(edge->from);
+        edge->to->predecessor = edge->from;
     }
 }
 

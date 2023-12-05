@@ -15,7 +15,7 @@ class Vertex{ //vertex constructor
     Vertex(string id); //vertex constructor
     string id; //vertex number
     int distance; //distance from goal in sssp
-    vector<Vertex*> predecessor; //vertex predecessors in sssp
+    Vertex* predecessor; //vertex predecessors in sssp
 };
 
 
