@@ -79,15 +79,17 @@ void Graphs:: outputSSSPResults(){ //output the results of the sssp algorithm
     for (int i = 1; i < graph.size(); i++) {
         //iterate through all vertices
         cout << graph[0]->id << " -> " << graph[i]->id << " cost is " << graph[i]->distance << "; ";
-        Vertex* current = graph[i]->predecessor;
+        Vertex* current = graph[i];
         while(current != nullptr){
-            stack.push_back(current->id);
+            stack.push(current->id);
             current = current->predecessor;
         }
-        cout << "path: "
+        cout << "path: ";
         while(!stack.isEmpty()){
             string prev = stack.pop();
             cout << prev << " -> "; 
         }
+        cout << "\n";
     }
+    cout << "\n";
 }
