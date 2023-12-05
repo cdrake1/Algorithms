@@ -22,11 +22,11 @@ class Spices{ //spices class. creates and keeps track of spices
 class Knapsack{ //creates and keeps track of knapsacks
     public:
         Knapsack(double capacity);
-        void addItem(Spices* spice);
-        void fractionalKnapsack(vector<Spices*> allSpices);
-        void clearKnapsack();
-        double knapCapacity;
-        vector<Spices*> items;
+        void addItem(Spices* spice); //adds an item to the knapsack
+        void fractionalKnapsack(vector<Spices*> allSpices); //fractional knapsack algorithm
+        void clearKnapsack(); //clears the knapsack and items vector
+        double knapCapacity; //the knapsacks capacity
+        vector<Spices*> items; //items stored in the knapsack
 };
 
 class Sorts{ //creates merge sort

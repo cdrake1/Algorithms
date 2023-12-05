@@ -18,13 +18,14 @@ Knapsack:: Knapsack(double capacity){ //knapsack class constructor
 }
 
 void Knapsack:: addItem(Spices* spice){ //add an item to the knapsack
-    //create new spice to separate pointers
+    //create new spice to separate pointers and adds to knapsack
     Spices* itemSpice = new Spices(spice->spiceName, spice->totalPrice, spice->spiceQty);
     items.push_back(itemSpice);
 }
 
 void Knapsack::clearKnapsack() { //clear the items stored in the knapsack
-    for (Spices* spice : items) {
+    for (int i = 0; i < items.size(); i++) {
+        Spices* spice = items[i];
         delete spice;
     }
     items.clear();

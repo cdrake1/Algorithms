@@ -1,4 +1,4 @@
-//This file creates the linkedlist/node class
+//This file creates the node class
 //Also creates stack and queue classes
 #include "Node.hpp"
 

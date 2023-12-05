@@ -13,8 +13,8 @@ using namespace std;
 int main(){
     //create readfile instance
     readFile reader;
-    //create and output all spices & knapsacks
+    //read spice.txt, create and output all spices & knapsacks
     reader.readKnapSack();
-    //create and output all graphs
+    //read graphs2.txt, create and output all graphs
     reader.readGraph();
 }

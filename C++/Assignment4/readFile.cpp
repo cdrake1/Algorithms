@@ -16,10 +16,9 @@ void readFile::readGraph(){ //reads graph file
         //if file open iterate through line by line
         while(getline(graphFile, line)){
             //check if the line contains new graph
-            if(line.find("new graph") != string::npos || graphFile.eof()){
+            if(line.find("new graph") != string::npos){
                 //check if there is already a graph object, process it, delete it
                 if(graphFun.graph.size() > 0){
-                    Vertex* sourceVertex = graphFun.graph[0];
                     bool answer = graphFun.bellmanFord();
                     graphFun.outputSSSPResults();
                     //delete pointers in old graph and clear it/resize it
@@ -83,24 +82,21 @@ void readFile::readGraph(){ //reads graph file
         }
         //process and output last graph
         if(graphFile.eof()){
-            //check if there is already a graph object, process it, delete it
-            if(graphFun.graph.size() > 0){
-                Vertex* sourceVertex = graphFun.graph[0];
-                bool answer = graphFun.bellmanFord();
-                graphFun.outputSSSPResults();
-                //delete pointers in old graph and clear it/resize it
-                for(int i = 0; i < graphFun.graph.size(); i++){
-                    Vertex* vertex = graphFun.graph[i];
-                    delete vertex;
-                }
-                graphFun.graph.clear();
-                //delete pointers to all the edges. clear it and resize it
-                for (int i = 0; i < graphFun.edges.size(); i++){
-                    Edge* edge = graphFun.edges[i];
-                    delete edge;
-                }
-                graphFun.edges.clear();
+            Vertex* sourceVertex = graphFun.graph[0];
+            bool answer = graphFun.bellmanFord();
+            graphFun.outputSSSPResults();
+            //delete pointers in old graph and clear it/resize it
+            for(int i = 0; i < graphFun.graph.size(); i++){
+                Vertex* vertex = graphFun.graph[i];
+                delete vertex;
             }
+            graphFun.graph.clear();
+            //delete pointers to all the edges. clear it and resize it
+            for (int i = 0; i < graphFun.edges.size(); i++){
+                Edge* edge = graphFun.edges[i];
+                delete edge;
+            }
+            graphFun.edges.clear();
         }
         //close file and output feedback
         graphFile.close();
@@ -108,7 +104,7 @@ void readFile::readGraph(){ //reads graph file
     }
     else{
         //output if there is an error with the file
-        cout<< "Something went wrong when trying to open the file \n";
+        cout << "Something went wrong when trying to open the file \n";
     }
 }
 
@@ -162,7 +158,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                 allSpices.push_back(spice);
             }
             //check for knapsack capacity or the end of the file
-            else if(line.find("knapsack capacity") != string::npos || spiceFile.eof()){
+            else if(line.find("knapsack capacity") != string::npos){
                 //check if knapsack is created
                 if(!knapsackCreated){
                     //if not created grab capacity and create knapsack
