@@ -58,7 +58,7 @@ void Graphs:: initSSSP(Vertex* source){ //initialize everything
         //for each vertex clear its predecessors and set its distance to large int
         Vertex* vertex = graph[i];
         vertex->distance = 8675309;
-        vertex->predecessor.clear();
+        vertex->predecessor = nullptr;
     }
     //source vertex has a distance of zero
     source->distance = 0;
@@ -79,20 +79,15 @@ void Graphs:: outputSSSPResults(){ //output the results of the sssp algorithm
     for (int i = 1; i < graph.size(); i++) {
         //iterate through all vertices
         cout << graph[0]->id << " -> " << graph[i]->id << " cost is " << graph[i]->distance << "; ";
-        for (int j = 0; j < graph[i]->predecessor.size(); j++) {
-            //iterate through each vertices predecessor
-            if(graph[i]->predecessor[j]->id == "1"){
-                break; //when you reach the source vertex break the loop
-            }
-            //push each predecessor onto the stack
-            stack.push(graph[i]->predecessor[j]->id);
+        Vertex* current = graph[i]->predecessor;
+        while(current != nullptr){
+            stack.push_back(current->id);
+            current = current->predecessor;
         }
-        cout << " path is ";
-        //pop each predecessor off the stack and output it
+        cout << "path: "
         while(!stack.isEmpty()){
-            cout << stack.pop() << " -> ";
+            string prev = stack.pop();
+            cout << prev << " -> "; 
         }
-        cout << "\n";
     }
-    cout << "\n";
 }
