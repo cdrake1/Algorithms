@@ -62,12 +62,13 @@ void Graphs:: initSSSP(Vertex* source){
 }
 
 void Graphs::relax(Edge* edge) {
-    //relaxes edge and see if you can find a shorter path
+    // relaxes edge and sees if you can find a shorter path
     if (edge->to->distance > edge->from->distance + edge->cost) {
         edge->to->distance = edge->from->distance + edge->cost;
         edge->to->predecessor.push_back(edge->from);
     }
-}   
+}
+
 
 void Graphs::outputSSSPResults() {
     //output the results of the sssp algorithm
