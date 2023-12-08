@@ -180,6 +180,7 @@ void readFile::readKnapSack(){ //reads spice.txt
                 else{
                     //output old and delete it
                     knapsack->fractionalKnapsack(allSpices);
+                    cout << "\n";
                     knapsack->clearKnapsack();
                     //create new knapsack
                     stringstream str(line);
@@ -206,7 +207,9 @@ void readFile::readKnapSack(){ //reads spice.txt
         }
         //close file and output feedback
         spiceFile.close();
+        cout << "\n";
         cout << "spice file read correctly \n";
+        cout << "\n";
     }
     else{
         //output if there is an error with the file
