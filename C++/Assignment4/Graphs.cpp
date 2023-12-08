@@ -77,17 +77,27 @@ void Graphs:: outputSSSPResults(){ //output the results of the sssp algorithm
     //create stack
     Stack stack;
     for (int i = 1; i < graph.size(); i++) {
-        //iterate through all vertices
+        //iterate through all vertices with current and counters to help with formatting output
         cout << graph[0]->id << " -> " << graph[i]->id << " cost is " << graph[i]->distance << "; ";
         Vertex* current = graph[i];
+        int countOne = 0;
+        int countTwo = 0;
         while(current != nullptr){
             stack.push(current->id);
             current = current->predecessor;
+            countOne++;
         }
+        //output based on position
         cout << "path: ";
         while(!stack.isEmpty()){
             string prev = stack.pop();
-            cout << prev << " -> "; 
+            if(countTwo == countOne - 1){
+                cout << prev; 
+            }
+            else{
+                cout << prev << " -> "; 
+                countTwo++;
+            }
         }
         cout << "\n";
     }
