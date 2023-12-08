@@ -21,7 +21,7 @@ class Spices{ //spices class. creates and keeps track of spices
 
 class Knapsack{ //creates and keeps track of knapsacks
     public:
-        Knapsack(double capacity);
+        Knapsack(double capacity); //knapsack constructor
         void addItem(Spices* spice); //adds an item to the knapsack
         void fractionalKnapsack(vector<Spices*> allSpices); //fractional knapsack algorithm
         void clearKnapsack(); //clears the knapsack and items vector

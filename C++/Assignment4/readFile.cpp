@@ -13,21 +13,19 @@ void readFile::readGraph(){ //reads graph file
     Graphs graphFun;
 
     if(graphFile.is_open()){
-        //if file open iterate through line by line
+        //if file open iterate through line by line and check if the line contains new graph
         while(getline(graphFile, line)){
-            //check if the line contains new graph
             if(line.find("new graph") != string::npos){
                 //check if there is already a graph object, process it, delete it
                 if(graphFun.graph.size() > 0){
                     bool answer = graphFun.bellmanFord();
                     graphFun.outputSSSPResults();
-                    //delete pointers in old graph and clear it/resize it
+                    //delete pointers for old graph and all edges. Clear and resize vectors
                     for(int i = 0; i < graphFun.graph.size(); i++){
                         Vertex* vertex = graphFun.graph[i];
                         delete vertex;
                     }
                     graphFun.graph.clear();
-                    //delete pointers to all the edges. clear it and resize it
                     for (int i = 0; i < graphFun.edges.size(); i++){
                         Edge* edge = graphFun.edges[i];
                         delete edge;

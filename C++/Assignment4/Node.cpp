@@ -1,5 +1,5 @@
 //This file creates the node class
-//Also creates stack and queue classes
+//Also creates stack classe
 #include "Node.hpp"
 
 Node::Node(string val){ //node class constructor

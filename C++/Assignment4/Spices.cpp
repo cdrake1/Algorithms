@@ -64,7 +64,6 @@ void Knapsack:: fractionalKnapsack(vector<Spices*> allSpices){ //fractional knap
     for(int i = 0; i < items.size(); i++){
         if(i == items.size() - 1){
             cout << "and " << items[i]->spiceQty << " scoop of " << items[i]->spiceName << "\n";
-
         }
         else{
             cout << items[i]->spiceQty << " scoop of " << items[i]->spiceName << ", ";
@@ -74,7 +73,7 @@ void Knapsack:: fractionalKnapsack(vector<Spices*> allSpices){ //fractional knap
 
 //Sorts classes below-----------
 
-//merge sort to sort spice vector
+//merge sort for use with spice vector
 void Sorts:: mergeSort(vector<Spices*>& allSpices, int start, int end){
     if(start >= end){
         return;
